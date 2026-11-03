@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <title>Class 3 & 4 Health Science Exam 2026 - Darul Hikmah Kids Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 8mm 10mm 8mm 10mm;
+    }
+    :root {
+      --ink: #172536;
+      --accent: #1e3d36;
+      --gold: #c7a66a;
+      --rule: #cbd3d0;
+      --line-color: #2e443f;
+      --bg-soft: #fbfdfc;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    body {
+      font-family: 'Hind Siliguri', 'Nunito', Arial, sans-serif;
+      color: var(--ink);
+      background-color: #e9ecef;
+      line-height: 1.45;
+      font-size: 13px;
+    }
+    .print-bar {
+      background: #1e3d36;
+      color: #fff;
+      padding: 10px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    }
+    .print-bar span {
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .print-btn {
+      background: var(--gold);
+      color: #1a1a1a;
+      border: none;
+      padding: 7px 18px;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 4px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .print-btn:hover {
+      background: #dfbc7e;
+    }
+    .page-sheet {
+      width: 210mm;
+      min-height: 297mm;
+      max-height: 297mm;
+      height: 297mm;
+      background: #fff;
+      margin: 12px auto;
+      padding: 9mm 12mm 8mm 12mm;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+    @media print {
+      body {
+        background: transparent;
+      }
+      .print-bar {
+        display: none !important;
+      }
+      .page-sheet {
+        margin: 0;
+        box-shadow: none;
+        width: 100%;
+        height: 100%;
+        min-height: auto;
+        max-height: none;
+        padding: 8mm 10mm 8mm 10mm;
+      }
+    }
+    .page-content {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    /* Masthead */
+    .masthead {
+      text-align: center;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 4px;
+      margin-bottom: 8px;
+    }
+    .school-title {
+      font-size: 19.5px;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      font-family: 'Nunito', 'Hind Siliguri', sans-serif;
+      margin-bottom: 2px;
+    }
+    .exam-tag {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #2b3a42;
+      display: inline-block;
+      margin-bottom: 4px;
+    }
+    .gold-divider {
+      height: 2.5px;
+      background: linear-gradient(90deg, rgba(199,166,106,0.1), var(--gold), rgba(199,166,106,0.1));
+      border-radius: 2px;
+      margin-bottom: 6px;
+    }
+    /* Metadata Box */
+    .meta-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 4px;
+    }
+    .meta-table td {
+      padding: 3px 4px;
+      font-size: 12.5px;
+      font-weight: 600;
+    }
+    .meta-table .field-label {
+      color: #3b4d53;
+      font-weight: 700;
+    }
+    .meta-table .dotted-line {
+      display: inline-block;
+      border-bottom: 1.4px solid #444;
+      min-width: 140px;
+      height: 14px;
+    }
+    /* Section Headers */
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      background: #edf3f1;
+      border-left: 4px solid var(--accent);
+      padding: 4px 8px;
+      margin: 7px 0 5px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .marks-badge {
+      font-family: 'Nunito', 'Hind Siliguri', sans-serif;
+      font-weight: 700;
+      color: #1e3d36;
+      font-size: 12.5px;
+    }
+    /* Question Items */
+    .q-item {
+      font-size: 12.5px;
+      margin-bottom: 3.5px;
+    }
+    .q-title {
+      font-weight: 600;
+      color: var(--ink);
+    }
+    /* MCQ Grid */
+    .mcq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 16px;
+      row-gap: 6px;
+    }
+    .mcq-card {
+      border: 1px solid #d4dfdc;
+      border-radius: 4px;
+      padding: 5px 8px;
+      background: #fafcfb;
+    }
+    .mcq-opts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 10px;
+      margin-top: 4px;
+      padding-left: 2px;
+    }
+    .mcq-opt {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+    }
+    .opt-box {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border: 1.3px solid #555;
+      border-radius: 2px;
+      background: #fff;
+    }
+    /* Fill in the Blanks Grid */
+    .fill-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 18px;
+      row-gap: 7px;
+    }
+    .ans-line {
+      display: inline-block;
+      border-bottom: 1.5px solid #2e443f;
+      min-width: 100px;
+      height: 15px;
+      vertical-align: bottom;
+    }
+    /* True / False Grid */
+    .tf-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 18px;
+      row-gap: 6px;
+    }
+    .bracket-box {
+      display: inline-block;
+      width: 42px;
+      height: 20px;
+      border: 1.3px solid #444;
+      border-radius: 3px;
+      text-align: center;
+      line-height: 19px;
+      font-weight: bold;
+      background: #fff;
+      float: right;
+    }
+    /* Section 4 Short Questions */
+    .q4-container {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .q4-item {
+      font-size: 12.5px;
+    }
+    .q4-ans-track {
+      display: flex;
+      align-items: baseline;
+      margin-top: 3px;
+    }
+    .q4-ans-line {
+      flex: 1;
+      border-bottom: 1.5px solid #2e443f;
+      height: 1.3em;
+      margin-left: 6px;
+    }
+    /* Evaluation Box */
+    .eval-box {
+      border: 1.4px solid var(--accent);
+      border-radius: 4px;
+      padding: 4px 8px;
+      margin-top: 8px;
+      background: #fbfdfc;
+    }
+    .eval-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+      font-size: 11.5px;
+    }
+    .eval-table th, .eval-table td {
+      border: 1px solid #c0ccc8;
+      padding: 3px 5px;
+    }
+    .eval-table th {
+      background: #e9f0ee;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    /* Footer */
+    .footer {
+      border-top: 1px solid #d5dedb;
+      padding-top: 3px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 10.5px;
+      color: #666;
+      font-family: 'Nunito', 'Hind Siliguri', sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Action Bar -->
+  <div class="print-bar">
+    <span>🏛️ DARUL HIKMAH KIDS ACADEMY — স্বাস্থ্য ও শারীরশিক্ষা পরীক্ষা</span>
+    <button class="print-btn" onclick="window.print()">🖨️ Print / Save as PDF (1 Page)</button>
+  </div>
+
+  <!-- ==================== SINGLE-PAGE A4 WORKSHEET ==================== -->
+  <section class="page-sheet">
+    <div class="page-content">
+      
+      <!-- INSTITUTIONAL MASTHEAD -->
+      <div class="masthead">
+        <div class="school-title">DARUL HIKMAH KIDS ACADEMY</div>
+        <div class="exam-tag">বার্ষিক মূল্যায়ন পরীক্ষা – ২০২৬</div>
+        <div class="gold-divider"></div>
+        <table class="meta-table">
+          <tr>
+            <td style="width: 28%;"><span class="field-label">শ্রেণি:</span> তৃতীয় ও চতুর্থ (Class 3 & 4)</td>
+            <td style="width: 34%;"><span class="field-label">বিষয়:</span> স্বাস্থ্য ও শারীরশিক্ষা</td>
+            <td style="width: 20%;"><span class="field-label">পূর্ণমান:</span> ২৫</td>
+            <td style="width: 18%;"><span class="field-label">সময়:</span> ৩০ মিনিট</td>
+          </tr>
+          <tr>
+            <td colspan="2"><span class="field-label">শিক্ষার্থীর নাম:</span> <span class="dotted-line" style="min-width: 240px;"></span></td>
+            <td><span class="field-label">রোল নং:</span> <span class="dotted-line" style="min-width: 65px;"></span></td>
+            <td><span class="field-label">তারিখ:</span> <span class="dotted-line" style="min-width: 70px;"></span></td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- SECTION 1: MCQ (যেকোনো ৫টি) -->
+      <div class="section-title">
+        <span>১. বন্ধনী থেকে সঠিক উত্তরটিতে টিক (✓) চিহ্ন দাও (৬টির মধ্যে যেকোনো ৫টি):</span>
+        <span class="marks-badge">(১ × ৫ = ৫ মান)</span>
+      </div>
+
+      <div class="mcq-grid">
+        <div class="mcq-card">
+          <div class="q-title">(ক) খাওয়ার আগে কী দিয়ে হাত ধোয়া উচিত?</div>
+          <div class="mcq-opts">
+            <span class="mcq-opt"><span class="opt-box"></span> শুধু জল</span>
+            <span class="mcq-opt"><span class="opt-box"></span> সাবান ও জল</span>
+            <span class="mcq-opt"><span class="opt-box"></span> মাটি</span>
+            <span class="mcq-opt"><span class="opt-box"></span> জামা দিয়ে মোছা</span>
+          </div>
+        </div>
+
+        <div class="mcq-card">
+          <div class="q-title">(খ) দিনে অন্তত কতবার দাঁত মাজা উচিত?</div>
+          <div class="mcq-opts">
+            <span class="mcq-opt"><span class="opt-box"></span> একবার</span>
+            <span class="mcq-opt"><span class="opt-box"></span> দুবার</span>
+            <span class="mcq-opt"><span class="opt-box"></span> তিনবার</span>
+            <span class="mcq-opt"><span class="opt-box"></span> একবারও না</span>
+          </div>
+        </div>
+
+        <div class="mcq-card">
+          <div class="q-title">(গ) নিচের কোনটি একটি পুষ্টিকর খাবার?</div>
+          <div class="mcq-opts">
+            <span class="mcq-opt"><span class="opt-box"></span> চিপস</span>
+            <span class="mcq-opt"><span class="opt-box"></span> কোল্ড ড্রিংকস</span>
+            <span class="mcq-opt"><span class="opt-box"></span> সবুজ শাকসবজি</span>
+            <span class="mcq-opt"><span class="opt-box"></span> চকোলেট</span>
+          </div>
+        </div>
+
+        <div class="mcq-card">
+          <div class="q-title">(ঘ) জল জীবাণুমুক্ত করার সবচেয়ে সহজ উপায় কী?</div>
+          <div class="mcq-opts">
+            <span class="mcq-opt"><span class="opt-box"></span> জল ছাঁকা</span>
+            <span class="mcq-opt"><span class="opt-box"></span> ফুটিয়ে নেওয়া</span>
+            <span class="mcq-opt"><span class="opt-box"></span> রোদে রাখা</span>
+            <span class="mcq-opt"><span class="opt-box"></span> বরফ দেওয়া</span>
+          </div>
+        </div>
+
+        <div class="mcq-card">
+          <div class="q-title">(ঙ) হাঁচি বা কাশি দেওয়ার সময় কী করা উচিত?</div>
+          <div class="mcq-opts">
+            <span class="mcq-opt"><span class="opt-box"></span> হাত না দেওয়া</span>
+            <span class="mcq-opt"><span class="opt-box"></span> মুখে রুমাল বা কনুই রাখা</span>
+            <span class="mcq-opt"><span class="opt-box"></span> চিৎকার করা</span>
+          </div>
+        </div>
+
+        <div class="mcq-card">
+          <div class="q-title">(চ) নখ বড় রাখলে শরীরে কী ক্ষতি হয়?</div>
+          <div class="mcq-opts">
+            <span class="mcq-opt"><span class="opt-box"></span> ময়লা ও জীবাণু জমে</span>
+            <span class="mcq-opt"><span class="opt-box"></span> নখ সুন্দর হয়</span>
+            <span class="mcq-opt"><span class="opt-box"></span> কোনো ক্ষতি হয় না</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 2: FILL IN THE BLANKS (যেকোনো ৫টি) -->
+      <div class="section-title">
+        <span>২. উপযুক্ত শব্দ বসিয়ে শূন্যস্থান পূরণ করো (৬টির মধ্যে যেকোনো ৫টি):</span>
+        <span class="marks-badge">(১ × ৫ = ৫ মান)</span>
+      </div>
+
+      <div class="fill-grid">
+        <div class="q-item">(ক) নিয়মিত খেলাধুলা বা ব্যায়াম করলে শরীর <span class="ans-line"></span> থাকে।</div>
+        <div class="q-item">(খ) প্রতিদিন পর্যাপ্ত পরিমাণে বিশুদ্ধ <span class="ans-line"></span> পান করা উচিত।</div>
+        <div class="q-item">(গ) রাতে শোওয়ার আগে ও সকালে উঠে <span class="ans-line"></span> মাজা জরুরি।</div>
+        <div class="q-item">(ঘ) চিপস, বার্গার ইত্যাদি হলো ক্ষতিকর <span class="ans-line"></span> ফুড।</div>
+        <div class="q-item">(ঙ) পরিষ্কার-পরিচ্ছন্ন থাকলে নানা রকম <span class="ans-line"></span> হাত থেকে বাঁচা যায়।</div>
+        <div class="q-item">(চ) হাঁচি ও কাশির মাধ্যমে বাতাসে <span class="ans-line"></span> ছড়ায়।</div>
+      </div>
+
+      <!-- SECTION 3: TRUE / FALSE (৫টি) -->
+      <div class="section-title">
+        <span>৩. বাক্যটি সত্য হলে [ স ] এবং মিথ্যা হলে [ মি ] লেখো (সবকটি):</span>
+        <span class="marks-badge">(১ × ৫ = ৫ মান)</span>
+      </div>
+
+      <div class="tf-grid">
+        <div class="q-item">(ক) প্রতিদিন স্নান না করলেও শরীর পরিষ্কার থাকে। <span class="bracket-box"></span></div>
+        <div class="q-item">(খ) ফল ও সবজি খাওয়ার আগে ভালো করে ধোয়া উচিত। <span class="bracket-box"></span></div>
+        <div class="q-item">(গ) বেশি রাত জেগে মোবাইল বা টিভি দেখা ভালো। <span class="bracket-box"></span></div>
+        <div class="q-item">(ঘ) বড় নখ দিয়ে খাবার খেলে জীবাণু পেটে চলে যায়। <span class="bracket-box"></span></div>
+        <div class="q-item" style="grid-column: span 2;">(ঙ) রাস্তাঘাটে যেখানে-সেখানে থুতু বা কফ ফেলা একটি ভালো অভ্যাস। <span class="bracket-box" style="margin-right: 50%;"></span></div>
+      </div>
+
+      <!-- SECTION 4: SHORT ANSWERS (যেকোনো ৫টি) -->
+      <div class="section-title">
+        <span>৪. সংক্ষেপে এক বা দুটি বাক্যে উত্তর দাও (৬টির মধ্যে যেকোনো ৫টি):</span>
+        <span class="marks-badge">(২ × ৫ = ১০ মান)</span>
+      </div>
+
+      <div class="q4-container">
+        <div class="q4-item">
+          <strong>(ক) প্রতিদিন নিয়মিত স্নান করা কেন প্রয়োজন?</strong>
+          <div class="q4-ans-track">উঃ <span class="q4-ans-line"></span></div>
+        </div>
+
+        <div class="q4-item">
+          <strong>(খ) অতিরিক্ত জাংক ফুড (যেমন- কুড়কুড়ে, চিপস) খেলে কী ক্ষতি হতে পারে?</strong>
+          <div class="q4-ans-track">উঃ <span class="q4-ans-line"></span></div>
+        </div>
+
+        <div class="q4-item">
+          <strong>(গ) খাবার খাওয়ার আগে সাবান দিয়ে হাত ধোয়া কেন জরুরি?</strong>
+          <div class="q4-ans-track">উঃ <span class="q4-ans-line"></span></div>
+        </div>
+
+        <div class="q4-item">
+          <strong>(ঘ) সুস্থ ও সবল থাকার জন্য শিশুদের দৈনিক কতক্ষণ ঘুমানো উচিত?</strong>
+          <div class="q4-ans-track">উঃ <span class="q4-ans-line"></span></div>
+        </div>
+
+        <div class="q4-item">
+          <strong>(ঙ) দাঁতের যত্ন নেওয়ার দুটি সহজ উপায় লেখো।</strong>
+          <div class="q4-ans-track">
+            উঃ (১) <span class="ans-line" style="min-width: 220px;"></span>
+            &nbsp; (২) <span class="ans-line" style="min-width: 220px;"></span>
+          </div>
+        </div>
+
+        <div class="q4-item">
+          <strong>(চ) নোংরা বা দূষিত জল পান করলে হতে পারে এমন দুটি রোগের নাম লেখো।</strong>
+          <div class="q4-ans-track">
+            উঃ (১) <span class="ans-line" style="min-width: 220px;"></span>
+            &nbsp; (২) <span class="ans-line" style="min-width: 220px;"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- OFFICIAL EXAMINER EVALUATION BOX -->
+      <div class="eval-box">
+        <div style="font-weight: 700; font-size: 11px; color: var(--accent); margin-bottom: 3px; text-align: center;">
+          অফিসিয়াল মূল্যায়ন ছক (শুধুমাত্র পরীক্ষক পূরণ করবেন)
+        </div>
+        <table class="eval-table">
+          <thead>
+            <tr>
+              <th>১. সঠিক উত্তর (৫)</th>
+              <th>২. শূন্যস্থান পূরণ (৫)</th>
+              <th>৩. সত্য/মিথ্যা (৫)</th>
+              <th>৪. সংক্ষিপ্ত উত্তর (১০)</th>
+              <th>সর্বমোট মান (২৫)</th>
+              <th>পরীক্ষকের স্বাক্ষর ও তারিখ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="height: 22px;">
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td style="font-weight: bold; font-size: 12px;"></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <!-- PAGE FOOTER -->
+    <div class="footer">
+      <span>Darul Hikmah Kids Academy • স্বাস্থ্য ও শারীরশিক্ষা পরীক্ষা ২০২৬</span>
+      <span>শ্রেণি: ৩য় ও ৪র্থ | পূর্ণমান: ২৫ | সময়: ৩০ মিনিট</span>
+      <span>পৃষ্ঠা ১ / ১</span>
+    </div>
+  </section>
+
+</body>
+</html>

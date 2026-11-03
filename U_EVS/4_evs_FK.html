@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Darul Hikmah Kids Academy | Class 4 EVS Annual Examination 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700;800&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: A4 portrait;
+    margin: 8mm 12mm 10mm;
+  }
+  :root {
+    --ink: #172536;
+    --accent: #1e3d36;
+    --rule: #cbd3d0;
+    --muted: #4e5d62;
+    --border-card: #b2c2be;
+    --line-color: #2e443f;
+    --gold: #c7a66a;
+    --bg-soft: #fbfdfc;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #edf0ef;
+    color: var(--ink);
+    font-family: "Hind Siliguri", "Nunito", "Segoe UI", Arial, sans-serif;
+    font-size: 10pt;
+    line-height: 1.42;
+  }
+  .page {
+    position: relative;
+    width: 210mm;
+    min-height: 297mm;
+    margin: 12px auto;
+    padding: 8mm 13mm 12mm;
+    background: #fff;
+    box-shadow: 0 4px 20px rgba(20,35,40,.12);
+    page-break-after: always;
+    display: flex;
+    flex-direction: column;
+  }
+  .page:last-of-type {
+    page-break-after: avoid;
+  }
+
+  /* Masthead (Darul Hikmah Standard) */
+  .masthead {
+    text-align: center;
+    padding-bottom: 1.8mm;
+    border-bottom: 1.8px solid var(--accent);
+  }
+  .institution {
+    margin: 0;
+    color: var(--accent);
+    font-family: "Nunito", "Hind Siliguri", sans-serif;
+    font-size: 18pt;
+    line-height: 1.15;
+    font-weight: 900;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+  .paper-label {
+    margin-top: 1mm;
+    color: var(--muted);
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .accent {
+    width: 24mm;
+    height: 2px;
+    margin: 1.5mm auto 0;
+    background: var(--gold);
+  }
+
+  /* Details Box */
+  .details {
+    margin-top: 2.2mm;
+    padding: 2.2mm 4mm;
+    border: 1px solid var(--rule);
+    border-radius: 2mm;
+    background: #fafcfb;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 5mm;
+  }
+  .field {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5mm;
+    white-space: nowrap;
+  }
+  .label {
+    color: var(--muted);
+    font-size: 8.8pt;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+  .val {
+    font-size: 9.8pt;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .write-line {
+    flex: 1;
+    min-width: 15mm;
+    height: 1.1em;
+    border-bottom: 1.2px solid var(--line-color);
+  }
+  .student-row {
+    display: grid;
+    grid-template-columns: 2.2fr 1fr 1.2fr;
+    gap: 6mm;
+    margin-top: 1.8mm;
+    padding-top: 1.6mm;
+    border-top: 1px dashed var(--rule);
+  }
+
+  /* Running Header */
+  .running-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1.8mm;
+    border-bottom: 1.5px solid var(--accent);
+    margin-bottom: 3mm;
+    font-size: 8.5pt;
+    font-weight: 700;
+    color: var(--muted);
+  }
+  .running-header .inst-title {
+    color: var(--accent);
+    font-size: 10pt;
+    font-weight: 800;
+    font-family: "Nunito", "Hind Siliguri", sans-serif;
+    text-transform: uppercase;
+  }
+
+  /* Sections & Layout */
+  .section-tag {
+    background: #eef4f1;
+    color: var(--accent);
+    padding: 1.2mm 3mm;
+    font-weight: 800;
+    font-size: 9.3pt;
+    border-left: 3.5px solid var(--accent);
+    border-radius: 1mm;
+    margin-bottom: 2mm;
+    display: flex;
+    justify-content: space-between;
+  }
+  .question-area {
+    padding-top: 1.5mm;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5mm;
+    flex: 1;
+  }
+  .q-card {
+    border: 1.2px solid var(--border-card);
+    border-radius: 2mm;
+    padding: 2.8mm 3.8mm;
+    background: #fff;
+  }
+  .q-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-weight: 700;
+    font-size: 9.6pt;
+    color: var(--accent);
+    margin-bottom: 2mm;
+    border-bottom: 1px solid #edf1f0;
+    padding-bottom: 1mm;
+  }
+  .marks {
+    font-size: 8.8pt;
+    color: #3b5b52;
+    font-weight: 700;
+  }
+
+  /* Question Lists & Layouts */
+  .q-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.2mm;
+  }
+  .q-item {
+    font-size: 9.6pt;
+  }
+  .choice-options {
+    display: inline-flex;
+    gap: 3.5mm;
+    margin-left: 2mm;
+    font-size: 9.2pt;
+    font-weight: 600;
+  }
+  .choice-pill {
+    background: #f8faf9;
+    border: 1px solid #c8d5d1;
+    padding: 1px 7px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .inline-blank {
+    display: inline-block;
+    border-bottom: 1.5px solid var(--line-color);
+    height: 1.2em;
+    vertical-align: bottom;
+  }
+  .tf-bracket {
+    float: right;
+    font-weight: 700;
+    color: #334e47;
+    border: 1px solid #b2c2be;
+    padding: 0 6px;
+    border-radius: 2px;
+    background: #fafcfb;
+    min-width: 14mm;
+    text-align: center;
+  }
+
+  /* Match Columns (2-Column Pattern) */
+  .match-grid-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4mm;
+    border: 1px solid #c8d5d1;
+    border-radius: 2mm;
+    padding: 2.5mm 3.5mm;
+    background: #fafcfb;
+    margin-top: 1mm;
+  }
+  .match-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2mm;
+    font-size: 9.4pt;
+  }
+  .match-col-title {
+    font-weight: 800;
+    color: var(--accent);
+    border-bottom: 1.2px solid #b2c2be;
+    padding-bottom: 1mm;
+    margin-bottom: 0.5mm;
+    text-align: center;
+  }
+  .match-row-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1mm 2mm;
+    background: #fff;
+    border: 1px solid #dce5e2;
+    border-radius: 1.5mm;
+  }
+  .match-bracket {
+    border: 1.2px solid var(--accent);
+    border-radius: 1.5mm;
+    padding: 0.5px 6px;
+    background: #fff;
+    font-weight: 700;
+    min-width: 11mm;
+    text-align: center;
+    color: var(--accent);
+  }
+
+  /* Evaluation Table Box */
+  .eval-box {
+    margin-top: auto;
+    border: 1.2px solid var(--accent);
+    border-radius: 2mm;
+    padding: 3mm 4mm;
+    background: #f7faf9;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 4mm;
+    align-items: center;
+  }
+
+  /* Footer */
+  .footer {
+    position: absolute;
+    left: 13mm;
+    right: 13mm;
+    bottom: 3.5mm;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.5mm;
+    border-top: 1px solid var(--rule);
+    color: var(--muted);
+    font-size: 7.8pt;
+  }
+  .footer-name {
+    font-weight: 700;
+    letter-spacing: .2px;
+  }
+
+  @media print {
+    body { background: #fff; }
+    .page {
+      margin: 0;
+      box-shadow: none;
+      width: 100%;
+      min-height: 275mm;
+      padding: 6mm 10mm 10mm;
+    }
+    .no-print { display: none !important; }
+  }
+
+  .print-btn-bar {
+    text-align: center;
+    padding: 10px;
+    background: #1e3d36;
+    margin-bottom: 10px;
+  }
+  .print-btn {
+    background: #c7a66a;
+    color: #172536;
+    font-family: "Nunito", sans-serif;
+    font-weight: 800;
+    border: none;
+    padding: 9px 24px;
+    font-size: 11pt;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  }
+  .print-btn:hover {
+    background: #ddbe84;
+  }
+</style>
+</head>
+<body>
+
+<div class="print-btn-bar no-print">
+  <button class="print-btn" onclick="window.print()">🖨️ Print / Save as PDF (4 Pages - Double Sheet Booklet)</button>
+</div>
+
+<!-- ==================== PAGE 1: GEOGRAPHY (MCQ & BLANKS) ==================== -->
+<main class="page">
+  <header>
+    <div class="masthead">
+      <h1 class="institution">DARUL HIKMAH KIDS ACADEMY</h1>
+      <div class="paper-label">বার্ষিক মূল্যায়ন পরীক্ষা | শিক্ষাবর্ষ: ২০২৬–২০২৭</div>
+      <div class="accent"></div>
+    </div>
+    
+    <section class="details" aria-label="Question paper and student details">
+      <div class="grid">
+        <div class="field"><span class="label">শ্রেণি:</span> <span class="val">চতুর্থ (Class 4)</span></div>
+        <div class="field"><span class="label">বিষয়:</span> <span class="val">পরিবেশ (ভূগোল, ইতিহাস ও বিজ্ঞান)</span></div>
+        <div class="field"><span class="label">পূর্ণমান:</span> <span class="val">৭০</span></div>
+        <div class="field"><span class="label">সময়:</span> <span class="val">৯০ মিনিট</span></div>
+      </div>
+      <div class="student-row">
+        <div class="field"><span class="label">নাম:</span> <span class="write-line"></span></div>
+        <div class="field"><span class="label">রোল নং:</span> <span class="write-line"></span></div>
+        <div class="field"><span class="label">তারিখ:</span> <span class="write-line"></span></div>
+      </div>
+    </section>
+  </header>
+
+  <section class="question-area">
+    <div class="section-tag">
+      <span>বিভাগ 'ক': ভূগোল</span>
+      <span>[পূর্ণমান: ২৫]</span>
+    </div>
+
+    <!-- Q1 MCQ (Geography) -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>১. সঠিক উত্তরটি বেছে নিয়ে লেখো (৬টির মধ্যে যেকোনো ৫টি):</span>
+        <span class="marks">(১ &times; ৫ = ৫)</span>
+      </div>
+      <div class="q-list">
+        <div class="q-item">
+          (ক) পৃথিবীর একমাত্র প্রাকৃতিক উপগ্রহ হলো —
+          <span class="choice-options">
+            <span class="choice-pill">চাঁদ</span>
+            <span class="choice-pill">সূর্য</span>
+            <span class="choice-pill">মঙ্গল</span>
+          </span>
+        </div>
+        <div class="q-item">
+          (খ) জোয়ার-ভাটা দেখা যায় প্রধানত কোথায়? —
+          <span class="choice-options">
+            <span class="choice-pill">নদীতে</span>
+            <span class="choice-pill">পুকুরে</span>
+            <span class="choice-pill">সমুদ্রে</span>
+          </span>
+        </div>
+        <div class="q-item">
+          (গ) নিচের কোনটি একটি প্রধান আঁশ জাতীয় ফসল? —
+          <span class="choice-options">
+            <span class="choice-pill">ধান</span>
+            <span class="choice-pill">পাট</span>
+            <span class="choice-pill">গম</span>
+          </span>
+        </div>
+        <div class="q-item">
+          (ঘ) তিস্তা নদী পশ্চিমবঙ্গের কোন অঞ্চলে অবস্থিত? —
+          <span class="choice-options">
+            <span class="choice-pill">দক্ষিণাঞ্চলে</span>
+            <span class="choice-pill">উত্তরাঞ্চলে</span>
+            <span class="choice-pill">পশ্চিমাঞ্চলে</span>
+          </span>
+        </div>
+        <div class="q-item">
+          (ঙ) মানচিত্রে ওপরের দিকটি সবসময় কোন দিক নির্দেশ করে? —
+          <span class="choice-options">
+            <span class="choice-pill">দক্ষিণ</span>
+            <span class="choice-pill">পূর্ব</span>
+            <span class="choice-pill">উত্তর</span>
+          </span>
+        </div>
+        <div class="q-item">
+          (চ) পাহাড়ি অঞ্চলের ঢালে কোন চাষ বেশি দেখা যায়? —
+          <span class="choice-options">
+            <span class="choice-pill">ধাপ চাষ</span>
+            <span class="choice-pill">ঝুম চাষ</span>
+            <span class="choice-pill">সমতল চাষ</span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q2 Fill in the Blanks (Geography) -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>২. উপযুক্ত শব্দ বসিয়ে শূন্যস্থান পূরণ করো (৬টির মধ্যে যেকোনো ৫টি):</span>
+        <span class="marks">(১ &times; ৫ = ৫)</span>
+      </div>
+      <div class="q-list">
+        <div class="q-item">(ক) ভারতের রাজধানীর নাম হলো <span class="inline-blank" style="width:42mm;"></span>।</div>
+        <div class="q-item">(খ) রেশম কীট প্রতিপালন পদ্ধতিকে <span class="inline-blank" style="width:40mm;"></span> বলা হয়।</div>
+        <div class="q-item">(গ) সূর্য হলো একটি মাঝারি আকারের উজ্জ্বল <span class="inline-blank" style="width:38mm;"></span>।</div>
+        <div class="q-item">(ঘ) পশ্চিমবঙ্গের প্রধান গুরুত্বপূর্ণ খনিজ সম্পদ হলো <span class="inline-blank" style="width:36mm;"></span>।</div>
+        <div class="q-item">(ঙ) ডুয়ার্স ও তরাই অঞ্চলের অন্যতম প্রধান নদী হলো <span class="inline-blank" style="width:35mm;"></span>।</div>
+        <div class="q-item">(চ) সমুদ্রের নোনা জল স্বাদে অত্যন্ত <span class="inline-blank" style="width:40mm;"></span> হয়।</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span class="footer-name">Darul Hikmah Kids Academy</span>
+    <span>শ্রেণি: চতুর্থ &bull; বিষয়: পরিবেশ &bull; বার্ষিক পরীক্ষা</span>
+    <span>পৃষ্ঠা ১ / ৪</span>
+  </footer>
+</main>
+
+
+<!-- ==================== PAGE 2: GEOGRAPHY (T/F, MATCH) & HISTORY (MCQ) ==================== -->
+<main class="page">
+  <div class="running-header">
+    <span class="inst-title">DARUL HIKMAH KIDS ACADEMY</span>
+    <span>শ্রেণি: চতুর্থ &bull; বিষয়: পরিবেশ (EVS)</span>
+    <span>পৃষ্ঠা ২ / ৪</span>
+  </div>
+
+  <section class="question-area">
+    <!-- Q3 True / False (Geography) -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>৩. বাক্যটি সত্য হলে [সত্য] এবং মিথ্যা হলে [মিথ্যা] লেখো (যেকোনো ৫টি):</span>
+        <span class="marks">(১ &times; ৫ = ৫)</span>
+      </div>
+      <div class="q-list">
+        <div class="q-item">(ক) পৃথিবী নিজের অক্ষের ওপর থেকে সূর্যের চারদিকে ঘোরে। <span class="tf-bracket">&nbsp; &nbsp; &nbsp; &nbsp;</span></div>
+        <div class="q-item">(খ) দার্জিলিং জেলা সুস্বাদু চা চাষের জন্য বিশ্বখ্যাত। <span class="tf-bracket">&nbsp; &nbsp; &nbsp; &nbsp;</span></div>
+        <div class="q-item">(গ) মানচিত্রে জলভাগকে বোঝাতে লাল রঙ ব্যবহার করা হয়। <span class="tf-bracket">&nbsp; &nbsp; &nbsp; &nbsp;</span></div>
+        <div class="q-item">(ঘ) সুন্দরবন অঞ্চলে শ্বাসমূলযুক্ত ম্যানগ্রোভ অরণ্য দেখা যায়। <span class="tf-bracket">&nbsp; &nbsp; &nbsp; &nbsp;</span></div>
+        <div class="q-item">(ঙ) ধান হলো পশ্চিমবঙ্গের একটি প্রধান খাদ্যশস্য। <span class="tf-bracket">&nbsp; &nbsp; &nbsp; &nbsp;</span></div>
+        <div class="q-item">(চ) আকাশের উত্তর মেরুর স্থির নক্ষত্রটিকে ধ্রুবতারা বলা হয়। <span class="tf-bracket">&nbsp; &nbsp; &nbsp; &nbsp;</span></div>
+      </div>
+    </div>
+
+    <!-- Q4 Match (Geography) -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>৪. বামদিকের সাথে ডানদিক মিলিয়ে বন্ধনীতে ক্রমিক সংখ্যা লেখো:</span>
+        <span class="marks">(২ &times; ৫ = ১০)</span>
+      </div>
+      <div class="match-grid-box">
+        <div class="match-col">
+          <div class="match-col-title">বামদিক</div>
+          <div class="match-row-item"><span>(ক) হিমালয়</span> <span class="match-bracket">[ &nbsp; &nbsp; ]</span></div>
+          <div class="match-row-item"><span>(খ) দিঘা</span> <span class="match-bracket">[ &nbsp; &nbsp; ]</span></div>
+          <div class="match-row-item"><span>(গ) রয়্যাল বেঙ্গল টাইগার</span> <span class="match-bracket">[ &nbsp; &nbsp; ]</span></div>
+          <div class="match-row-item"><span>(ঘ) আসানসোল</span> <span class="match-bracket">[ &nbsp; &nbsp; ]</span></div>
+          <div class="match-row-item"><span>(ঙ) ডুয়ার্স</span> <span class="match-bracket">[ &nbsp; &nbsp; ]</span></div>
+        </div>
+        <div class="match-col">
+          <div class="match-col-title">ডানদিক</div>
+          <div class="match-row-item"><span>১. সুন্দরবন ম্যানগ্রোভ অঞ্চল</span></div>
+          <div class="match-row-item"><span>২. গুরুত্বপূর্ণ কয়লাখনি অঞ্চল</span></div>
+          <div class="match-row-item"><span>৩. সমুদ্র উপকূলবর্তী সৈকত শহর</span></div>
+          <div class="match-row-item"><span>৪. উত্তরবঙ্গের বরফাবৃত পর্বতমালা</span></div>
+          <div class="match-row-item"><span>৫. ঘন অরণ্য ও সবুজ চা বাগান</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section B Tag -->
+    <div class="section-tag" style="margin-top:1mm;">
+      <span>বিভাগ 'খ': ইতিহাস</span>
+      <span>[পূর্ণমান: ২৫]</span>
+    </div>
+
+    <!-- Q5 MCQ (History) -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>৫. সঠিক উত্তরটি বেছে নিয়ে লেখো (৬টির মধ্যে যেকোনো ৫টি):</span>
+        <span class="marks">(১ &times; ৫ = ৫)</span>
+      </div>
+      <div class="q-list">
+        <div class="q-item">
+          (ক) আদিম মানুষের ব্যবহৃত প্রথম হাতিয়ার ছিল —
+          <span class="choice-options">
+            <span class="choice-pill">লোহার কুড়ুল</span>
+            <span class="choice-pill">ভোঁতা পাথর</span>
+            <span class="choice-pill">ধনুক</span>
+          </span>
+        </div>
+        <div class="q-item">
+          (খ) মানুষ প্রথম কোন ধাতুর ব্যবহার শিখেছিল? —
+          <span class="choice-options">
+            <span class="choice-pill">লোহা</span>
+            <span class="choice-pill">তামা</span>
+            <span class="choice-pill">ব্রোঞ্জ</span>
+          </span>
+        </div>
+        <div class="q-item">
+          (গ) চাকা আবিষ্কারের ফলে মানুষের কোন কাজটি সবচেয়ে সহজ হয়েছিল? —
+          <span class="choice-options">
+            <span class="choice-pill">শিকার করা</span>
+            <span class="choice-pill">যাতায়াত ও পরিবহন</span>
+            <span class="choice-pill">আগুন জ্বালানো</span>
+          </span>
+        </div>
+        <div class="q-item">
+          (ঘ) আদিম মানুষের প্রথম পোষ মানা গৃহপালিত পশু ছিল —
+          <span class="choice-options">
+            <span class="choice-pill">গরু</span>
+            <span class="choice-pill">ঘোড়া</span>
+            <span class="choice-pill">কুকুর</span>
+          </span>
+        </div>
+        <div class="q-item">
+          (ঙ) প্রাচীনকালের চমৎকার গুহাচিত্র দেখতে পাওয়া যায় ভারতের কোথায়? —
+          <span class="choice-options">
+            <span class="choice-pill">ভীমবেটকায়</span>
+            <span class="choice-pill">কলকাতায়</span>
+            <span class="choice-pill">দিল্লিতে</span>
+          </span>
+        </div>
+        <div class="q-item">
+          (চ) মানুষ প্রথম কোন শস্যের চাষ শুরু করেছিল? —
+          <span class="choice-options">
+            <span class="choice-pill">গম ও বার্লি</span>
+            <span class="choice-pill">আলু</span>
+            <span class="choice-pill">ধান</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span class="footer-name">Darul Hikmah Kids Academy</span>
+    <span>শ্রেণি: চতুর্থ &bull; বিষয়: পরিবেশ &bull; বার্ষিক পরীক্ষা</span>
+    <span>পৃষ্ঠা ২ / ৪</span>
+  </footer>
+</main>
+
+
+<!-- ==================== PAGE 3: HISTORY (BLANKS, T/F, MATCH) ==================== -->
+<main class="page">
+  <div class="running-header">
+    <span class="inst-title">DARUL HIKMAH KIDS ACADEMY</span>
+    <span>শ্রেণি: চতুর্থ &bull; বিষয়: পরিবেশ (EVS)</span>
+    <span>পৃষ্ঠা ৩ / ৪</span>
+  </div>
+
+  <section class="question-area">
+    <!-- Q6 Fill in the Blanks (History) -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>৬. উপযুক্ত শব্দ বসিয়ে শূন্যস্থান পূরণ করো (৬টির মধ্যে যেকোনো ৫টি):</span>
+        <span class="marks">(১ &times; ৫ = ৫)</span>
+      </div>
+      <div class="q-list">
+        <div class="q-item">(ক) আদিম মানুষ গা ঢাকার জন্য গাছের <span class="inline-blank" style="width:38mm;"></span> পরিধান করত।</div>
+        <div class="q-item">(খ) তামা ও টিন মিশিয়ে মানুষ প্রথম <span class="inline-blank" style="width:36mm;"></span> ধাতু তৈরি করে।</div>
+        <div class="q-item">(গ) জমিতে জল সেচের জন্য মানুষ প্রথম খাল বা <span class="inline-blank" style="width:34mm;"></span> ব্যবহার শেখে।</div>
+        <div class="q-item">(ঘ) চাকা লাগিয়ে মানুষ প্রথম মাল টানার <span class="inline-blank" style="width:36mm;"></span> তৈরি করেছিল।</div>
+        <div class="q-item">(ঙ) আদিম মানুষেরা খাদ্যের সন্ধানে দল বেঁধে <span class="inline-blank" style="width:34mm;"></span> করতে যেত।</div>
+        <div class="q-item">(চ) আগুন আবিষ্কারের পর মানুষ খাবার আগুনে <span class="inline-blank" style="width:34mm;"></span> খেতে শুরু করল।</div>
+      </div>
+    </div>
+
+    <!-- Q7 True / False (History) -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>৭. বাক্যটি সত্য হলে [সত্য] এবং মিথ্যা হলে [মিথ্যা] লেখো (যেকোনো ৫টি):</span>
+        <span class="marks">(১ &times; ৫ = ৫)</span>
+      </div>
+      <div class="q-list">
+        <div class="q-item">(ক) আদিম মানুষ প্রথম থেকেই পাকা ইটের বাড়িতে বাস করত। <span class="tf-bracket">&nbsp; &nbsp; &nbsp; &nbsp;</span></div>
+        <div class="q-item">(খ) লোহার আবিষ্কারের পর মানুষ আরও শক্ত হাতিয়ার তৈরি করতে পেরেছিল। <span class="tf-bracket">&nbsp; &nbsp; &nbsp; &nbsp;</span></div>
+        <div class="q-item">(গ) হরপ্পা ও মহেঞ্জোদাড়ো হলো প্রাচীন ভারতের উন্নত নগর সভ্যতা। <span class="tf-bracket">&nbsp; &nbsp; &nbsp; &nbsp;</span></div>
+        <div class="q-item">(ঘ) আদিম মানুষ প্রথম দিকে কোনো ধরনের লিপি বা লেখার ব্যবহার জানত না। <span class="tf-bracket">&nbsp; &nbsp; &nbsp; &nbsp;</span></div>
+        <div class="q-item">(ঙ) পশুপালন ও কৃষিকাজ শেখার পর মানুষের যাযাবর জীবন শেষ হতে শুরু করে। <span class="tf-bracket">&nbsp; &nbsp; &nbsp; &nbsp;</span></div>
+        <div class="q-item">(চ) চাকার আবিষ্কার মানব সভ্যতার ইতিহাসে কোনো গুরুত্ব রাখেনি। <span class="tf-bracket">&nbsp; &nbsp; &nbsp; &nbsp;</span></div>
+      </div>
+    </div>
+
+    <!-- Q8 Match (History) -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>৮. বামদিকের সাথে ডানদিক মিলিয়ে বন্ধনীতে ক্রমিক সংখ্যা লেখো:</span>
+        <span class="marks">(২ &times; ৫ = ১০)</span>
+      </div>
+      <div class="match-grid-box">
+        <div class="match-col">
+          <div class="match-col-title">বামদিক</div>
+          <div class="match-row-item"><span>(ক) আদিম মানুষ</span> <span class="match-bracket">[ &nbsp; &nbsp; ]</span></div>
+          <div class="match-row-item"><span>(খ) চাকার ব্যবহার</span> <span class="match-bracket">[ &nbsp; &nbsp; ]</span></div>
+          <div class="match-row-item"><span>(গ) মানুষের প্রথম পোশাক</span> <span class="match-bracket">[ &nbsp; &nbsp; ]</span></div>
+          <div class="match-row-item"><span>(ঘ) ব্রোঞ্জ ধাতু</span> <span class="match-bracket">[ &nbsp; &nbsp; ]</span></div>
+          <div class="match-row-item"><span>(ঙ) আদিম লিপি</span> <span class="match-bracket">[ &nbsp; &nbsp; ]</span></div>
+        </div>
+        <div class="match-col">
+          <div class="match-col-title">ডানদিক</div>
+          <div class="match-row-item"><span>১. তামা ও টিন মিশিয়ে প্রস্তুত</span></div>
+          <div class="match-row-item"><span>২. পশুর চামড়া ও গাছের ছাল</span></div>
+          <div class="match-row-item"><span>৩. মাটির পাত্র তৈরি ও দ্রুত পরিবহন</span></div>
+          <div class="match-row-item"><span>৪. বনে জঙ্গলে যাযাবর জীবন</span></div>
+          <div class="match-row-item"><span>৫. দেওয়ালে আঁকা প্রাচীন চিত্রলিপি</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span class="footer-name">Darul Hikmah Kids Academy</span>
+    <span>শ্রেণি: চতুর্থ &bull; বিষয়: পরিবেশ &bull; বার্ষিক পরীক্ষা</span>
+    <span>পৃষ্ঠা ৩ / ৪</span>
+  </footer>
+</main>
+
+
+<!-- ==================== PAGE 4: SCIENCE (MCQ, BLANKS, T/F, MATCH) & EVALUATION ==================== -->
+<main class="page">
+  <div class="running-header">
+    <span class="inst-title">DARUL HIKMAH KIDS ACADEMY</span>
+    <span>শ্রেণি: চতুর্থ &bull; বিষয়: পরিবেশ (EVS)</span>
+    <span>পৃষ্ঠা ৪ / ৪</span>
+  </div>
+
+  <section class="question-area">
+    <div class="section-tag">
+      <span>বিভাগ 'গ': পরিবেশ ও বিজ্ঞান</span>
+      <span>[পূর্ণমান: ২০]</span>
+    </div>
+
+    <!-- Q9 MCQ (Science) -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>৯. সঠিক উত্তরটি বেছে নিয়ে লেখো (৬টির মধ্যে যেকোনো ৫টি):</span>
+        <span class="marks">(১ &times; ৫ = ৫)</span>
+      </div>
+      <div class="q-list">
+        <div class="q-item">
+          (ক) উদ্ভিদের খাদ্য তৈরি করার স্থান বা 'রান্নাঘর' কাকে বলা হয়? —
+          <span class="choice-options">
+            <span class="choice-pill">মূল</span>
+            <span class="choice-pill">পাতা</span>
+            <span class="choice-pill">কাণ্ড</span>
+          </span>
+        </div>
+        <div class="q-item">
+          (খ) নিচের কোনটি একটি জড় পদার্থ? —
+          <span class="choice-options">
+            <span class="choice-pill">পাথর</span>
+            <span class="choice-pill">কেঁচো</span>
+            <span class="choice-pill">চারাগাছ</span>
+          </span>
+        </div>
+        <div class="q-item">
+          (গ) ব্যাঙ জলে ও ডাঙায় উভয় স্থানেই থাকতে পারে, তাই ব্যাঙ হলো একটি —
+          <span class="choice-options">
+            <span class="choice-pill">জলচর প্রাণী</span>
+            <span class="choice-pill">খেচর প্রাণী</span>
+            <span class="choice-pill">উভচর প্রাণী</span>
+          </span>
+        </div>
+        <div class="q-item">
+          (ঘ) জলের ফুটে বাষ্পে পরিণত হওয়ার প্রক্রিয়াকে কী বলে? —
+          <span class="choice-options">
+            <span class="choice-pill">ঘনীভবন</span>
+            <span class="choice-pill">বাষ্পীভবন</span>
+            <span class="choice-pill">গলন</span>
+          </span>
+        </div>
+        <div class="q-item">
+          (ঙ) শরীরের বাতাস থেকে অক্সিজেন গ্রহণ ও রক্ত শোধনে সাহায্য করে —
+          <span class="choice-options">
+            <span class="choice-pill">ফুসফুস</span>
+            <span class="choice-pill">পাকস্থলী</span>
+            <span class="choice-pill">হাড়</span>
+          </span>
+        </div>
+        <div class="q-item">
+          (চ) নিচের কোন প্রাণীটির শরীরে শিরদাঁড়া বা মেরুদণ্ড রয়েছে? —
+          <span class="choice-options">
+            <span class="choice-pill">কেঁচো</span>
+            <span class="choice-pill">প্রজাপতি</span>
+            <span class="choice-pill">মাছ</span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q10 Blanks & Q11 T/F (2-column layout to save vertical space) -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:3mm;">
+      <!-- Q10 Fill in the blanks -->
+      <div class="q-card">
+        <div class="q-header">
+          <span>১০. শূন্যস্থান পূরণ করো (যেকোনো ৫টি):</span>
+          <span class="marks">(১ &times; ৫ = ৫)</span>
+        </div>
+        <div class="q-list" style="font-size:9.2pt;">
+          <div>(ক) খাবারের মধ্যে সৌরশক্তি <span class="inline-blank" style="width:24mm;"></span> শক্তি রূপে থাকে।</div>
+          <div>(খ) বরফ হলো জলের কঠিন ও <span class="inline-blank" style="width:24mm;"></span> অবস্থা।</div>
+          <div>(গ) মাটির নিচে থাকা মূল অংশকে <span class="inline-blank" style="width:24mm;"></span> বলে।</div>
+          <div>(ঘ) মাছের শ্বাস নেওয়ার অঙ্গ হলো <span class="inline-blank" style="width:24mm;"></span>।</div>
+          <div>(ঙ) ম্যালেরিয়া রোগ ছড়ায় স্ত্রী <span class="inline-blank" style="width:24mm;"></span> মশা।</div>
+          <div>(চ) বাতাস বা বায়ু এক প্রকার <span class="inline-blank" style="width:24mm;"></span> পদার্থ।</div>
+        </div>
+      </div>
+
+      <!-- Q11 True / False -->
+      <div class="q-card">
+        <div class="q-header">
+          <span>১১. সত্য বা মিথ্যা লেখো (যেকোনো ৫টি):</span>
+          <span class="marks">(১ &times; ৫ = ৫)</span>
+        </div>
+        <div class="q-list" style="font-size:9.2pt;">
+          <div>(ক) ক্যাকটাস মরুভূমিতে বেশি জন্মায়। <span class="tf-bracket">&nbsp; &nbsp;</span></div>
+          <div>(খ) উদ্ভিদ ও প্রাণী উভয়েরই জীবন আছে। <span class="tf-bracket">&nbsp; &nbsp;</span></div>
+          <div>(গ) অক্সিজেন ছাড়া আগুন জ্বলতে পারে না। <span class="tf-bracket">&nbsp; &nbsp;</span></div>
+          <div>(ঘ) সব পাখিই রাতে ভালো দেখতে পায়। <span class="tf-bracket">&nbsp; &nbsp;</span></div>
+          <div>(ঙ) প্লাস্টিক একটি পরিবেশ-বান্ধব পদার্থ। <span class="tf-bracket">&nbsp; &nbsp;</span></div>
+          <div>(চ) দাঁত ভালো রাখতে ব্রাশ করা দরকার। <span class="tf-bracket">&nbsp; &nbsp;</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q12 Match (Science) -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>১২. বামদিকের সাথে ডানদিক মিলিয়ে বন্ধনীতে ক্রমিক সংখ্যা লেখো:</span>
+        <span class="marks">(১ &times; ৫ = ৫)</span>
+      </div>
+      <div class="match-grid-box" style="padding:1.8mm 3mm; margin-top:0.5mm;">
+        <div class="match-col">
+          <div class="match-col-title">বামদিক</div>
+          <div class="match-row-item"><span>(ক) ক্লোরোফিল</span> <span class="match-bracket">[ &nbsp; &nbsp; ]</span></div>
+          <div class="match-row-item"><span>(খ) কেঁচো</span> <span class="match-bracket">[ &nbsp; &nbsp; ]</span></div>
+          <div class="match-row-item"><span>(গ) সুন্দরবনের উদ্ভিদ</span> <span class="match-bracket">[ &nbsp; &nbsp; ]</span></div>
+          <div class="match-row-item"><span>(ঘ) ফুসফুস</span> <span class="match-bracket">[ &nbsp; &nbsp; ]</span></div>
+          <div class="match-row-item"><span>(ঙ) পাকস্থলী</span> <span class="match-bracket">[ &nbsp; &nbsp; ]</span></div>
+        </div>
+        <div class="match-col">
+          <div class="match-col-title">ডানদিক</div>
+          <div class="match-row-item"><span>১. মানুষের প্রধান শ্বাস অঙ্গ</span></div>
+          <div class="match-row-item"><span>২. মাটিতে শ্বাসমূলের উপস্থিতি</span></div>
+          <div class="match-row-item"><span>৩. সবুজ পাতায় অবস্থিত উপাদান</span></div>
+          <div class="match-row-item"><span>৪. খাদ্য পরিপাক ও হজমে সহায়তা</span></div>
+          <div class="match-row-item"><span>৫. শিরদাঁড়াহীন বা অমেরুদণ্ডী প্রাণী</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Evaluation Box for Teachers -->
+    <div class="eval-box">
+      <div>
+        <div style="font-weight:800; color:var(--accent); font-size:10pt;">নম্বর মূল্যায়ন ছক (Office Use Only)</div>
+        <div style="font-size:8.8pt; color:var(--muted); margin-top:1mm;">
+          বিভাগ 'ক': ভূগোল (২৫) &bull; বিভাগ 'খ': ইতিহাস (২৫) &bull; বিভাগ 'গ': বিজ্ঞান (২০)
+        </div>
+      </div>
+      <div style="text-align:center; border-left:1px dashed var(--rule); border-right:1px dashed var(--rule); padding:0 2mm;">
+        <span style="font-size:8.5pt; color:var(--muted); font-weight:700;">প্রাপ্ত মোট নম্বর</span>
+        <div style="font-size:14pt; font-weight:900; color:var(--accent); margin-top:1mm;">&nbsp; &nbsp; &nbsp; / ৭০</div>
+      </div>
+      <div style="text-align:right;">
+        <div style="height:7mm;"></div>
+        <span style="font-size:8.5pt; font-weight:700; color:var(--ink); border-top:1.2px solid var(--ink); padding-top:1mm; display:inline-block; min-width:32mm; text-align:center;">
+          পরীক্ষকের স্বাক্ষর ও তারিখ
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span class="footer-name">Darul Hikmah Kids Academy</span>
+    <span>শ্রেণি: চতুর্থ &bull; বিষয়: পরিবেশ &bull; বার্ষিক পরীক্ষা</span>
+    <span>পৃষ্ঠা ৪ / ৪</span>
+  </footer>
+</main>
+
+</body>
+</html>

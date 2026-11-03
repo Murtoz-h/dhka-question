@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <title>Class 2 EVS Final Examination 2026 - Darul Hikmah Kids Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 8mm 10mm 8mm 10mm;
+    }
+    :root {
+      --ink: #172536;
+      --accent: #1e3d36;
+      --gold: #c7a66a;
+      --rule: #cbd3d0;
+      --line-color: #2e443f;
+      --bg-soft: #fbfdfc;
+      --word-box-bg: #f2f7f5;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    body {
+      font-family: 'Hind Siliguri', 'Nunito', Arial, sans-serif;
+      color: var(--ink);
+      background-color: #e9ecef;
+      line-height: 1.35;
+      font-size: 13px;
+    }
+    .print-bar {
+      background: #1e3d36;
+      color: #fff;
+      padding: 10px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    }
+    .print-bar span {
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .print-btn {
+      background: var(--gold);
+      color: #1a1a1a;
+      border: none;
+      padding: 7px 18px;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 4px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .print-btn:hover {
+      background: #dfbc7e;
+    }
+    .page-sheet {
+      width: 210mm;
+      min-height: 297mm;
+      max-height: 297mm;
+      height: 297mm;
+      background: #fff;
+      margin: 12px auto;
+      padding: 7mm 11mm 6mm 11mm;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      page-break-after: always;
+      page-break-inside: avoid;
+    }
+    @media print {
+      body {
+        background: transparent;
+      }
+      .print-bar {
+        display: none !important;
+      }
+      .page-sheet {
+        margin: 0;
+        box-shadow: none;
+        width: 100%;
+        height: 100%;
+        min-height: auto;
+        max-height: none;
+        padding: 7mm 10mm 6mm 10mm;
+      }
+    }
+    .page-content {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+    }
+    /* Institutional Masthead */
+    .masthead {
+      text-align: center;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 2px;
+      margin-bottom: 3px;
+    }
+    .school-title {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      font-family: 'Nunito', 'Hind Siliguri', sans-serif;
+      margin-bottom: 1px;
+    }
+    .exam-tag {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #2b3a42;
+      display: inline-block;
+      margin-bottom: 2px;
+    }
+    .gold-divider {
+      height: 2.5px;
+      background: linear-gradient(90deg, rgba(199,166,106,0.1), var(--gold), rgba(199,166,106,0.1));
+      border-radius: 2px;
+      margin-bottom: 3px;
+    }
+    /* Metadata Box */
+    .meta-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 3px;
+    }
+    .meta-table td {
+      padding: 1.5px 3px;
+      font-size: 12.5px;
+      font-weight: 600;
+    }
+    .meta-table .field-label {
+      color: #3b4d53;
+      font-weight: 700;
+    }
+    .meta-table .dotted-line {
+      display: inline-block;
+      border-bottom: 1.2px solid #444;
+      min-width: 140px;
+      height: 12px;
+    }
+    /* Running Header */
+    .running-header {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1.5px solid var(--accent);
+      padding-bottom: 2.5px;
+      margin-bottom: 5px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    /* Section Headers */
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      background: #edf3f1;
+      border-left: 4px solid var(--accent);
+      padding: 2.5px 7px;
+      margin: 3px 0 4px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .marks-badge {
+      font-family: 'Nunito', 'Hind Siliguri', sans-serif;
+      font-weight: 700;
+      color: #1e3d36;
+      font-size: 12px;
+    }
+    /* Q1 Page 1 Two-Column Grid */
+    .q1-page-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 12px;
+      row-gap: 4px;
+      flex: 1;
+    }
+    .q1-card {
+      border: 1px solid #dbe4e1;
+      border-radius: 3px;
+      padding: 3.5px 6px;
+      background: #fafcfb;
+      font-size: 12.2px;
+    }
+    .q1-card .q-title {
+      font-weight: 700;
+      margin-bottom: 2px;
+      color: var(--ink);
+    }
+    .q1-opts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px 4px;
+      padding-left: 2px;
+    }
+    .q1-opt {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11.8px;
+    }
+    .option-box {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border: 1.2px solid #555;
+      border-radius: 2px;
+      background: #fff;
+    }
+    /* Word Box */
+    .word-box-card {
+      border: 1.5px dashed var(--accent);
+      border-radius: 4px;
+      background: var(--word-box-bg);
+      padding: 6px 10px;
+      margin: 4px 0 8px 0;
+      font-size: 12.8px;
+      text-align: center;
+      line-height: 1.6;
+      font-weight: 600;
+    }
+    .ans-line {
+      display: inline-block;
+      border-bottom: 1.5px solid var(--line-color);
+      min-width: 140px;
+      height: 15px;
+      vertical-align: bottom;
+    }
+    .bracket-box {
+      display: inline-block;
+      width: 52px;
+      height: 22px;
+      border: 1.3px solid #444;
+      border-radius: 3px;
+      text-align: center;
+      line-height: 21px;
+      font-weight: bold;
+      background: #fff;
+    }
+    /* Matching Table */
+    .match-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 4px 0 8px 0;
+      border: 1px solid var(--rule);
+    }
+    .match-table th, .match-table td {
+      border: 1px solid var(--rule);
+      padding: 6px 9px;
+      font-size: 13px;
+    }
+    .match-table th {
+      background: #eef4f2;
+      color: var(--accent);
+      font-weight: 700;
+      text-align: center;
+    }
+    /* Question 5 Card Layout (Page 4) */
+    .q5-card {
+      border: 1.2px solid #b8c7c2;
+      border-radius: 4px;
+      background: #fafcfb;
+      padding: 7px 11px;
+      margin-bottom: 7px;
+    }
+    .q5-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--ink);
+    }
+    .q5-pill-box {
+      margin-top: 3px;
+      padding: 3px 8px;
+      background: #edf4f1;
+      border-left: 3px solid var(--accent);
+      font-size: 12px;
+      color: #274039;
+      font-weight: 600;
+    }
+    .q5-ans-track {
+      margin-top: 5px;
+      display: flex;
+      align-items: baseline;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .q5-ans-line {
+      flex: 1;
+      border-bottom: 1.8px solid #2e443f;
+      height: 1.4em;
+      margin-left: 8px;
+    }
+    /* Official Evaluation Box */
+    .eval-box {
+      border: 1.5px solid var(--accent);
+      border-radius: 4px;
+      padding: 4px 8px;
+      margin-top: 5px;
+      background: #fbfdfc;
+    }
+    .eval-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+      font-size: 11.2px;
+    }
+    .eval-table th, .eval-table td {
+      border: 1px solid #c0ccc8;
+      padding: 2.5px 4px;
+    }
+    .eval-table th {
+      background: #e9f0ee;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    /* Footer */
+    .footer {
+      border-top: 1px solid #d5dedb;
+      padding-top: 3px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 10.5px;
+      color: #666;
+      font-family: 'Nunito', 'Hind Siliguri', sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Action Bar -->
+  <div class="print-bar">
+    <span>🏛️ DARUL HIKMAH KIDS ACADEMY — Class 2 EVS Final Examination Paper</span>
+    <button class="print-btn" onclick="window.print()">🖨️ Print / Save as PDF (4 Pages)</button>
+  </div>
+
+  <!-- ==================== PAGE 1: 100% OF QUESTION 1 ==================== -->
+  <section class="page-sheet">
+    <div class="page-content">
+      <div class="masthead">
+        <div class="school-title">DARUL HIKMAH KIDS ACADEMY</div>
+        <div class="exam-tag">বার্ষিক মূল্যায়ন পরীক্ষা – ২০২৬</div>
+        <div class="gold-divider"></div>
+        <table class="meta-table">
+          <tr>
+            <td style="width: 25%;"><span class="field-label">শ্রেণি:</span> দ্বিতীয় (Class II)</td>
+            <td style="width: 35%;"><span class="field-label">বিষয়:</span> পরিবেশ বিজ্ঞান (EVS)</td>
+            <td style="width: 22%;"><span class="field-label">পূর্ণমান:</span> ৭০</td>
+            <td style="width: 18%;"><span class="field-label">সময়:</span> ৯০ মিনিট</td>
+          </tr>
+          <tr>
+            <td colspan="2"><span class="field-label">শিক্ষার্থীর নাম:</span> <span class="dotted-line" style="min-width: 260px;"></span></td>
+            <td><span class="field-label">রোল নং:</span> <span class="dotted-line" style="min-width: 60px;"></span></td>
+            <td><span class="field-label">তারিখ:</span> <span class="dotted-line" style="min-width: 65px;"></span></td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- SECTION 1: ALL 18 QUESTIONS IN 2-COLUMN BALANCED GRID -->
+      <div class="section-title">
+        <span>১. বন্ধনী থেকে সঠিক উত্তরে টিক (✓) চিহ্ন দাও (১৮টির মধ্যে যেকোনো ১৫টি):</span>
+        <span class="marks-badge">(১.৫ × ১৫ = ২২.৫ মান)</span>
+      </div>
+
+      <div class="q1-page-grid">
+        <!-- Col 1: ক থেকে ঝ (৯টি প্রশ্ন) -->
+        <div class="q1-card">
+          <div class="q-title">(ক) মানুষ প্রথম কোন ধাতুর সন্ধান পেয়েছিল?</div>
+          <div class="q1-opts">
+            <span class="q1-opt"><span class="option-box"></span> ১) তামা</span>
+            <span class="q1-opt"><span class="option-box"></span> ২) লোহা</span>
+            <span class="q1-opt"><span class="option-box"></span> ৩) সোনা</span>
+            <span class="q1-opt"><span class="option-box"></span> ৪) ব্রোঞ্জ</span>
+          </div>
+        </div>
+
+        <div class="q1-card">
+          <div class="q-title">(ঞ) প্রাচীন সিন্ধু সভ্যতা কোন নদীর তীরে গড়ে ওঠে?</div>
+          <div class="q1-opts">
+            <span class="q1-opt"><span class="option-box"></span> ১) গঙ্গা नदी</span>
+            <span class="q1-opt"><span class="option-box"></span> ২) সিন্ধু নদ</span>
+            <span class="q1-opt"><span class="option-box"></span> ৩) নীলনদ</span>
+            <span class="q1-opt"><span class="option-box"></span> ৪) টাইগ্রিস</span>
+          </div>
+        </div>
+
+        <div class="q1-card">
+          <div class="q-title">(খ) সূর্যের সবচেয়ে কাছের গ্রহটির নাম কী?</div>
+          <div class="q1-opts">
+            <span class="q1-opt"><span class="option-box"></span> ১) পৃথিবী</span>
+            <span class="q1-opt"><span class="option-box"></span> ২) মঙ্গল</span>
+            <span class="q1-opt"><span class="option-box"></span> ৩) বুধ</span>
+            <span class="q1-opt"><span class="option-box"></span> ৪) শুক্র</span>
+          </div>
+        </div>
+
+        <div class="q1-card">
+          <div class="q-title">(ট) নিচের কোনটি একটি উড়তে অক্ষম পাখি?</div>
+          <div class="q1-opts">
+            <span class="q1-opt"><span class="option-box"></span> ১) উটপাখি</span>
+            <span class="q1-opt"><span class="option-box"></span> ২) পায়রা</span>
+            <span class="q1-opt"><span class="option-box"></span> ৩) চিল</span>
+            <span class="q1-opt"><span class="option-box"></span> ৪) তোতা</span>
+          </div>
+        </div>
+
+        <div class="q1-card">
+          <div class="q-title">(গ) নিচের কোনটি একটি তৃণভোজী পশু?</div>
+          <div class="q1-opts">
+            <span class="q1-opt"><span class="option-box"></span> ১) বাঘ</span>
+            <span class="q1-opt"><span class="option-box"></span> ২) সিংহ</span>
+            <span class="q1-opt"><span class="option-box"></span> ৩) হরিণ</span>
+            <span class="q1-opt"><span class="option-box"></span> ৪) শিয়াল</span>
+          </div>
+        </div>
+
+        <div class="q1-card">
+          <div class="q-title">(ঠ) লোহা ধাতু আবিষ্কার কোন যুগের সূচনা করে?</div>
+          <div class="q1-opts">
+            <span class="q1-opt"><span class="option-box"></span> ১) তাম্র যুগ</span>
+            <span class="q1-opt"><span class="option-box"></span> ২) প্রস্তর যুগ</span>
+            <span class="q1-opt"><span class="option-box"></span> ৩) লৌহ যুগ</span>
+            <span class="q1-opt"><span class="option-box"></span> ৪) আধুনিক</span>
+          </div>
+        </div>
+
+        <div class="q1-card">
+          <div class="q-title">(ঘ) প্রাচীনকালে পূজার কাজ যাঁরা করতেন তাঁদের কী বলা হতো?</div>
+          <div class="q1-opts">
+            <span class="q1-opt"><span class="option-box"></span> ১) পুরোহিত</span>
+            <span class="q1-opt"><span class="option-box"></span> ২) কামার</span>
+            <span class="q1-opt"><span class="option-box"></span> ৩) কুমার</span>
+            <span class="q1-opt"><span class="option-box"></span> ৪) শিকারি</span>
+          </div>
+        </div>
+
+        <div class="q1-card">
+          <div class="q-title">(ড) নিচের কোনটি রাতের শিকারি নিশাচর প্রাণী?</div>
+          <div class="q1-opts">
+            <span class="q1-opt"><span class="option-box"></span> ১) গরু</span>
+            <span class="q1-opt"><span class="option-box"></span> ২) পেঁচা</span>
+            <span class="q1-opt"><span class="option-box"></span> ৩) হাঁস</span>
+            <span class="q1-opt"><span class="option-box"></span> ৪) ছাগল</span>
+          </div>
+        </div>
+
+        <div class="q1-card">
+          <div class="q-title">(ঙ) পৃথিবীর একমাত্র প্রাকৃতিক উপগ্রহ কোনটি?</div>
+          <div class="q1-opts">
+            <span class="q1-opt"><span class="option-box"></span> ১) সূর্য</span>
+            <span class="q1-opt"><span class="option-box"></span> ২) চাঁদ</span>
+            <span class="q1-opt"><span class="option-box"></span> ৩) ধ্রুবতারা</span>
+            <span class="q1-opt"><span class="option-box"></span> ৪) ছায়াপথ</span>
+          </div>
+        </div>
+
+        <div class="q1-card">
+          <div class="q-title">(ঢ) বাদুড় উড়ে কিন্তু বাচ্চা দেয়, তাই বাদুড় হলো:</div>
+          <div class="q1-opts">
+            <span class="q1-opt"><span class="option-box"></span> ১) স্তন্যপায়ী</span>
+            <span class="q1-opt"><span class="option-box"></span> ২) উভচর</span>
+            <span class="q1-opt"><span class="option-box"></span> ৩) সরীসৃপ</span>
+            <span class="q1-opt"><span class="option-box"></span> ৪) জলচর</span>
+          </div>
+        </div>
+
+        <div class="q1-card">
+          <div class="q-title">(চ) মেসোপটেমিয়ার বর্তমান ভৌগোলিক নাম কী?</div>
+          <div class="q1-opts">
+            <span class="q1-opt"><span class="option-box"></span> ১) মিশর</span>
+            <span class="q1-opt"><span class="option-box"></span> ২) ইরান</span>
+            <span class="q1-opt"><span class="option-box"></span> ৩) ইরাক</span>
+            <span class="q1-opt"><span class="option-box"></span> ৪) তুরস্ক</span>
+          </div>
+        </div>
+
+        <div class="q1-card">
+          <div class="q-title">(ণ) অক্ষের চারদিকে পৃথিবী একবার ঘুরতে সময় নেয়:</div>
+          <div class="q1-opts">
+            <span class="q1-opt"><span class="option-box"></span> ১) ১২ ঘণ্টা</span>
+            <span class="q1-opt"><span class="option-box"></span> ২) ২৪ ঘণ্টা</span>
+            <span class="q1-opt"><span class="option-box"></span> ৩) ৩৬ ঘণ্টা</span>
+            <span class="q1-opt"><span class="option-box"></span> ৪) ৪৮ ঘণ্টা</span>
+          </div>
+        </div>
+
+        <div class="q1-card">
+          <div class="q-title">(ছ) সৌরজগতের সকল গ্রহ কাকে কেন্দ্র করে ঘোরে?</div>
+          <div class="q1-opts">
+            <span class="q1-opt"><span class="option-box"></span> ১) চাঁদকে</span>
+            <span class="q1-opt"><span class="option-box"></span> ২) সূর্যকে</span>
+            <span class="q1-opt"><span class="option-box"></span> ৩) পৃথিবীকে</span>
+            <span class="q1-opt"><span class="option-box"></span> ৪) মঙ্গলকে</span>
+          </div>
+        </div>
+
+        <div class="q1-card">
+          <div class="q-title">(ত) পৃথিবীর কোন গতির ফলে দিন ও রাত হয়?</div>
+          <div class="q1-opts">
+            <span class="q1-opt"><span class="option-box"></span> ১) বার্ষিক গতি</span>
+            <span class="q1-opt"><span class="option-box"></span> ২) আহ্নিক গতি</span>
+            <span class="q1-opt"><span class="option-box"></span> ৩) চন্দ্র গতি</span>
+            <span class="q1-opt"><span class="option-box"></span> ৪) সৌর গতি</span>
+          </div>
+        </div>
+
+        <div class="q1-card">
+          <div class="q-title">(জ) মানুষ প্রথম লোহার সন্ধান কোথা থেকে পেয়েছিল?</div>
+          <div class="q1-opts">
+            <span class="q1-opt"><span class="option-box"></span> ১) উল্কাপিণ্ড</span>
+            <span class="q1-opt"><span class="option-box"></span> ২) নদী</span>
+            <span class="q1-opt"><span class="option-box"></span> ৩) গাছপালা</span>
+            <span class="q1-opt"><span class="option-box"></span> ৪) পাহাড়</span>
+          </div>
+        </div>
+
+        <div class="q1-card">
+          <div class="q-title">(থ) রাতে চাঁদ কার আলো প্রতিফলিত করে আলোকিত হয়?</div>
+          <div class="q1-opts">
+            <span class="q1-opt"><span class="option-box"></span> ১) সূর্যের</span>
+            <span class="q1-opt"><span class="option-box"></span> ২) তারার</span>
+            <span class="q1-opt"><span class="option-box"></span> ৩) পৃথিবীর</span>
+            <span class="q1-opt"><span class="option-box"></span> ৪) মঙ্গলের</span>
+          </div>
+        </div>
+
+        <div class="q1-card">
+          <div class="q-title">(ঝ) পাখিদের পুরো শরীর কী দিয়ে ঢাকা থাকে?</div>
+          <div class="q1-opts">
+            <span class="q1-opt"><span class="option-box"></span> ১) চামড়া</span>
+            <span class="q1-opt"><span class="option-box"></span> ২) লোম</span>
+            <span class="q1-opt"><span class="option-box"></span> ৩) পালক</span>
+            <span class="q1-opt"><span class="option-box"></span> ৪) আঁশ</span>
+          </div>
+        </div>
+
+        <div class="q1-card">
+          <div class="q-title">(দ) আমাদের সৌরজগতে প্রধান গ্রহের সংখ্যা কয়টি?</div>
+          <div class="q1-opts">
+            <span class="q1-opt"><span class="option-box"></span> ১) ৭টি</span>
+            <span class="q1-opt"><span class="option-box"></span> ২) ৮টি</span>
+            <span class="q1-opt"><span class="option-box"></span> ৩) ৯টি</span>
+            <span class="q1-opt"><span class="option-box"></span> ৪) ১০টি</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <span>Darul Hikmah Kids Academy • বার্ষিক পরীক্ষা ২০২৬</span>
+      <span>শ্রেণি: ২য় | বিষয়: EVS</span>
+      <span>পৃষ্ঠা ১ / ৪</span>
+    </div>
+  </section>
+
+  <!-- ==================== PAGE 2: QUESTION 2 & QUESTION 3 ==================== -->
+  <section class="page-sheet">
+    <div class="page-content">
+      <div class="running-header">
+        <span>DARUL HIKMAH KIDS ACADEMY • Class 2 EVS Final Exam</span>
+        <span>বিভাগ ২ (শূন্যস্থান পূরণ) ও বিভাগ ৩ (ঠিক না ভুল)</span>
+      </div>
+
+      <!-- SECTION 2: FILL IN THE BLANKS (ALL 12 ITEMS BALANCED) -->
+      <div class="section-title">
+        <span>২. শব্দঝুড়ি থেকে সঠিক শব্দ বেছে নিয়ে শূন্যস্থান পূরণ করো (১২টির মধ্যে যেকোনো ১০টি):</span>
+        <span class="marks-badge">(১.৫ × ১০ = ১৫ মান)</span>
+      </div>
+
+      <div class="word-box-card">
+        <strong>শব্দঝুড়ি:</strong> লোহা &nbsp;•&nbsp; ৮টি &nbsp;•&nbsp; পুরোহিত &nbsp;•&nbsp; চাঁদ &nbsp;•&nbsp; ইউফ্রেটিস &nbsp;•&nbsp; বুধ &nbsp;•&nbsp; ২৪ ঘণ্টা &nbsp;•&nbsp; আলো &nbsp;•&nbsp; জন্ম &nbsp;•&nbsp; পালক &nbsp;•&nbsp; সূর্যের &nbsp;•&nbsp; মাংসাশী
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; column-gap: 18px; row-gap: 8.5px; margin-bottom: 8px;">
+        <div style="font-size: 13px;">(ক) লৌহ যুগের প্রধান ধাতু হলো <span class="ans-line" style="min-width: 105px;"></span>।</div>
+        <div style="font-size: 13px;">(খ) সৌরজগতে মোট গ্রহ হলো <span class="ans-line" style="min-width: 105px;"></span>।</div>
+        <div style="font-size: 13px;">(গ) প্রাচীনকালে পূজা করতেন <span class="ans-line" style="min-width: 110px;"></span>।</div>
+        <div style="font-size: 13px;">(ঘ) পৃথিবীর একমাত্র উপগ্রহ হলো <span class="ans-line" style="min-width: 105px;"></span>।</div>
+        <div style="font-size: 13px;">(ঙ) টাইগ্রিস ও <span class="ans-line" style="min-width: 100px;"></span> নদী।</div>
+        <div style="font-size: 13px;">(চ) সূর্যের কাছের ক্ষুদ্র গ্রহ <span class="ans-line" style="min-width: 115px;"></span>।</div>
+        <div style="font-size: 13px;">(ছ) অক্ষের চারদিকে ঘুরতে লাগে <span class="ans-line" style="min-width: 95px;"></span>।</div>
+        <div style="font-size: 13px;">(জ) চাঁদের নিজস্ব কোনো <span class="ans-line" style="min-width: 105px;"></span> নেই।</div>
+        <div style="font-size: 13px;">(ঝ) বাদুড় সরাসরি বাচ্চা <span class="ans-line" style="min-width: 115px;"></span> দেয়।</div>
+        <div style="font-size: 13px;">(ঞ) পাখির পুরো শরীর <span class="ans-line" style="min-width: 110px;"></span> দিয়ে ঢাকা।</div>
+        <div style="font-size: 13px;">(ট) খাদ্য তৈরিতে লাগে <span class="ans-line" style="min-width: 110px;"></span> আলো।</div>
+        <div style="font-size: 13px;">(ঠ) বাঘ ও সিংহ হলো <span class="ans-line" style="min-width: 110px;"></span> পশু।</div>
+      </div>
+
+      <!-- SECTION 3: TRUE / FALSE (ALL 12 ITEMS BALANCED) -->
+      <div class="section-title" style="margin-top: 6px;">
+        <span>৩. বাক্যটি ঠিক হলে [ঠিক] এবং ভুল হলে [ভুল] লেখো (১২টির মধ্যে যেকোনো ১০টি):</span>
+        <span class="marks-badge">(১ × ১০ = ১০ মান)</span>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px;">
+          <span>(ক) মানুষ প্রথম তামার সন্ধান ও তামার ব্যবহার শিখেছিল।</span>
+          <span class="bracket-box"></span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px;">
+          <span>(খ) প্রাচীন মেসোপটেমিয়া সভ্যতা নীলনদের অববাহিকায় গড়ে উঠেছিল।</span>
+          <span class="bracket-box"></span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px;">
+          <span>(গ) লোহা কাঠের তৈরি হাতিয়ারের চেয়ে অনেক বেশি শক্ত ও মজবুত।</span>
+          <span class="bracket-box"></span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px;">
+          <span>(ঘ) সূর্য একটি নিজস্ব তীব্র আলোযুক্ত অতি উত্তপ্ত জ্বলন্ত নক্ষত্র।</span>
+          <span class="bracket-box"></span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px;">
+          <span>(ঙ) পৃথিবীর বার্ষিক গতির ফলে পৃথিবীতে প্রতিদিন দিন ও রাত হয়।</span>
+          <span class="bracket-box"></span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px;">
+          <span>(চ) চাঁদের নিজস্ব উজ্জ্বল আলো রয়েছে, তাই রাতে এটি সুন্দর আলো দেয়।</span>
+          <span class="bracket-box"></span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px;">
+          <span>(ছ) আমাদের সৌরজগতের সকল গ্রহ সূর্যকে কেন্দ্র করে ঘুরে চলেছে।</span>
+          <span class="bracket-box"></span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px;">
+          <span>(জ) রয়েল বেঙ্গল টাইগার একটি ঘাস ও লতাপাতা খাওয়া তৃণভোজী পশু।</span>
+          <span class="bracket-box"></span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px;">
+          <span>(ঝ) বাদুড় আকাশে উড়তে পারলেও এরা মূলত ডিম না পেড়ে বাচ্চা দেয়।</span>
+          <span class="bracket-box"></span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px;">
+          <span>(ঞ) পেঁচা ও বাদুড় রাতের অন্ধকারে খুব ভালো ও স্পষ্ট দেখতে পায়।</span>
+          <span class="bracket-box"></span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px;">
+          <span>(ট) আদিম মানুষ সহজে পানীয় জল ও চাষের জন্য নদীর তীরে বসতি গড়ত।</span>
+          <span class="bracket-box"></span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px;">
+          <span>(ঠ) বিজ্ঞানভিত্তিক জ্ঞান ও যুক্তি মানুষকে কুসংস্কার থেকে মুক্ত করে।</span>
+          <span class="bracket-box"></span>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <span>Darul Hikmah Kids Academy • বার্ষিক পরীক্ষা ২০২৬</span>
+      <span>শ্রেণি: ২য় | বিষয়: EVS</span>
+      <span>পৃষ্ঠা ২ / ৪</span>
+    </div>
+  </section>
+
+  <!-- ==================== PAGE 3: QUESTION 4 (COMPLETE MATCHING) ==================== -->
+  <section class="page-sheet">
+    <div class="page-content">
+      <div class="running-header">
+        <span>DARUL HIKMAH KIDS ACADEMY • Class 2 EVS Final Exam</span>
+        <span>বিভাগ ৪ (স্তম্ভ মেলানো — সম্পূর্ণ পৃষ্ঠা)</span>
+      </div>
+
+      <div class="section-title">
+        <span>৪. বামদিকের সাথে ডানদিক মিলিয়ে সঠিক ক্রমের অক্ষরটি ব্র্যাকেটে লেখো:</span>
+        <span class="marks-badge">(১ × ১১ = ১১ মান)</span>
+      </div>
+
+      <!-- TABLE 1 -->
+      <div style="font-weight: 700; font-size: 13px; color: var(--accent); margin: 6px 0 3px 2px;">
+        [ছক — ১: ঐতিহাসিক ও মহাজাগতিক তথ্য] (৬ মান)
+      </div>
+      <table class="match-table">
+        <thead>
+          <tr>
+            <th style="width: 44%;">বামদিক</th>
+            <th style="width: 12%;">উত্তর</th>
+            <th style="width: 44%;">ডানদিক</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>১। মেসোপটেমিয়া</td>
+            <td style="text-align: center;"><span class="bracket-box" style="height: 22px; width: 44px;"></span></td>
+            <td>ক) পৃথিবীর একমাত্র প্রাকৃতিক উপগ্রহ</td>
+          </tr>
+          <tr>
+            <td>২। সিন্ধু সভ্যতা</td>
+            <td style="text-align: center;"><span class="bracket-box" style="height: 22px; width: 44px;"></span></td>
+            <td>খ) ইরাক দেশটির প্রাচীন ভূখণ্ড</td>
+          </tr>
+          <tr>
+            <td>৩। বুধ গ্রহ</td>
+            <td style="text-align: center;"><span class="bracket-box" style="height: 22px; width: 44px;"></span></td>
+            <td>গ) সিন্ধু নদের তীরে গড়ে ওঠা নগর</td>
+          </tr>
+          <tr>
+            <td>৪। চাঁদ</td>
+            <td style="text-align: center;"><span class="bracket-box" style="height: 22px; width: 44px;"></span></td>
+            <td>ঘ) দিন ও রাতের সৃষ্টি করে</td>
+          </tr>
+          <tr>
+            <td>৫। আহ্নিক গতি</td>
+            <td style="text-align: center;"><span class="bracket-box" style="height: 22px; width: 44px;"></span></td>
+            <td>ঙ) ২৪ ঘণ্টায় নিজের অক্ষের চারদিকে ঘোরে</td>
+          </tr>
+          <tr>
+            <td>৬। পৃথিবী</td>
+            <td style="text-align: center;"><span class="bracket-box" style="height: 22px; width: 44px;"></span></td>
+            <td>চ) সূর্যের সবচেয়ে নিকটতম ক্ষুদ্র গ্রহ</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- TABLE 2 -->
+      <div style="font-weight: 700; font-size: 13px; color: var(--accent); margin: 12px 0 3px 2px;">
+        [ছক — ২: প্রাণী ও পরিবেশ পরিচিতি] (৫ মান)
+      </div>
+      <table class="match-table">
+        <thead>
+          <tr>
+            <th style="width: 44%;">বামদিক</th>
+            <th style="width: 12%;">উত্তর</th>
+            <th style="width: 44%;">ডানদিক</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>৭। বাদুড়</td>
+            <td style="text-align: center;"><span class="bracket-box" style="height: 22px; width: 44px;"></span></td>
+            <td>ছ) ঘরে বা খাঁচায় পোষা গৃহপালিত প্রাণী</td>
+          </tr>
+          <tr>
+            <td>৮। পেঁচা</td>
+            <td style="text-align: center;"><span class="bracket-box" style="height: 22px; width: 44px;"></span></td>
+            <td>জ) উড়তে অক্ষম বিশাল ভারী পাখি</td>
+          </tr>
+          <tr>
+            <td>৯। হরিণ</td>
+            <td style="text-align: center;"><span class="bracket-box" style="height: 22px; width: 44px;"></span></td>
+            <td>ঝ) স্তন্যপায়ী নিশাচর উড়ন্ত প্রাণী</td>
+          </tr>
+          <tr>
+            <td>১০। উটপাখি</td>
+            <td style="text-align: center;"><span class="bracket-box" style="height: 22px; width: 44px;"></span></td>
+            <td>ঞ) গাছপালা ও ঘাস খাওয়া তৃণভোজী পশু</td>
+          </tr>
+          <tr>
+            <td>১১। বিড়াল ও কুকুর</td>
+            <td style="text-align: center;"><span class="bracket-box" style="height: 22px; width: 44px;"></span></td>
+            <td>ট) রাতের অন্ধকারে শিকারি পাখি</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="background: #f4f8f7; border: 1.2px dashed #b2c2be; border-radius: 4px; padding: 10px 14px; margin-top: 15px; font-size: 12.5px; color: #2e443f;">
+        <strong>শিক্ষার্থীদের জন্য নির্দেশ:</strong> বামদিকের প্রতিটির সাথে ডানদিকের সঠিক তথ্যের মিল খুঁজে মাঝের ফাঁকা ব্র্যাকেটে ডানদিকের ক্রমিক অক্ষরটি (ক, খ, গ...) পরিষ্কার করে লেখো।
+      </div>
+    </div>
+    <div class="footer">
+      <span>Darul Hikmah Kids Academy • বার্ষিক পরীক্ষা ২০২৬</span>
+      <span>শ্রেণি: ২য় | বিষয়: EVS</span>
+      <span>পৃষ্ঠা ৩ / ৪</span>
+    </div>
+  </section>
+
+  <!-- ==================== PAGE 4: QUESTION 5 (FULL PAGE WITH EXTENSIVE WRITING ROOM) ==================== -->
+  <section class="page-sheet">
+    <div class="page-content">
+      <div class="running-header">
+        <span>DARUL HIKMAH KIDS ACADEMY • Class 2 EVS Final Exam</span>
+        <span>বিভাগ ৫ (বিকল্প থেকে উত্তর লিখন) ও অফিসিয়াল মূল্যায়ন ছক</span>
+      </div>
+
+      <div class="section-title">
+        <span>৫. বন্ধনীতে দেওয়া বিকল্প থেকে সঠিক উত্তরটি বেছে ফাঁকা লাইনে লেখো (৮টির মধ্যে যেকোনো ৭টি):</span>
+        <span class="marks-badge">(১.৫ × ৭ = ১০.৫ মান)</span>
+      </div>
+
+      <div class="q5-card">
+        <div class="q5-header-row">
+          <span>(ক) প্রাচীন সভ্যতাগুলি নদীর তীরে গড়ে ওঠার প্রধান কারণ কোনটি?</span>
+          <span style="font-size: 11px; color: #4e5d62;">[সঠিক বিকল্পটি বেছে লেখো]</span>
+        </div>
+        <div class="q5-pill-box">
+          বিকল্পসমূহ: &nbsp; উর্বর মাটি ও জলের সুবিধা &nbsp; | &nbsp; পাহাড়ি বরফের সুবিধা &nbsp; | &nbsp; পাকা রাস্তার সুবিধা
+        </div>
+        <div class="q5-ans-track">
+          <span>উত্তর :</span>
+          <span class="q5-ans-line"></span>
+        </div>
+      </div>
+
+      <div class="q5-card">
+        <div class="q5-header-row">
+          <span>(খ) কাঠের বদলে লোহার হাতিয়ার ব্যবহারের সবচেয়ে বড় সুবিধা কী ছিল?</span>
+          <span style="font-size: 11px; color: #4e5d62;">[সঠিক বিকল্পটি বেছে লেখো]</span>
+        </div>
+        <div class="q5-pill-box">
+          বিকল্পসমূহ: &nbsp; লোহা দ্রুত ভেঙে যেত &nbsp; | &nbsp; লোহা অনেক বেশি শক্ত ও টেকসই &nbsp; | &nbsp; লোহা হালকা ছিল
+        </div>
+        <div class="q5-ans-track">
+          <span>উত্তর :</span>
+          <span class="q5-ans-line"></span>
+        </div>
+      </div>
+
+      <div class="q5-card">
+        <div class="q5-header-row">
+          <span>(গ) যেসব পশু বনের প্রাকৃতিক পরিবেশে স্বাধীনভাবে বাস করে, তাদের কী বলা হয়?</span>
+          <span style="font-size: 11px; color: #4e5d62;">[সঠিক বিকল্পটি বেছে লেখো]</span>
+        </div>
+        <div class="q5-pill-box">
+          বিকল্পসমূহ: &nbsp; গৃহপালিত পশু &nbsp; | &nbsp; জলচর পশু &nbsp; | &nbsp; বন-পশু বা বন্য পশু
+        </div>
+        <div class="q5-ans-track">
+          <span>উত্তর :</span>
+          <span class="q5-ans-line"></span>
+        </div>
+      </div>
+
+      <div class="q5-card">
+        <div class="q5-header-row">
+          <span>(ঘ) বাঘ, সিংহ ও শেয়াল অন্য প্রাণীর মাংস খেয়ে বেঁচে থাকে—তাই এরা কোন ধরনের পশু?</span>
+          <span style="font-size: 11px; color: #4e5d62;">[সঠিক বিকল্পটি বেছে লেখো]</span>
+        </div>
+        <div class="q5-pill-box">
+          বিকল্পসমূহ: &nbsp; মাংসাশী পশু &nbsp; | &nbsp; তৃণভোজী পশু &nbsp; | &nbsp; উভচর পশু
+        </div>
+        <div class="q5-ans-track">
+          <span>উত্তর :</span>
+          <span class="q5-ans-line"></span>
+        </div>
+      </div>
+
+      <div class="q5-card">
+        <div class="q5-header-row">
+          <span>(ঙ) রাতের বেলা মেঘমুক্ত পরিষ্কার আকাশের দিকে তাকালে আমরা কী দেখতে পাই?</span>
+          <span style="font-size: 11px; color: #4e5d62;">[সঠিক বিকল্পটি বেছে লেখো]</span>
+        </div>
+        <div class="q5-pill-box">
+          বিকল্পসমূহ: &nbsp; উজ্জ্বল চাঁদ ও অসংখ্য তারা &nbsp; | &nbsp; তীব্র রোদের সূর্য &nbsp; | &nbsp; রঙিন রংধনু
+        </div>
+        <div class="q5-ans-track">
+          <span>উত্তর :</span>
+          <span class="q5-ans-line"></span>
+        </div>
+      </div>
+
+      <div class="q5-card">
+        <div class="q5-header-row">
+          <span>(চ) পাখির মতো উড়তে সক্ষম হলেও ডিম না পেড়ে সরাসরি বাচ্চা দেয় এমন একটি প্রাণী:</span>
+          <span style="font-size: 11px; color: #4e5d62;">[সঠিক বিকল্পটি বেছে লেখো]</span>
+        </div>
+        <div class="q5-pill-box">
+          বিকল্পসমূহ: &nbsp; বাদুড় &nbsp; | &nbsp; ব্যাঙ &nbsp; | &nbsp; রাজহাঁস
+        </div>
+        <div class="q5-ans-track">
+          <span>উত্তর :</span>
+          <span class="q5-ans-line"></span>
+        </div>
+      </div>
+
+      <div class="q5-card">
+        <div class="q5-header-row">
+          <span>(ছ) সমাজ থেকে ক্ষতিকর কুসংস্কার ও অন্ধবিশ্বাস দূর করার সবচেয়ে সঠিক উপায় কোনটি?</span>
+          <span style="font-size: 11px; color: #4e5d62;">[সঠিক বিকল্পটি বেছে লেখো]</span>
+        </div>
+        <div class="q5-pill-box">
+          বিকল্পসমূহ: &nbsp; সঠিক শিক্ষা ও বিজ্ঞানের প্রসার &nbsp; | &nbsp; কুসংস্কার মেনে চলা &nbsp; | &nbsp; ভয়ে চুপ থাকা
+        </div>
+        <div class="q5-ans-track">
+          <span>উত্তর :</span>
+          <span class="q5-ans-line"></span>
+        </div>
+      </div>
+
+      <div class="q5-card">
+        <div class="q5-header-row">
+          <span>(জ) আদিম মানুষ প্রকৃতিতে প্রথম লোহার সন্ধান কীভাবে বা কোথা থেকে পেয়েছিল?</span>
+          <span style="font-size: 11px; color: #4e5d62;">[সঠিক বিকল্পটি বেছে লেখো]</span>
+        </div>
+        <div class="q5-pill-box">
+          বিকল্পসমূহ: &nbsp; মাটিতে পতিত উল্কাপিণ্ড থেকে &nbsp; | &nbsp; গাছের পাকা ফল থেকে &nbsp; | &nbsp; নদীর নোনা জল থেকে
+        </div>
+        <div class="q5-ans-track">
+          <span>উত্তর :</span>
+          <span class="q5-ans-line"></span>
+        </div>
+      </div>
+
+      <!-- SECTION 6 & OFFICIAL EXAMINER EVALUATION BOX -->
+      <div style="font-size: 12px; font-weight: 700; color: var(--accent); margin-top: 1px; display: flex; justify-content: space-between; border-top: 1px dashed #b2c2be; padding-top: 2px;">
+        <span>৬. হাতের লেখার পরিচ্ছন্নতা ও সুশৃঙ্খল খাতার জন্য মান:</span>
+        <span style="font-family: 'Nunito', sans-serif;">(১ × ১ = ১.০ মান)</span>
+      </div>
+
+      <div class="eval-box">
+        <div style="font-weight: 700; font-size: 11px; color: var(--accent); margin-bottom: 2px; text-align: center;">
+          অফিসিয়াল মূল্যায়ন ও নম্বর ছক (শুধুমাত্র পরীক্ষক পূরণ করবেন)
+        </div>
+        <table class="eval-table">
+          <thead>
+            <tr>
+              <th>১. MCQ (২২.৫)</th>
+              <th>২. শূন্যস্থান (১৫)</th>
+              <th>৩. ঠিক/ভুল (১০)</th>
+              <th>৪. মেলাও (১১)</th>
+              <th>৫. বিকল্প (১০.৫)</th>
+              <th>৬. পরিচ্ছন্নতা (১)</th>
+              <th>মোট মান (৭০)</th>
+              <th>পরীক্ষকের স্বাক্ষর</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="height: 21px;">
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td style="font-weight: bold; font-size: 12px;"></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="text-align: center; margin-top: 3px; font-size: 10.5px; color: #555; font-style: italic;">
+        — পরীক্ষার শেষে পুরো প্রশ্ন-উত্তর খাতাটি মনোযোগ সহকারে রিভিশন দিয়ে জমা দেবে —
+      </div>
+    </div>
+    <div class="footer">
+      <span>Darul Hikmah Kids Academy • বার্ষিক পরীক্ষা ২০২৬</span>
+      <span>শ্রেণি: ২য় | বিষয়: EVS</span>
+      <span>পৃষ্ঠা ৪ / ৪ (সমাপ্ত)</span>
+    </div>
+  </section>
+
+</body>
+</html>
