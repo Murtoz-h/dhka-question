@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>দারুল হিকমাহ কিডস একাডেমি | LKG বাংলা বার্ষিক পরীক্ষা</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 11mm 14mm 13mm;
+    }
+
+    :root {
+      --ink: #172536;
+      --accent: #315b53;
+      --rule: #cbd3d0;
+      --muted: #58666b;
+      --gold: #c7a66a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      color: var(--ink);
+      background: #edf0ef;
+      font-family: "Noto Sans Bengali", "Nirmala UI", "Vrinda", "Segoe UI", Arial, sans-serif;
+      font-size: 11pt;
+      line-height: 1.38;
+    }
+
+    .page {
+      position: relative;
+      width: 210mm;
+      min-height: 297mm;
+      margin: 12px auto;
+      padding: 11mm 14mm 16mm;
+      background: #fff;
+      box-shadow: 0 3px 18px rgba(20, 35, 40, .10);
+      page-break-after: always;
+    }
+
+    .page:last-child {
+      page-break-after: auto;
+    }
+
+    .masthead {
+      text-align: center;
+      padding: 0 2mm 2.5mm;
+      border-bottom: 1.6px solid var(--accent);
+    }
+
+    .institution {
+      margin: 0;
+      color: var(--ink);
+      font-size: 19pt;
+      line-height: 1.2;
+      font-weight: 750;
+      letter-spacing: .15px;
+    }
+
+    .paper-label {
+      margin-top: 1mm;
+      color: var(--muted);
+      font-size: 10pt;
+      font-weight: 700;
+      letter-spacing: .4px;
+    }
+
+    .accent {
+      width: 18mm;
+      height: 1.5px;
+      margin: 1.8mm auto 0;
+      background: var(--gold);
+    }
+
+    .details {
+      margin-top: 3mm;
+      padding: 2.8mm 4mm 2.5mm;
+      border: 1px solid var(--rule);
+      border-radius: 1.5mm;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 10mm;
+      row-gap: 2mm;
+    }
+
+    .field {
+      display: flex;
+      align-items: baseline;
+      gap: 2mm;
+      min-height: 5.5mm;
+      white-space: nowrap;
+    }
+
+    .label {
+      color: var(--muted);
+      font-size: 9.5pt;
+      font-weight: 650;
+    }
+
+    .fixed-value {
+      color: var(--ink);
+      font-size: 10pt;
+      font-weight: 700;
+    }
+
+    .student-row {
+      display: grid;
+      grid-template-columns: 1.55fr 1fr;
+      gap: 10mm;
+      margin-top: 2.2mm;
+      padding-top: 2mm;
+      border-top: 1px solid var(--rule);
+    }
+
+    .write-line {
+      flex: 1;
+      min-width: 12mm;
+      height: 1em;
+      border-bottom: 1px solid #64736f;
+    }
+
+    .question-area {
+      padding-top: 4mm;
+    }
+
+    .q {
+      margin: 0 0 4mm;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .q-title {
+      font-weight: 750;
+      font-size: 11.5pt;
+      margin-bottom: 2mm;
+    }
+
+    .marks {
+      color: var(--muted);
+      font-weight: 650;
+      white-space: nowrap;
+    }
+
+    .items {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8mm 7mm;
+      padding-left: 2mm;
+    }
+
+    .item {
+      min-height: 7mm;
+    }
+
+    .answer-line {
+      display: inline-block;
+      min-width: 27mm;
+      height: 1.05em;
+      border-bottom: 1px solid #52615d;
+      vertical-align: baseline;
+    }
+
+    .short-line {
+      min-width: 22mm;
+    }
+
+    .picture-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3mm;
+    }
+
+    .picture-card {
+      border: 1px solid #b9c8c2;
+      border-radius: 2mm;
+      padding: 2mm;
+      min-height: 39mm;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      break-inside: avoid;
+    }
+
+    .picture-card svg {
+      display: block;
+      width: 100%;
+      height: 27mm;
+    }
+
+    .picture-options {
+      font-weight: 650;
+      text-align: center;
+      letter-spacing: .4px;
+    }
+
+    .first-letter-blank {
+      display: inline-block;
+      width: 40px;
+      height: 30px;
+      border: 1.5px solid #333;
+      vertical-align: middle;
+      margin-right: 2px;
+    }
+
+    .picture-answer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2mm;
+      width: 100%;
+      min-height: 8mm;
+      font-weight: 650;
+    }
+
+    .picture-answer .answer-line {
+      min-width: 22mm;
+      height: 1.25em;
+    }
+
+    .match-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin: 1mm 5mm;
+      padding: 0;
+      border: 1.4px solid #879891;
+      border-radius: 2mm;
+      overflow: hidden;
+    }
+
+    .match-col {
+      overflow: hidden;
+    }
+
+    .match-col+.match-col {
+      border-left: 1.4px solid #879891;
+    }
+
+    .match-head {
+      text-align: center;
+      padding: 1.5mm;
+      font-weight: 750;
+      background: #edf2ef;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .match-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2mm 5mm;
+      min-height: 8mm;
+      border-bottom: 1px dotted #cbd3d0;
+    }
+
+    .match-row:last-child {
+      border-bottom: 0;
+    }
+
+    .match-dot {
+      color: #718079;
+      font-size: 10pt;
+    }
+
+    .write-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7mm;
+    }
+
+    .write-group {
+      padding: 1mm 3mm;
+    }
+
+    .write-group+.write-group {
+      border-left: 1px solid var(--rule);
+    }
+
+    .write-group-title {
+      font-weight: 700;
+      margin-bottom: 2mm;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5mm;
+    }
+
+    .kar-symbol {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 12mm;
+      min-height: 10mm;
+      padding: 0 2mm;
+      border: 1px solid #9eaaa5;
+      border-radius: 2mm;
+      background: #f7faf8;
+      color: #172536;
+      font-family: "Noto Sans Bengali", "Nirmala UI", "Vrinda", sans-serif;
+      font-size: 19pt;
+      font-weight: 750;
+      line-height: 1.25;
+      vertical-align: middle;
+    }
+
+    .write-entry {
+      display: flex;
+      align-items: baseline;
+      gap: 2mm;
+      margin: 3mm 0;
+    }
+
+    .scramble-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3mm 10mm;
+      padding: 1mm 4mm;
+    }
+
+    .scramble {
+      min-height: 9mm;
+    }
+
+    .picture-write-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4mm;
+    }
+
+    .picture-write-card {
+      border: 1px solid #b9c8c2;
+      border-radius: 2mm;
+      padding: 2mm 2mm 3mm;
+      text-align: center;
+      min-height: 54mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      break-inside: avoid;
+    }
+
+    .picture-write-card svg {
+      width: 100%;
+      height: 37mm;
+      display: block;
+    }
+
+    .picture-write-line {
+      border-bottom: 1px solid #52615d;
+      height: 7mm;
+      margin: 0 2mm;
+    }
+
+    .instruction {
+      margin-top: 3mm;
+      font-size: 9pt;
+      color: var(--muted);
+    }
+
+    .footer {
+      position: absolute;
+      left: 14mm;
+      right: 14mm;
+      bottom: 6mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1.5mm;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-size: 7.5pt;
+    }
+
+    .footer-name {
+      font-weight: 650;
+      letter-spacing: .15px;
+    }
+
+    .continuation {
+      margin: 0 0 4mm;
+      padding-bottom: 2mm;
+      border-bottom: 1px solid var(--rule);
+      color: var(--muted);
+      font-size: 9pt;
+      font-weight: 650;
+    }
+
+    @media screen {
+      .page {
+        min-height: 297mm;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page {
+        margin: 0;
+        box-shadow: none;
+        width: auto;
+        min-height: 273mm;
+      }
+    }
+
+    @media screen and (max-width:800px) {
+      .page {
+        width: 100%;
+        min-height: 0;
+        margin: 0 0 12px;
+        padding: 7mm;
+      }
+
+      .footer {
+        left: 7mm;
+        right: 7mm;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- PAGE 1: Approved common template header appears only on the first page. -->
+  <main class="page">
+    <header>
+      <div class="masthead">
+        <h1 class="institution">দারুল হিকমাহ কিডস একাডেমি</h1>
+        <div class="paper-label">বার্ষিক পরীক্ষা · প্রশ্নপত্র</div>
+        <div class="accent"></div>
+      </div>
+      <section class="details" aria-label="পরীক্ষা ও শিক্ষার্থীর তথ্য">
+        <div class="grid">
+          <div class="field"><span class="label">শ্রেণি:</span><span class="fixed-value">LKG</span></div>
+          <div class="field"><span class="label">বিষয়:</span><span class="fixed-value">বাংলা</span></div>
+          <div class="field"><span class="label">পূর্ণমান:</span><span class="fixed-value">৪০</span></div>
+          <div class="field"><span class="label">সময়:</span><span class="fixed-value">১ ঘণ্টা ৩০ মিনিট</span></div>
+        </div>
+        <div class="student-row">
+          <div class="field"><span class="label">শিক্ষার্থীর নাম:</span><span class="write-line"></span></div>
+          <div class="field"><span class="label">রোল:</span><span class="write-line"></span></div>
+        </div>
+      </section>
+    </header>
+    <section class="question-area">
+      <div class="q">
+        <div class="q-title">১। সঠিক স্বরবর্ণটি গোল করো। <span class="marks">(যেকোনো ৪টি) (৪)</span></div>
+        <div class="items">
+          <div class="item">ক) ক, অ, ম</div>
+          <div class="item">খ) প, আ, ত</div>
+          <div class="item">গ) র, ঈ, ল</div>
+          <div class="item">ঘ) স, উ, ন</div>
+          <div class="item">ঙ) ব, এ, চ</div>
+          <div class="item">চ) হ, ও, দ</div>
+        </div>
+      </div>
+      <div class="q">
+        <div class="q-title">২। সঠিক ব্যঞ্জনবর্ণটি গোল করো। <span class="marks">(যেকোনো ৪টি) (৪)</span></div>
+        <div class="items">
+          <div class="item">ক) অ, ক, আ</div>
+          <div class="item">খ) ই, খ, ঈ</div>
+          <div class="item">গ) উ, গ, ঊ</div>
+          <div class="item">ঘ) এ, চ, ঐ</div>
+          <div class="item">ঙ) ও, জ, ঔ</div>
+          <div class="item">চ) ঋ, ট, আ</div>
+        </div>
+      </div>
+      <div class="q">
+        <div class="q-title">৩। ফাঁকা ঘরে পরের স্বরবর্ণটি লেখো। <span class="marks">(যেকোনো ৪টি) (৪)</span></div>
+        <div class="items">
+          <div class="item">ক) আ → <span class="answer-line"></span></div>
+          <div class="item">খ) ঈ → <span class="answer-line"></span></div>
+          <div class="item">গ) ও → <span class="answer-line"></span></div>
+          <div class="item">ঘ) ঊ → <span class="answer-line"></span></div>
+          <div class="item">ঙ) ঐ → <span class="answer-line"></span></div>
+          <div class="item">চ) অ → <span class="answer-line"></span></div>
+        </div>
+      </div>
+      <div class="q">
+        <div class="q-title">৪। ফাঁকা ঘরে পরের ব্যঞ্জনবর্ণটি লেখো। <span class="marks">(যেকোনো ৪টি) (৪)</span></div>
+        <div class="items">
+          <div class="item">ক) ড → <span class="answer-line"></span></div>
+          <div class="item">খ) প → <span class="answer-line"></span></div>
+          <div class="item">গ) ব → <span class="answer-line"></span></div>
+          <div class="item">ঘ) ছ → <span class="answer-line"></span></div>
+          <div class="item">ঙ) ঝ → <span class="answer-line"></span></div>
+          <div class="item">চ) চ → <span class="answer-line"></span></div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer"><span class="footer-name">দারুল হিকমাহ কিডস একাডেমি</span><span>পৃষ্ঠা ১</span></footer>
+  </main>
+
+  <!-- PAGE 2 -->
+  <main class="page">
+    <div class="continuation">LKG · বাংলা বার্ষিক পরীক্ষা</div>
+    <section class="question-area">
+      <div class="q">
+        <div class="q-title">৫। ছবি দেখে শব্দের প্রথম বর্ণটি লেখো। <span class="marks">(যেকোনো ৫টি) (৫)</span></div>
+        <div class="picture-grid">
+          <div class="picture-card">
+            <svg viewBox="0 0 140 100" role="img" aria-label="কলমের ছবি">
+              <g transform="rotate(-28 70 50)">
+                <rect x="25" y="39" width="88" height="19" rx="8" fill="#2584c7" stroke="#15527f" stroke-width="3" />
+                <rect x="34" y="42" width="63" height="5" rx="2" fill="#8ed4f4" />
+                <path d="M25 39 L10 48.5 L25 58Z" fill="#c6d0d4" stroke="#68777d" stroke-width="2" />
+                <path d="M10 48.5 L4 51 L10 54Z" fill="#26343a" />
+                <rect x="98" y="39" width="15" height="19" rx="4" fill="#174f82" />
+              </g>
+            </svg>
+            <div class="picture-answer"><span class="first-letter-blank"></span><span>লম</span></div>
+          </div>
+          <div class="picture-card">
+            <svg viewBox="0 0 140 100" role="img" aria-label="মাছের ছবি">
+              <path d="M35 50 L10 29 L10 71Z" fill="#65a9bd" stroke="#376d7c" stroke-width="2.5" />
+              <ellipse cx="70" cy="50" rx="39" ry="25" fill="#8fc5d2" stroke="#376d7c" stroke-width="2.5" />
+              <path d="M61 27 Q75 50 61 73 M78 27 Q91 50 78 73" fill="none" stroke="#5b99aa" stroke-width="2" />
+              <circle cx="96" cy="44" r="3.5" fill="#172536" />
+              <path d="M104 55 Q112 59 116 53" fill="none" stroke="#376d7c" stroke-width="2" />
+            </svg>
+            <div class="picture-answer"><span class="first-letter-blank"></span><span>ছ</span></div>
+          </div>
+          <div class="picture-card">
+            <svg viewBox="0 0 140 100" role="img" aria-label="বইয়ের ছবি">
+              <path d="M18 24 Q43 15 69 28 L69 82 Q43 69 18 79Z" fill="#e9b84e" stroke="#8e6427" stroke-width="3" />
+              <path d="M122 24 Q97 15 71 28 L71 82 Q97 69 122 79Z" fill="#7db6d8" stroke="#376d8b" stroke-width="3" />
+              <path d="M70 28 L70 83" stroke="#684b2c" stroke-width="3" />
+              <path d="M28 38 Q45 33 59 41 M28 49 Q45 44 59 52 M81 41 Q96 33 112 38 M81 52 Q96 44 112 49"
+                stroke="#fff8df" stroke-width="3" fill="none" />
+            </svg>
+            <div class="picture-answer"><span class="first-letter-blank"></span><span>ই</span></div>
+          </div>
+          <div class="picture-card">
+            <svg viewBox="0 0 140 100" role="img" aria-label="বলের ছবি">
+              <circle cx="70" cy="50" r="37" fill="#ed6b54" stroke="#9e3f34" stroke-width="3" />
+              <path d="M39 27 Q70 48 101 27 M39 73 Q70 52 101 73 M70 13 Q52 50 70 87 M70 13 Q88 50 70 87" fill="none"
+                stroke="#f8d7a6" stroke-width="4" />
+            </svg>
+            <div class="picture-answer"><span class="first-letter-blank"></span><span>ল</span></div>
+          </div>
+          <div class="picture-card">
+            <svg viewBox="0 0 140 100" role="img" aria-label="পাখির ছবি">
+              <path d="M28 59 Q38 25 78 31 Q105 35 106 59 Q86 83 51 75Z" fill="#75b96b" stroke="#397a3d"
+                stroke-width="3" />
+              <path d="M60 48 Q78 31 91 54 Q76 68 60 48Z" fill="#f0c45a" stroke="#a57b2c" stroke-width="2" />
+              <path d="M104 48 L128 56 L105 63Z" fill="#e7a23c" stroke="#9a6422" stroke-width="2" />
+              <circle cx="91" cy="44" r="3" fill="#1e2933" />
+              <path d="M52 75 L48 88 M70 77 L72 89" stroke="#9a6422" stroke-width="3" stroke-linecap="round" />
+            </svg>
+            <div class="picture-answer"><span class="first-letter-blank"></span><span>খি</span></div>
+          </div>
+          <div class="picture-card">
+            <svg viewBox="0 0 140 100" role="img" aria-label="কাপের ছবি">
+              <path d="M34 27 L91 27 L85 82 Q63 93 41 82Z" fill="#b7dce8" stroke="#477c8e" stroke-width="3" />
+              <path d="M91 39 Q122 34 111 63 Q105 76 87 69" fill="none" stroke="#477c8e" stroke-width="7" />
+              <path d="M44 38 L84 38" stroke="#eaf8fc" stroke-width="4" />
+            </svg>
+            <div class="picture-answer"><span class="first-letter-blank"></span><span>প</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="q">
+        <div class="q-title">৬। শব্দের সঙ্গে সঠিক ব্যঞ্জনবর্ণটি মেলাও। <span class="marks">(যেকোনো ৫টি) (৫)</span></div>
+        <div class="match-wrap">
+          <div class="match-col">
+            <div class="match-head">শব্দ</div>
+            <div class="match-row"><span>ধাম</span><span class="match-dot">●</span></div>
+            <div class="match-row"><span>হরিণ</span><span class="match-dot">●</span></div>
+            <div class="match-row"><span>পায়রা</span><span class="match-dot">●</span></div>
+            <div class="match-row"><span>কাক</span><span class="match-dot">●</span></div>
+            <div class="match-row"><span>খরগোশ</span><span class="match-dot">●</span></div>
+            <div class="match-row"><span>ঝাড়ু</span><span class="match-dot">●</span></div>
+          </div>
+          <div class="match-col">
+            <div class="match-head">বর্ণ</div>
+            <div class="match-row"><span class="match-dot">●</span><span>ঝ</span></div>
+            <div class="match-row"><span class="match-dot">●</span><span>প</span></div>
+            <div class="match-row"><span class="match-dot">●</span><span>খ</span></div>
+            <div class="match-row"><span class="match-dot">●</span><span>হ</span></div>
+            <div class="match-row"><span class="match-dot">●</span><span>ক</span></div>
+            <div class="match-row"><span class="match-dot">●</span><span>ধ</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="q">
+        <div class="q-title">৭। ‘আ’ (া) কার ও ‘ই’ (ি) কার যোগে শব্দ লেখো। <span class="marks">(৪)</span></div>
+        <div class="write-columns">
+          <div class="write-group">
+            <div class="write-group-title">ক) আ-কার <span class="kar-symbol" aria-label="আ-কার">◌া</span> যোগে (যেকোনো
+              ২টি):</div>
+            <div class="write-entry">১। <span class="answer-line"></span></div>
+            <div class="write-entry">২। <span class="answer-line"></span></div>
+            <div class="write-entry">৩। <span class="answer-line"></span></div>
+          </div>
+          <div class="write-group">
+            <div class="write-group-title">খ) ই-কার <span class="kar-symbol" aria-label="ই-কার">◌ি</span> যোগে (যেকোনো
+              ২টি):</div>
+            <div class="write-entry">১। <span class="answer-line"></span></div>
+            <div class="write-entry">২। <span class="answer-line"></span></div>
+            <div class="write-entry">৩। <span class="answer-line"></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer"><span class="footer-name">দারুল হিকমাহ কিডস একাডেমি</span><span>পৃষ্ঠা ২</span></footer>
+  </main>
+
+  <!-- PAGE 3 -->
+  <main class="page">
+    <div class="continuation">LKG · বাংলা বার্ষিক পরীক্ষা</div>
+    <section class="question-area">
+      <div class="q">
+        <div class="q-title">৮। এলোমেলো বর্ণগুলি সাজিয়ে শব্দ তৈরি করো। <span class="marks">(যেকোনো ৫টি) (৫)</span></div>
+        <div class="scramble-grid">
+          <div class="scramble">ক) থ + র = <span class="answer-line"></span></div>
+          <div class="scramble">খ) ড় + ঝ = <span class="answer-line"></span></div>
+          <div class="scramble">গ) ল + ব = <span class="answer-line"></span></div>
+          <div class="scramble">ঘ) ক + ব = <span class="answer-line"></span></div>
+          <div class="scramble">ঙ) ন + ব = <span class="answer-line"></span></div>
+          <div class="scramble">চ) ল + চি = <span class="answer-line"></span></div>
+        </div>
+      </div>
+      <div class="q">
+        <div class="q-title">৯। ছবি দেখে শব্দ লেখো। <span class="marks">(যেকোনো ৫টি) (৫)</span></div>
+        <div class="picture-write-grid">
+          <div class="picture-write-card">
+            <svg viewBox="0 0 140 100" role="img" aria-label="আমের ছবি">
+              <path d="M73 20 C91 8 108 15 111 30 C96 28 83 29 73 20Z" fill="#43864b" stroke="#285d34"
+                stroke-width="2" />
+              <path d="M69 24 C44 13 20 35 25 61 C30 88 62 91 83 78 C107 63 99 34 79 27Z" fill="#f5bd24"
+                stroke="#d48b12" stroke-width="3" />
+              <path d="M74 24 Q81 17 88 14" fill="none" stroke="#6b4a27" stroke-width="4" stroke-linecap="round" />
+            </svg>
+            <div class="picture-write-line"></div>
+          </div>
+          <div class="picture-write-card">
+            <svg viewBox="0 0 140 100" role="img" aria-label="কলার ছবি">
+              <path d="M24 28 Q35 72 91 79 Q111 79 119 62 Q92 75 65 57 Q43 42 39 20Z" fill="#f5d34a" stroke="#c59c25"
+                stroke-width="3" />
+              <path d="M18 22 Q25 16 39 20 M115 61 Q122 62 124 56" fill="none" stroke="#6b4b27" stroke-width="5"
+                stroke-linecap="round" />
+              <path d="M31 37 Q52 63 92 69" fill="none" stroke="#fff0a0" stroke-width="3" />
+            </svg>
+            <div class="picture-write-line"></div>
+          </div>
+          <div class="picture-write-card">
+            <svg viewBox="0 0 140 100" role="img" aria-label="ফুলের ছবি">
+              <path d="M70 54 Q65 74 72 96" fill="none" stroke="#398447" stroke-width="5" />
+              <path d="M69 78 Q49 64 43 80 Q56 91 69 78Z" fill="#5da95b" />
+              <g fill="#ed5a58" stroke="#b73537" stroke-width="2">
+                <ellipse cx="70" cy="27" rx="12" ry="21" />
+                <ellipse cx="70" cy="27" rx="12" ry="21" transform="rotate(60 70 45)" />
+                <ellipse cx="70" cy="27" rx="12" ry="21" transform="rotate(120 70 45)" />
+                <ellipse cx="70" cy="27" rx="12" ry="21" transform="rotate(180 70 45)" />
+                <ellipse cx="70" cy="27" rx="12" ry="21" transform="rotate(240 70 45)" />
+              </g>
+              <circle cx="70" cy="45" r="9" fill="#f6c84b" stroke="#b88920" stroke-width="2" />
+            </svg>
+            <div class="picture-write-line"></div>
+          </div>
+          <div class="picture-write-card">
+            <svg viewBox="0 0 140 100" role="img" aria-label="ছাতার ছবি">
+              <path d="M15 48 Q70 -3 125 48 Q111 43 98 55 Q84 42 70 56 Q55 42 42 55 Q28 43 15 48Z" fill="#9a6acb"
+                stroke="#63408f" stroke-width="3" />
+              <path d="M70 48 L70 83 Q70 94 82 91 Q91 88 86 79" fill="none" stroke="#65452f" stroke-width="4"
+                stroke-linecap="round" />
+            </svg>
+            <div class="picture-write-line"></div>
+          </div>
+          <div class="picture-write-card">
+            <svg viewBox="0 0 140 100" role="img" aria-label="গাছের ছবি">
+              <path d="M62 55 L78 55 L83 94 L57 94Z" fill="#93602f" stroke="#68411f" stroke-width="2" />
+              <g fill="#4e9a4c" stroke="#2f7137" stroke-width="2">
+                <circle cx="48" cy="39" r="23" />
+                <circle cx="73" cy="28" r="25" />
+                <circle cx="96" cy="42" r="22" />
+                <circle cx="70" cy="50" r="24" />
+              </g>
+            </svg>
+            <div class="picture-write-line"></div>
+          </div>
+          <div class="picture-write-card">
+            <svg viewBox="0 0 140 100" role="img" aria-label="ঘরের ছবি">
+              <path d="M18 48 L70 10 L122 48" fill="#bd5145" stroke="#7d302d" stroke-width="4"
+                stroke-linejoin="round" />
+              <rect x="28" y="47" width="84" height="46" rx="2" fill="#f1d49a" stroke="#9a7542" stroke-width="3" />
+              <rect x="62" y="65" width="20" height="28" fill="#98633c" stroke="#684326" stroke-width="2" />
+              <rect x="37" y="58" width="16" height="15" fill="#9ed5e5" stroke="#547d89" stroke-width="2" />
+              <rect x="89" y="58" width="14" height="15" fill="#9ed5e5" stroke="#547d89" stroke-width="2" />
+            </svg>
+            <div class="picture-write-line"></div>
+          </div>
+        </div>
+      </div>
+      <div class="instruction">প্রতিটি বিভাগে নির্দিষ্ট সংখ্যক প্রশ্নের উত্তর দাও। অতিরিক্ত উত্তর লিখলে প্রথম নির্ধারিত
+        সংখ্যক উত্তরই মূল্যায়ন করা হবে।</div>
+    </section>
+    <footer class="footer"><span class="footer-name">দারুল হিকমাহ কিডস একাডেমি</span><span>পৃষ্ঠা ৩</span></footer>
+  </main>
+</body>
+
+</html>

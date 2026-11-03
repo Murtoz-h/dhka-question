@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Class 1 English Question Paper</title>
+<style>
+  @page { size: A4; margin: 11mm 14mm 13mm; }
+  :root { --ink:#172536; --accent:#315b53; --rule:#cbd3d0; --muted:#58666b; }
+  * { box-sizing:border-box; }
+  html,body { margin:0; padding:0; }
+  body {
+    color:var(--ink); background:#edf0ef;
+    font-family:"Noto Sans Bengali","Nirmala UI","Segoe UI",Arial,sans-serif;
+    font-size:10.8pt; line-height:1.32;
+  }
+  .page {
+    position:relative; width:210mm; min-height:297mm;
+    margin:12px auto; padding:11mm 14mm 15mm;
+    background:#fff; box-shadow:0 3px 18px rgba(20,35,40,.10);
+    page-break-after:always;
+  }
+  .page:last-child { page-break-after:auto; }
+  .masthead { text-align:center; padding:0 2mm 2.5mm; border-bottom:1.6px solid var(--accent); }
+  .institution { margin:0; color:var(--ink); font-size:19pt; line-height:1.15; font-weight:750; letter-spacing:.15px; }
+  .paper-label { margin-top:1mm; color:var(--muted); font-size:7.5pt; font-weight:650; letter-spacing:1.7px; text-transform:uppercase; }
+  .accent { width:18mm; height:1.5px; margin:1.8mm auto 0; background:#c7a66a; }
+  .details { margin-top:3mm; padding:2.8mm 4mm 2.5mm; border:1px solid var(--rule); border-radius:1.5mm; }
+  .grid { display:grid; grid-template-columns:1fr 1fr; column-gap:10mm; row-gap:2mm; }
+  .field { display:flex; align-items:baseline; gap:2mm; min-height:5.5mm; white-space:nowrap; }
+  .label { color:var(--muted); font-size:9.5pt; font-weight:650; }
+  .value { font-weight:700; }
+  .student-row { display:grid; grid-template-columns:1.55fr 1fr; gap:10mm; margin-top:2.2mm; padding-top:2mm; border-top:1px solid var(--rule); }
+  .write-line { flex:1; min-width:12mm; height:1em; border-bottom:1px solid #64736f; }
+  .question-area { padding-top:3.2mm; }
+  .q { margin:0 0 3.1mm; break-inside:avoid; page-break-inside:avoid; }
+  .q-title { font-weight:650; line-height:1.45; }
+  .marks { float:right; color:var(--muted); font-size:9.5pt; font-weight:650; margin-left:4mm; }
+  .subitems { display:grid; grid-template-columns:1fr 1fr; column-gap:12mm; row-gap:1mm; margin:1.5mm 2mm 0; }
+  .subitem { min-height:7mm; display:flex; align-items:center; gap:2mm; }
+  .answer { display:inline-block; flex:1; min-width:20mm; height:1.1em; border-bottom:1px solid #84918e; }
+  .options { margin-left:2mm; letter-spacing:.15px; }
+  .word-grid { display:grid; grid-template-columns:1fr 1fr; column-gap:12mm; row-gap:1mm; margin:1.2mm 2mm 0; }
+  .word-row { min-height:7mm; display:flex; align-items:center; gap:2mm; }
+  .translation-list { margin:1mm 0 0 2mm; padding-left:6mm; }
+  .translation-list li { padding:1mm 0; }
+  .long-answer { height:8mm; border-bottom:1px solid #84918e; margin:0 2mm 1mm; }
+  .vowel-list { display:grid; grid-template-columns:1fr 1fr; gap:1mm 14mm; margin:1mm 2mm 0; }
+  .vowel-row { min-height:7.5mm; display:flex; align-items:center; }
+  .article-grid { display:grid; grid-template-columns:1fr 1fr; gap:1mm 14mm; margin:1mm 2mm 0; }
+  .article-row { min-height:7.5mm; }
+  .sentence-table { width:100%; border-collapse:collapse; margin:1.5mm 0 2mm; text-align:center; }
+  .sentence-table th,.sentence-table td { border:1px solid var(--rule); padding:1.4mm 2mm; }
+  .sentence-table th { background:#f2f5f4; color:#29463f; font-weight:700; }
+  .sentence-lines { display:grid; gap:1.5mm; margin:1mm 2mm 0; }
+  .sentence-line { height:7.5mm; border-bottom:1px solid #84918e; }
+  .myself-lines { display:grid; gap:1.5mm; margin:1.5mm 2mm 0; }
+  .myself-line { min-height:7mm; padding:1mm 0; }
+  .footer { position:absolute; left:14mm; right:14mm; bottom:6mm; display:flex; justify-content:space-between; align-items:center; padding-top:1.5mm; border-top:1px solid var(--rule); color:var(--muted); font-size:7.5pt; }
+  .footer-name { font-weight:650; letter-spacing:.15px; }
+  .continued { text-align:right; color:var(--muted); font-size:8pt; margin:0 0 2mm; }
+  @media print {
+    body { background:#fff; }
+    .page { margin:0; box-shadow:none; width:210mm; height:297mm; min-height:297mm; }
+  }
+</style>
+</head>
+<body>
+
+<main class="page">
+  <header>
+    <div class="masthead">
+      <h1 class="institution">Darul Hikmah Kids Academy</h1>
+      <div class="paper-label">Question Paper</div>
+      <div class="accent"></div>
+    </div>
+    <section class="details" aria-label="Question paper and student details">
+      <div class="grid">
+        <div class="field"><span class="label">Class</span><span class="value">1</span></div>
+        <div class="field"><span class="label">Subject</span><span class="value">English</span></div>
+        <div class="field"><span class="label">Full Marks</span><span class="value">50</span></div>
+        <div class="field"><span class="label">Time</span><span class="value">1 Hour 30 Minutes</span></div>
+      </div>
+      <div class="student-row">
+        <div class="field"><span class="label">Name</span><span class="write-line"></span></div>
+        <div class="field"><span class="label">Roll</span><span class="write-line"></span></div>
+      </div>
+    </section>
+  </header>
+
+  <section class="question-area">
+    <div class="q">
+      <div class="q-title">1. বাংলায় Consonant বা ব্যঞ্জন বর্ণের ইংরেজি উচ্চারণ লেখো। <span class="marks">(3)</span></div>
+      <div class="subitems">
+        <div class="subitem">ছ – <span class="answer"></span></div>
+        <div class="subitem">শ – <span class="answer"></span></div>
+        <div class="subitem">দ – <span class="answer"></span></div>
+      </div>
+    </div>
+
+    <div class="q">
+      <div class="q-title">2. ইংরেজিতে Consonant বা ব্যঞ্জন বর্ণের বাংলা উচ্চারণ লেখো। <span class="marks">(3)</span></div>
+      <div class="subitems">
+        <div class="subitem">kh – <span class="answer"></span></div>
+        <div class="subitem">g – <span class="answer"></span></div>
+        <div class="subitem">bh – <span class="answer"></span></div>
+      </div>
+    </div>
+
+    <div class="q">
+      <div class="q-title">3. Circle the correct English word. / নীচের সঠিক ইংরেজি শব্দটিতে গোল চিহ্ন দাও। <span class="marks">(4)</span></div>
+      <div class="word-grid">
+        <div class="word-row">a) কয়লা – <span class="options">(caol / cool / coal)</span></div>
+        <div class="word-row">b) বৃষ্টি – <span class="options">(rain / main / grain)</span></div>
+        <div class="word-row">c) লেজ – <span class="options">(nail / tail / bail)</span></div>
+        <div class="word-row">d) বাবা – <span class="options">(mother / brother / father)</span></div>
+      </div>
+    </div>
+
+    <div class="q">
+      <div class="q-title">4. Write the Bengali meaning of the following words. / নীচে দেওয়া শব্দগুলির বাংলা অর্থ লেখো। <span class="marks">(4)</span></div>
+      <div class="word-grid">
+        <div class="word-row">a) Soil – <span class="answer"></span></div>
+        <div class="word-row">b) Broom – <span class="answer"></span></div>
+        <div class="word-row">c) Seed – <span class="answer"></span></div>
+        <div class="word-row">d) Mouth – <span class="answer"></span></div>
+      </div>
+    </div>
+
+    <div class="q">
+      <div class="q-title">5. Write the English meaning of the following words. / নীচে দেওয়া শব্দগুলির ইংরেজি অর্থ লেখো। <span class="marks">(4)</span></div>
+      <div class="word-grid">
+        <div class="word-row">a) ছাত্রছাত্রী – <span class="answer"></span></div>
+        <div class="word-row">b) তাহারা – <span class="answer"></span></div>
+        <div class="word-row">c) পাখি – <span class="answer"></span></div>
+        <div class="word-row">d) চড়ুই – <span class="answer"></span></div>
+      </div>
+    </div>
+
+    <div class="q">
+      <div class="q-title">6. Write the opposite words. / বিপরীত শব্দ লেখো। <span class="marks">(4)</span></div>
+      <div class="word-grid">
+        <div class="word-row">a) Boy – <span class="answer"></span></div>
+        <div class="word-row">b) Big – <span class="answer"></span></div>
+        <div class="word-row">c) Tall – <span class="answer"></span></div>
+        <div class="word-row">d) White – <span class="answer"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span class="footer-name">Darul Hikmah Kids Academy</span>
+    <span>Page 1 of 2</span>
+  </footer>
+</main>
+
+<main class="page">
+  <div class="continued">Class 1 · English · Continued</div>
+  <section class="question-area">
+    <div class="q">
+      <div class="q-title">7. Fill in the blanks with vowel letters. <span class="marks">(4)</span></div>
+      <div class="vowel-list">
+        <div class="vowel-row">a) Fr [ &nbsp;&nbsp; ] it</div>
+        <div class="vowel-row">b) Th [ &nbsp;&nbsp; ] y</div>
+        <div class="vowel-row">c) st [ &nbsp;&nbsp; ] d [ &nbsp;&nbsp; ] nt</div>
+        <div class="vowel-row">d) G [ &nbsp;&nbsp; ] rl</div>
+      </div>
+    </div>
+
+    <div class="q">
+      <div class="q-title">8. Fill in the blanks with 'a', 'an' or 'the'. <span class="marks">(6)</span></div>
+      <div class="article-grid">
+        <div class="article-row">a) _____ boy</div>
+        <div class="article-row">b) _____ Earth</div>
+        <div class="article-row">c) _____ Orange</div>
+        <div class="article-row">d) _____ Umbrella</div>
+        <div class="article-row">e) _____ sun</div>
+        <div class="article-row">f) _____ cat</div>
+      </div>
+    </div>
+
+    <div class="q">
+      <div class="q-title">9. Translate into English using the words given below. / নীচের শব্দগুলির সাহায্যে ইংরেজিতে অনুবাদ করো। <span class="marks">(8)</span></div>
+      <div style="margin:1.5mm 2mm 2mm;padding:1.8mm 2.5mm;border:1px solid var(--rule);border-radius:1.5mm;">
+        <strong>Word Bank:</strong> bird · two · This · doll · hands · an · You · apple · have · That · a · I · is
+      </div>
+      <ol class="translation-list" type="a">
+        <li>আমার একটি পুতুল আছে।<div class="long-answer"></div></li>
+        <li>ইহা হয় একটি আপেল।<div class="long-answer"></div></li>
+        <li>ওই হয় একটি পাখি।<div class="long-answer"></div></li>
+        <li>তোমার দুটি হাত আছে।<div class="long-answer"></div></li>
+      </ol>
+    </div>
+
+    <div class="q">
+      <div class="q-title">10. Make sentences using words from the following table. / নীচের ছক থেকে শব্দ নিয়ে বাক্য লেখো। <span class="marks">(5)</span></div>
+      <table class="sentence-table">
+        <tbody>
+          <tr><td>I</td><td>is</td><td></td><td>girls</td></tr>
+          <tr><td>We</td><td>are</td><td>a</td><td>girl</td></tr>
+          <tr><td>She</td><td>am</td><td></td><td>students</td></tr>
+          <tr><td>They</td><td>are</td><td></td><td>boy</td></tr>
+          <tr><td>He</td><td>is</td><td></td><td>student</td></tr>
+        </tbody>
+      </table>
+      <div class="sentence-lines">
+        <div class="sentence-line"></div><div class="sentence-line"></div><div class="sentence-line"></div>
+        <div class="sentence-line"></div><div class="sentence-line"></div>
+      </div>
+    </div>
+
+    <div class="q">
+      <div class="q-title">11. Complete the following sentences about 'Myself'. / নিজের সম্পর্কে নীচের বাক্যগুলি সম্পূর্ণ করো। <span class="marks">(5)</span></div>
+      <div class="myself-lines">
+        <div class="myself-line">1. My name is __________________________________.</div>
+        <div class="myself-line">2. I am __________ years old.</div>
+        <div class="myself-line">3. I read in Class __________.</div>
+        <div class="myself-line">4. My school's name is __________________________.</div>
+        <div class="myself-line">5. I live in ____________________________________.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span class="footer-name">Darul Hikmah Kids Academy</span>
+    <span>Page 2 of 2</span>
+  </footer>
+</main>
+</body>
+</html>

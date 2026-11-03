@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Darul Hikmah Kids Academy | L.K.G. Mathematics Annual Examination</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;600;700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: A4 portrait;
+    margin: 8mm 10mm 10mm;
+  }
+  :root {
+    --ink: #172536;
+    --accent: #1e3d36;
+    --rule: #cbd3d0;
+    --muted: #4e5d62;
+    --border-card: #b2c2be;
+    --line-color: #2e443f;
+    --gold: #c7a66a;
+    --bg-soft: #fbfdfc;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #edf0ef;
+    color: var(--ink);
+    font-family: "Hind Siliguri", "Nunito", "Segoe UI", Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.4;
+  }
+  .page {
+    position: relative;
+    width: 210mm;
+    min-height: 297mm;
+    margin: 12px auto;
+    padding: 9mm 13mm 13mm;
+    background: #fff;
+    box-shadow: 0 4px 20px rgba(20,35,40,.12);
+    page-break-after: always;
+    display: flex;
+    flex-direction: column;
+  }
+  .page:last-of-type {
+    page-break-after: avoid;
+  }
+
+  /* Masthead (Darul Hikmah Standard) */
+  .masthead {
+    text-align: center;
+    padding-bottom: 2mm;
+    border-bottom: 1.8px solid var(--accent);
+  }
+  .institution {
+    margin: 0;
+    color: var(--accent);
+    font-family: "Nunito", "Hind Siliguri", sans-serif;
+    font-size: 19pt;
+    line-height: 1.15;
+    font-weight: 900;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+  .paper-label {
+    margin-top: 1.2mm;
+    color: var(--muted);
+    font-size: 8.8pt;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .accent {
+    width: 24mm;
+    height: 2px;
+    margin: 1.8mm auto 0;
+    background: var(--gold);
+  }
+
+  /* Details Box */
+  .details {
+    margin-top: 2.5mm;
+    padding: 2.5mm 4mm;
+    border: 1px solid var(--rule);
+    border-radius: 2mm;
+    background: #fafcfb;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 5mm;
+  }
+  .field {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5mm;
+    white-space: nowrap;
+  }
+  .label {
+    color: var(--muted);
+    font-size: 8.8pt;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+  .val {
+    font-size: 9.8pt;
+    font-weight: 800;
+    color: var(--ink);
+  }
+  .write-line {
+    flex: 1;
+    min-width: 15mm;
+    height: 1.1em;
+    border-bottom: 1.2px solid var(--line-color);
+  }
+  .student-row {
+    display: grid;
+    grid-template-columns: 2.2fr 1fr 1.2fr;
+    gap: 6mm;
+    margin-top: 2mm;
+    padding-top: 1.8mm;
+    border-top: 1px dashed var(--rule);
+  }
+
+  /* Running Header for Page 2 */
+  .running-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 2mm;
+    border-bottom: 1.5px solid var(--accent);
+    margin-bottom: 3.5mm;
+    font-size: 8.8pt;
+    font-weight: 700;
+    color: var(--muted);
+  }
+  .running-header .inst-title {
+    color: var(--accent);
+    font-size: 10.5pt;
+    font-weight: 800;
+    font-family: "Nunito", "Hind Siliguri", sans-serif;
+    text-transform: uppercase;
+  }
+
+  /* Question Area & Cards */
+  .question-area {
+    padding-top: 2.8mm;
+    display: flex;
+    flex-direction: column;
+    gap: 3.2mm;
+    flex: 1;
+  }
+  .q-card {
+    border: 1.2px solid var(--border-card);
+    border-radius: 2mm;
+    padding: 3mm 4mm;
+    background: #fff;
+  }
+  .q-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-weight: 800;
+    font-size: 10.2pt;
+    color: var(--accent);
+    margin-bottom: 2.2mm;
+    border-bottom: 1px solid #edf1f0;
+    padding-bottom: 1mm;
+  }
+  .marks {
+    font-size: 8.8pt;
+    color: #3b5b52;
+    font-weight: 700;
+  }
+
+  .grid-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5mm;
+  }
+
+  /* Kindergarten Tables & Cells */
+  table.math-grid {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    margin-top: 1mm;
+  }
+  table.math-grid td {
+    border: 1.5px solid #2e443f;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: 800;
+    color: var(--ink);
+  }
+
+  /* Q1 Missing numbers */
+  .missing td {
+    height: 12.5mm;
+    font-size: 16pt;
+    background: #fff;
+  }
+  .missing td.given {
+    background: #f4f8f6;
+  }
+
+  /* Q2 & Q3 Between numbers */
+  .between-table td {
+    height: 12.5mm;
+    font-size: 15pt;
+  }
+  .between-table td.given {
+    background: #f4f8f6;
+    width: 34%;
+  }
+  .between-table td.blank {
+    background: #fff;
+    width: 32%;
+  }
+
+  /* Q4 & Q5 Before & After */
+  .prev-next td {
+    height: 12.5mm;
+    font-size: 15pt;
+  }
+  .prev-next td.given {
+    background: #f4f8f6;
+    width: 50%;
+  }
+  .prev-next td.blank {
+    background: #fff;
+    width: 50%;
+  }
+
+  /* Q6 1-20 Number Writing Grid */
+  .num-grid-20 td {
+    height: 14mm;
+    font-size: 15pt;
+    font-family: "Nunito", sans-serif;
+  }
+  .num-grid-20 td.given {
+    background: #f0f6f3;
+    font-weight: 900;
+    color: var(--accent);
+  }
+
+  /* Q7 Counting Illustrations */
+  .counting-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4mm;
+    margin-top: 1.5mm;
+  }
+  .counting-card {
+    border: 1.3px solid var(--border-card);
+    border-radius: 2mm;
+    padding: 3mm 2mm;
+    background: #fafcfb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .objects-cluster {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px 12px;
+    min-height: 38mm;
+    padding: 2mm;
+  }
+  .count-box-wrap {
+    width: 88%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3mm;
+    padding-top: 2.5mm;
+    border-top: 1px dashed #cbd8d4;
+    font-size: 11pt;
+    font-weight: 700;
+  }
+  .count-input-box {
+    width: 14mm;
+    height: 10mm;
+    border: 1.8px solid var(--accent);
+    border-radius: 1.5mm;
+    background: #fff;
+  }
+
+  /* Q8 Bigger and Smaller Numbers */
+  .choice-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4mm;
+    margin-top: 1.5mm;
+  }
+  .oval-card {
+    border: 1.4px solid #7c9890;
+    border-radius: 40px;
+    min-height: 19mm;
+    background: #fbfdfc;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 4mm;
+    font-size: 20pt;
+    font-weight: 800;
+  }
+  .oval-card span {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 50%;
+  }
+
+  /* Footer */
+  .footer {
+    position: absolute;
+    left: 13mm;
+    right: 13mm;
+    bottom: 4.5mm;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.5mm;
+    border-top: 1px solid var(--rule);
+    color: var(--muted);
+    font-size: 8pt;
+  }
+  .footer-name {
+    font-weight: 700;
+    letter-spacing: .2px;
+  }
+
+  @media print {
+    body { background: #fff; }
+    .page {
+      margin: 0;
+      box-shadow: none;
+      width: 100%;
+      min-height: 275mm;
+      padding: 8mm 12mm 12mm;
+    }
+    .no-print { display: none !important; }
+  }
+
+  .print-btn-bar {
+    text-align: center;
+    padding: 10px;
+    background: #1e3d36;
+    margin-bottom: 10px;
+  }
+  .print-btn {
+    background: #c7a66a;
+    color: #172536;
+    font-family: "Nunito", sans-serif;
+    font-weight: 800;
+    border: none;
+    padding: 9px 24px;
+    font-size: 11pt;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  }
+  .print-btn:hover {
+    background: #ddbe84;
+  }
+</style>
+</head>
+<body>
+
+<div class="print-btn-bar no-print">
+  <button class="print-btn" onclick="window.print()">🖨️ Print / Save as PDF (2 Pages - Front &amp; Back)</button>
+</div>
+
+<!-- ==================== PAGE 1 ==================== -->
+<main class="page">
+  <header>
+    <div class="masthead">
+      <h1 class="institution">Darul Hikmah Kids Academy</h1>
+      <div class="paper-label">বার্ষিক মূল্যায়ন পরীক্ষা | শিক্ষাবর্ষ: ২০২৬–২০২৭</div>
+      <div class="accent"></div>
+    </div>
+    
+    <section class="details" aria-label="Question paper and student details">
+      <div class="grid">
+        <div class="field"><span class="label">শ্রেণী:</span> <span class="val">L.K.G.</span></div>
+        <div class="field"><span class="label">বিষয়:</span> <span class="val">Mathematics</span></div>
+        <div class="field"><span class="label">পূর্ণমান:</span> <span class="val">৪৫</span></div>
+        <div class="field"><span class="label">সময়:</span> <span class="val">১ ঘণ্টা ৩০ মিনিট</span></div>
+      </div>
+      <div class="student-row">
+        <div class="field"><span class="label">নাম:</span> <span class="write-line"></span></div>
+        <div class="field"><span class="label">রোল নং:</span> <span class="write-line"></span></div>
+        <div class="field"><span class="label">তারিখ:</span> <span class="write-line"></span></div>
+      </div>
+    </section>
+  </header>
+
+  <section class="question-area">
+    <!-- Q1 Missing Numbers (9 Blanks = 9 Marks) -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>১. সঠিক সংখ্যা বসিয়ে ফাঁকা ঘর পূরণ করো (Fill in the missing numbers):</span>
+        <span class="marks">(৯ &times; ১ = ৯)</span>
+      </div>
+      <table class="math-grid missing" aria-label="Fill in missing numbers">
+        <tr>
+          <td class="given">২</td>
+          <td></td>
+          <td class="given">৪</td>
+          <td></td>
+          <td class="given">৬</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="given">৮</td>
+          <td></td>
+          <td class="given">১০</td>
+          <td></td>
+          <td class="given">১২</td>
+        </tr>
+        <tr>
+          <td class="given">১৪</td>
+          <td></td>
+          <td class="given">১৬</td>
+          <td></td>
+          <td class="given">১৮</td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Row: Q2 Bengali Between & Q3 English Between -->
+    <div class="grid-2col">
+      <!-- Q2 Between Numbers (Bengali) -->
+      <div class="q-card">
+        <div class="q-header">
+          <span>২. মাঝের সংখ্যা লেখো:</span>
+          <span class="marks">(৩ &times; ১ = ৩)</span>
+        </div>
+        <table class="math-grid between-table">
+          <tr>
+            <td class="given">৬</td>
+            <td class="blank"></td>
+            <td class="given">৮</td>
+          </tr>
+          <tr>
+            <td class="given">৮</td>
+            <td class="blank"></td>
+            <td class="given">১০</td>
+          </tr>
+          <tr>
+            <td class="given">১২</td>
+            <td class="blank"></td>
+            <td class="given">১৪</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Q3 Between Numbers (English) -->
+      <div class="q-card">
+        <div class="q-header">
+          <span>3. Write between numbers:</span>
+          <span class="marks">(3 &times; 1 = 3)</span>
+        </div>
+        <table class="math-grid between-table" style="font-family:'Nunito', sans-serif;">
+          <tr>
+            <td class="given">7</td>
+            <td class="blank"></td>
+            <td class="given">9</td>
+          </tr>
+          <tr>
+            <td class="given">12</td>
+            <td class="blank"></td>
+            <td class="given">14</td>
+          </tr>
+          <tr>
+            <td class="given">15</td>
+            <td class="blank"></td>
+            <td class="given">17</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Row: Q4 Previous Number & Q5 Next Number -->
+    <div class="grid-2col">
+      <!-- Q4 Previous Number -->
+      <div class="q-card">
+        <div class="q-header">
+          <span>৪. আগের সংখ্যা লেখো:</span>
+          <span class="marks">(৩ &times; ১ = ৩)</span>
+        </div>
+        <table class="math-grid prev-next">
+          <tr>
+            <td class="blank"></td>
+            <td class="given">২</td>
+          </tr>
+          <tr>
+            <td class="blank"></td>
+            <td class="given">৬</td>
+          </tr>
+          <tr>
+            <td class="blank"></td>
+            <td class="given">৮</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Q5 Next Number -->
+      <div class="q-card">
+        <div class="q-header">
+          <span>৫. পরের সংখ্যা লেখো:</span>
+          <span class="marks">(৩ &times; ১ = ৩)</span>
+        </div>
+        <table class="math-grid prev-next">
+          <tr>
+            <td class="given">৬</td>
+            <td class="blank"></td>
+          </tr>
+          <tr>
+            <td class="given">১৭</td>
+            <td class="blank"></td>
+          </tr>
+          <tr>
+            <td class="given">২২</td>
+            <td class="blank"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span class="footer-name">Darul Hikmah Kids Academy</span>
+    <span>শ্রেণী: L.K.G. &bull; বিষয়: Mathematics &bull; বার্ষিক পরীক্ষা</span>
+    <span>পৃষ্ঠা ১ / ২</span>
+  </footer>
+</main>
+
+
+<!-- ==================== PAGE 2 ==================== -->
+<main class="page">
+  <div class="running-header">
+    <span class="inst-title">Darul Hikmah Kids Academy</span>
+    <span>Class: L.K.G. &bull; Subject: Mathematics</span>
+    <span>পৃষ্ঠা ২ / ২</span>
+  </div>
+
+  <section class="question-area">
+    <!-- Q6 Numbers 1 to 20 writing grid (12 Blanks = 12 Marks) -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>6. Write the numbers from 1 to 20 in the boxes:</span>
+        <span class="marks">(12 &times; 1 = 12)</span>
+      </div>
+      <table class="math-grid num-grid-20">
+        <tr>
+          <td class="given">1</td>
+          <td></td>
+          <td></td>
+          <td class="given">4</td>
+          <td></td>
+          <td></td>
+          <td class="given">7</td>
+          <td></td>
+          <td></td>
+          <td class="given">10</td>
+        </tr>
+        <tr>
+          <td class="given">11</td>
+          <td></td>
+          <td></td>
+          <td class="given">14</td>
+          <td></td>
+          <td></td>
+          <td class="given">17</td>
+          <td></td>
+          <td></td>
+          <td class="given">20</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Q7 Count and write with distinct counts (5 Eggs vs 9 Fish) -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>৭. ছবিগুলি গুনে বাক্সে সঠিক সংখ্যা লেখো (Count and write):</span>
+        <span class="marks">(২ &times; ৩ = ৬)</span>
+      </div>
+      <div class="counting-container">
+        <!-- Eggs Group (5 Eggs) -->
+        <div class="counting-card">
+          <div class="objects-cluster" aria-label="5 Eggs">
+            <svg viewBox="0 0 40 50" width="36" height="44"><ellipse cx="20" cy="27" rx="15" ry="20" fill="#fff" stroke="#172536" stroke-width="2.2" /><path d="M14 18 C12 25 12 32 15 37" fill="none" stroke="#d5dfdc" stroke-width="1.5" stroke-linecap="round" /></svg>
+            <svg viewBox="0 0 40 50" width="36" height="44"><ellipse cx="20" cy="27" rx="15" ry="20" fill="#fff" stroke="#172536" stroke-width="2.2" /><path d="M14 18 C12 25 12 32 15 37" fill="none" stroke="#d5dfdc" stroke-width="1.5" stroke-linecap="round" /></svg>
+            <svg viewBox="0 0 40 50" width="36" height="44"><ellipse cx="20" cy="27" rx="15" ry="20" fill="#fff" stroke="#172536" stroke-width="2.2" /><path d="M14 18 C12 25 12 32 15 37" fill="none" stroke="#d5dfdc" stroke-width="1.5" stroke-linecap="round" /></svg>
+            <svg viewBox="0 0 40 50" width="36" height="44"><ellipse cx="20" cy="27" rx="15" ry="20" fill="#fff" stroke="#172536" stroke-width="2.2" /><path d="M14 18 C12 25 12 32 15 37" fill="none" stroke="#d5dfdc" stroke-width="1.5" stroke-linecap="round" /></svg>
+            <svg viewBox="0 0 40 50" width="36" height="44"><ellipse cx="20" cy="27" rx="15" ry="20" fill="#fff" stroke="#172536" stroke-width="2.2" /><path d="M14 18 C12 25 12 32 15 37" fill="none" stroke="#d5dfdc" stroke-width="1.5" stroke-linecap="round" /></svg>
+          </div>
+          <div class="count-box-wrap">
+            <span>মোট ডিম =</span>
+            <div class="count-input-box"></div>
+          </div>
+        </div>
+
+        <!-- Fish Group (9 Fish) -->
+        <div class="counting-card">
+          <div class="objects-cluster" aria-label="9 Fish">
+            <svg viewBox="0 0 60 40" width="46" height="30"><path d="M42 20 C36 8 18 6 6 16 C1 20 1 20 6 24 C18 34 36 32 42 20 Z" fill="#fff" stroke="#172536" stroke-width="2" /><path d="M41 20 L54 10 C52 16 52 24 54 30 Z" fill="#f0f5f3" stroke="#172536" stroke-width="1.8" stroke-linejoin="round" /><path d="M20 9 C25 4 31 5 33 11" fill="#f0f5f3" stroke="#172536" stroke-width="1.6" /><circle cx="12" cy="17" r="2.4" fill="#172536" /><circle cx="11.2" cy="16.2" r="0.8" fill="#fff" /><path d="M5 21 C7 23 9 22 10 21" fill="none" stroke="#172536" stroke-width="1.4" stroke-linecap="round" /><path d="M24 21 C27 20 29 23 25 26 Z" fill="#f0f5f3" stroke="#172536" stroke-width="1.5" /></svg>
+            <svg viewBox="0 0 60 40" width="46" height="30"><path d="M42 20 C36 8 18 6 6 16 C1 20 1 20 6 24 C18 34 36 32 42 20 Z" fill="#fff" stroke="#172536" stroke-width="2" /><path d="M41 20 L54 10 C52 16 52 24 54 30 Z" fill="#f0f5f3" stroke="#172536" stroke-width="1.8" stroke-linejoin="round" /><path d="M20 9 C25 4 31 5 33 11" fill="#f0f5f3" stroke="#172536" stroke-width="1.6" /><circle cx="12" cy="17" r="2.4" fill="#172536" /><circle cx="11.2" cy="16.2" r="0.8" fill="#fff" /><path d="M5 21 C7 23 9 22 10 21" fill="none" stroke="#172536" stroke-width="1.4" stroke-linecap="round" /><path d="M24 21 C27 20 29 23 25 26 Z" fill="#f0f5f3" stroke="#172536" stroke-width="1.5" /></svg>
+            <svg viewBox="0 0 60 40" width="46" height="30"><path d="M42 20 C36 8 18 6 6 16 C1 20 1 20 6 24 C18 34 36 32 42 20 Z" fill="#fff" stroke="#172536" stroke-width="2" /><path d="M41 20 L54 10 C52 16 52 24 54 30 Z" fill="#f0f5f3" stroke="#172536" stroke-width="1.8" stroke-linejoin="round" /><path d="M20 9 C25 4 31 5 33 11" fill="#f0f5f3" stroke="#172536" stroke-width="1.6" /><circle cx="12" cy="17" r="2.4" fill="#172536" /><circle cx="11.2" cy="16.2" r="0.8" fill="#fff" /><path d="M5 21 C7 23 9 22 10 21" fill="none" stroke="#172536" stroke-width="1.4" stroke-linecap="round" /><path d="M24 21 C27 20 29 23 25 26 Z" fill="#f0f5f3" stroke="#172536" stroke-width="1.5" /></svg>
+            <svg viewBox="0 0 60 40" width="46" height="30"><path d="M42 20 C36 8 18 6 6 16 C1 20 1 20 6 24 C18 34 36 32 42 20 Z" fill="#fff" stroke="#172536" stroke-width="2" /><path d="M41 20 L54 10 C52 16 52 24 54 30 Z" fill="#f0f5f3" stroke="#172536" stroke-width="1.8" stroke-linejoin="round" /><path d="M20 9 C25 4 31 5 33 11" fill="#f0f5f3" stroke="#172536" stroke-width="1.6" /><circle cx="12" cy="17" r="2.4" fill="#172536" /><circle cx="11.2" cy="16.2" r="0.8" fill="#fff" /><path d="M5 21 C7 23 9 22 10 21" fill="none" stroke="#172536" stroke-width="1.4" stroke-linecap="round" /><path d="M24 21 C27 20 29 23 25 26 Z" fill="#f0f5f3" stroke="#172536" stroke-width="1.5" /></svg>
+            <svg viewBox="0 0 60 40" width="46" height="30"><path d="M42 20 C36 8 18 6 6 16 C1 20 1 20 6 24 C18 34 36 32 42 20 Z" fill="#fff" stroke="#172536" stroke-width="2" /><path d="M41 20 L54 10 C52 16 52 24 54 30 Z" fill="#f0f5f3" stroke="#172536" stroke-width="1.8" stroke-linejoin="round" /><path d="M20 9 C25 4 31 5 33 11" fill="#f0f5f3" stroke="#172536" stroke-width="1.6" /><circle cx="12" cy="17" r="2.4" fill="#172536" /><circle cx="11.2" cy="16.2" r="0.8" fill="#fff" /><path d="M5 21 C7 23 9 22 10 21" fill="none" stroke="#172536" stroke-width="1.4" stroke-linecap="round" /><path d="M24 21 C27 20 29 23 25 26 Z" fill="#f0f5f3" stroke="#172536" stroke-width="1.5" /></svg>
+            <svg viewBox="0 0 60 40" width="46" height="30"><path d="M42 20 C36 8 18 6 6 16 C1 20 1 20 6 24 C18 34 36 32 42 20 Z" fill="#fff" stroke="#172536" stroke-width="2" /><path d="M41 20 L54 10 C52 16 52 24 54 30 Z" fill="#f0f5f3" stroke="#172536" stroke-width="1.8" stroke-linejoin="round" /><path d="M20 9 C25 4 31 5 33 11" fill="#f0f5f3" stroke="#172536" stroke-width="1.6" /><circle cx="12" cy="17" r="2.4" fill="#172536" /><circle cx="11.2" cy="16.2" r="0.8" fill="#fff" /><path d="M5 21 C7 23 9 22 10 21" fill="none" stroke="#172536" stroke-width="1.4" stroke-linecap="round" /><path d="M24 21 C27 20 29 23 25 26 Z" fill="#f0f5f3" stroke="#172536" stroke-width="1.5" /></svg>
+            <svg viewBox="0 0 60 40" width="46" height="30"><path d="M42 20 C36 8 18 6 6 16 C1 20 1 20 6 24 C18 34 36 32 42 20 Z" fill="#fff" stroke="#172536" stroke-width="2" /><path d="M41 20 L54 10 C52 16 52 24 54 30 Z" fill="#f0f5f3" stroke="#172536" stroke-width="1.8" stroke-linejoin="round" /><path d="M20 9 C25 4 31 5 33 11" fill="#f0f5f3" stroke="#172536" stroke-width="1.6" /><circle cx="12" cy="17" r="2.4" fill="#172536" /><circle cx="11.2" cy="16.2" r="0.8" fill="#fff" /><path d="M5 21 C7 23 9 22 10 21" fill="none" stroke="#172536" stroke-width="1.4" stroke-linecap="round" /><path d="M24 21 C27 20 29 23 25 26 Z" fill="#f0f5f3" stroke="#172536" stroke-width="1.5" /></svg>
+            <svg viewBox="0 0 60 40" width="46" height="30"><path d="M42 20 C36 8 18 6 6 16 C1 20 1 20 6 24 C18 34 36 32 42 20 Z" fill="#fff" stroke="#172536" stroke-width="2" /><path d="M41 20 L54 10 C52 16 52 24 54 30 Z" fill="#f0f5f3" stroke="#172536" stroke-width="1.8" stroke-linejoin="round" /><path d="M20 9 C25 4 31 5 33 11" fill="#f0f5f3" stroke="#172536" stroke-width="1.6" /><circle cx="12" cy="17" r="2.4" fill="#172536" /><circle cx="11.2" cy="16.2" r="0.8" fill="#fff" /><path d="M5 21 C7 23 9 22 10 21" fill="none" stroke="#172536" stroke-width="1.4" stroke-linecap="round" /><path d="M24 21 C27 20 29 23 25 26 Z" fill="#f0f5f3" stroke="#172536" stroke-width="1.5" /></svg>
+            <svg viewBox="0 0 60 40" width="46" height="30"><path d="M42 20 C36 8 18 6 6 16 C1 20 1 20 6 24 C18 34 36 32 42 20 Z" fill="#fff" stroke="#172536" stroke-width="2" /><path d="M41 20 L54 10 C52 16 52 24 54 30 Z" fill="#f0f5f3" stroke="#172536" stroke-width="1.8" stroke-linejoin="round" /><path d="M20 9 C25 4 31 5 33 11" fill="#f0f5f3" stroke="#172536" stroke-width="1.6" /><circle cx="12" cy="17" r="2.4" fill="#172536" /><circle cx="11.2" cy="16.2" r="0.8" fill="#fff" /><path d="M5 21 C7 23 9 22 10 21" fill="none" stroke="#172536" stroke-width="1.4" stroke-linecap="round" /><path d="M24 21 C27 20 29 23 25 26 Z" fill="#f0f5f3" stroke="#172536" stroke-width="1.5" /></svg>
+          </div>
+          <div class="count-box-wrap">
+            <span>মোট মাছ =</span>
+            <div class="count-input-box"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q8 Circle bigger number & Box smaller number -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>৮. নির্দেশ মতো চিহ্ন দাও (Tick / Mark as directed):</span>
+        <span class="marks">(৬ &times; ১ = ৬)</span>
+      </div>
+      <div style="font-size:9.5pt; font-weight:700; color:var(--accent); margin-bottom:1.5mm;">
+        (ক) বড় সংখ্যাটিতে গোল (○) দাগ দাও: <span class="marks" style="float:right;">(৩ &times; ১ = ৩)</span>
+      </div>
+      <div class="choice-row">
+        <div class="oval-card"><span>৮</span><span>৫</span></div>
+        <div class="oval-card"><span>৯</span><span>৮</span></div>
+        <div class="oval-card"><span>১</span><span>২</span></div>
+      </div>
+
+      <div style="font-size:9.5pt; font-weight:700; color:var(--accent); margin-top:2.8mm; margin-bottom:1.5mm;">
+        (খ) ছোট সংখ্যাটিতে চারকোনা (□) দাগ দাও: <span class="marks" style="float:right;">(৩ &times; ১ = ৩)</span>
+      </div>
+      <div class="choice-row">
+        <div class="oval-card"><span>২</span><span>১</span></div>
+        <div class="oval-card"><span>৬</span><span>৩</span></div>
+        <div class="oval-card"><span>৯</span><span>৮</span></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span class="footer-name">Darul Hikmah Kids Academy</span>
+    <span>শ্রেণী: L.K.G. &bull; বিষয়: Mathematics &bull; বার্ষিক পরীক্ষা</span>
+    <span>পৃষ্ঠা ২ / ২</span>
+  </footer>
+</main>
+
+</body>
+</html>

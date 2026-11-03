@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Darul Hikmah Kids Academy | বাংলা | শ্রেণী প্রথম</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 11mm 14mm 13mm
+        }
+
+        :root {
+            --ink: #172536;
+            --accent: #315b53;
+            --rule: #cbd3d0;
+            --muted: #58666b
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0
+        }
+
+        body {
+            color: var(--ink);
+            background: #edf0ef;
+            font-family: "Noto Sans Bengali", "Nirmala UI", "Segoe UI", Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.42
+        }
+
+        .page {
+            position: relative;
+            width: 210mm;
+            height: 297mm;
+            margin: 12px auto;
+            padding: 11mm 14mm 15mm;
+            background: #fff;
+            box-shadow: 0 3px 18px rgba(20, 35, 40, .10);
+            page-break-after: always;
+            overflow: hidden
+        }
+
+        .masthead {
+            text-align: center;
+            padding: 0 2mm 2.5mm;
+            border-bottom: 1.6px solid var(--accent)
+        }
+
+        .institution {
+            margin: 0;
+            color: var(--ink);
+            font-size: 19pt;
+            line-height: 1.15;
+            font-weight: 750
+        }
+
+        .paper-label {
+            margin-top: 1mm;
+            color: var(--muted);
+            font-size: 7.5pt;
+            font-weight: 650;
+            letter-spacing: 1.7px;
+            text-transform: uppercase
+        }
+
+        .accent {
+            width: 18mm;
+            height: 1.5px;
+            margin: 1.8mm auto 0;
+            background: #c7a66a
+        }
+
+        .details {
+            margin-top: 3mm;
+            padding: 2.8mm 4mm 2.5mm;
+            border: 1px solid var(--rule);
+            border-radius: 1.5mm
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 10mm;
+            row-gap: 2mm
+        }
+
+        .field {
+            display: flex;
+            align-items: baseline;
+            gap: 2mm;
+            min-height: 5.5mm;
+            white-space: nowrap
+        }
+
+        .label {
+            color: var(--muted);
+            font-size: 9.5pt;
+            font-weight: 650
+        }
+
+        .value {
+            font-weight: 700
+        }
+
+        .student-row {
+            display: grid;
+            grid-template-columns: 1.55fr 1fr;
+            gap: 10mm;
+            margin-top: 2.2mm;
+            padding-top: 2mm;
+            border-top: 1px solid var(--rule)
+        }
+
+        .question-area {
+            padding-top: 4mm
+        }
+
+        .q {
+            margin: 0 0 4.5mm;
+            break-inside: avoid
+        }
+
+        .qtitle {
+            font-weight: 700;
+            color: #183f39;
+            margin-bottom: 1.5mm;
+            line-height: 1.45
+        }
+
+        .marks {
+            float: right;
+            color: var(--muted);
+            font-size: 9pt;
+            font-weight: 650;
+            margin-left: 3mm;
+            white-space: nowrap
+        }
+
+        .sub {
+            margin: 1.5mm 0 0 3mm
+        }
+
+        .items {
+            margin: 1mm 0 0;
+            padding-left: 7mm
+        }
+
+        .items li {
+            padding: 1mm 0
+        }
+
+        .blank {
+            display: inline-block;
+            min-width: 35mm;
+            border-bottom: 1px solid #64736f;
+            height: 1.15em;
+            vertical-align: baseline
+        }
+
+        .wideblank {
+            display: block;
+            height: 8mm;
+            border-bottom: 1px solid #9aa6a0;
+            margin: 1mm 0 0 7mm
+        }
+
+        .choices {
+            line-height: 1.8
+        }
+
+        .choice {
+            white-space: nowrap
+        }
+
+        .identity {
+            display: grid;
+            gap: 4mm;
+            margin: 2mm 0 0 3mm
+        }
+
+        .identity-row {
+            display: flex;
+            align-items: baseline;
+            gap: 3mm
+        }
+
+        .identity-row .blank {
+            flex: 1
+        }
+
+        .footer {
+            position: absolute;
+            left: 14mm;
+            right: 14mm;
+            bottom: 6mm;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.5mm;
+            border-top: 1px solid var(--rule);
+            color: var(--muted);
+            font-size: 7.5pt
+        }
+
+        .footer-name {
+            font-weight: 650;
+            letter-spacing: .15px
+        }
+
+        .continued {
+            font-size: 8pt;
+            color: var(--muted);
+            text-align: right;
+            margin-bottom: 2mm
+        }
+
+        @media screen {
+            .page {
+                min-height: 297mm
+            }
+        }
+
+        @media print {
+            body {
+                background: #fff
+            }
+
+            .page {
+                margin: 0;
+                box-shadow: none;
+                width: 210mm;
+                height: 297mm;
+                min-height: 297mm
+            }
+
+            .page:last-child {
+                page-break-after: auto
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="page">
+        <header>
+            <div class="masthead">
+                <h1 class="institution">Darul Hikmah Kids Academy</h1>
+                <div class="paper-label">Question Paper</div>
+                <div class="accent"></div>
+            </div>
+            <section class="details" aria-label="Question paper and student details">
+                <div class="grid">
+                    <div class="field"><span class="label">শ্রেণী</span><span class="value">প্রথম</span></div>
+                    <div class="field"><span class="label">বিষয়</span><span class="value">বাংলা</span></div>
+                    <div class="field"><span class="label">পূর্ণমান</span><span class="value">৫৫</span></div>
+                    <div class="field"><span class="label">সময়</span><span class="value">৬০ মিনিট</span></div>
+                </div>
+                <div class="student-row">
+                    <div class="field"><span class="label">নাম</span><span class="write-line"></span></div>
+                    <div class="field"><span class="label">রোল নং</span><span class="write-line"></span></div>
+                </div>
+            </section>
+        </header>
+        <section class="question-area">
+            <div class="q">
+                <div class="qtitle">১. এক কথায় উত্তর দাও (যে কোনো ৫টি): <span class="marks">(১ × ৫ = ৫)</span></div>
+                <ol class="items" type="i">
+                    <li>শরৎকালে কি কি ফুল ফোটে? <span class="blank"></span></li>
+                    <li>বেনী বৈরাগী এখন কোথায় থাকে? <span class="blank"></span></li>
+                    <li>কে হাতি চড়ে আসে? <span class="blank"></span></li>
+                    <li>দুই হাত তুলে কাকা কি বলে? <span class="blank"></span></li>
+                    <li>বানর কাকে দেখে ভয় পেল? <span class="blank"></span></li>
+                    <li>কোন মাঠে খেলা হবে? <span class="blank"></span></li>
+                    <li>শৈবাল কি চড়ে আসে? <span class="blank"></span></li>
+                </ol>
+            </div>
+            <div class="q">
+                <div class="qtitle">২. মিল আছে এমন শব্দ লেখ: <span class="marks">(১ × ৫ = ৫)</span></div>
+                <ol class="items">
+                    <li>চাঁদ — <span class="blank"></span></li>
+                    <li>কাঁদা — <span class="blank"></span></li>
+                    <li>পাখ — <span class="blank"></span></li>
+                    <li>ফুল — <span class="blank"></span></li>
+                    <li>কাকা — <span class="blank"></span></li>
+                </ol>
+            </div>
+            <div class="q">
+                <div class="qtitle">৩. নীচের বর্ণগুলি সঠিকভাবে সাজিয়ে লেখ: <span class="marks">(১ × ৫ = ৫)</span></div>
+                <ol class="items">
+                    <li>শো অ ক — <span class="blank"></span></li>
+                    <li>ছা কা ছি কা — <span class="blank"></span></li>
+                    <li>ট ব ফু ল — <span class="blank"></span></li>
+                    <li>লা স কৈ — <span class="blank"></span></li>
+                    <li>শা লে ব রি — <span class="blank"></span></li>
+                </ol>
+            </div>
+            <div class="q">
+                <div class="qtitle">৪. শূন্যস্থান পূরণ কর: <span class="marks">(২ × ৫ = ১০)</span></div>
+                <ol class="items" type="i">
+                    <li>গাছ থেকে <span class="blank"></span> মোয়া <span class="blank"></span> পেড়ে নেন।</li>
+                    <li>ওই, যে আসে <span class="blank"></span> চড়ে <span class="blank"></span> বেয়ে।</li>
+                    <li>ওর <span class="blank"></span> খুব মোটা <span class="blank"></span> ফোলা।</li>
+                    <li>বাঁশ গাছ থেকে লাফ দিয়ে <span class="blank"></span> গেল <span class="blank"></span> গাছে।</li>
+                    <li>সকালবেলায় <span class="blank"></span> আগায় <span class="blank"></span> রেখা ধরে।</li>
+                </ol>
+            </div>
+        </section>
+        <footer class="footer"><span class="footer-name">Darul Hikmah Kids Academy</span><span>Page 1</span></footer>
+    </main>
+
+    <main class="page">
+        <div class="continued">বাংলা • শ্রেণী প্রথম</div>
+        <section class="question-area">
+            <div class="q">
+                <div class="qtitle">৫. বিপরীত শব্দ লেখ: <span class="marks">(১ × ৫ = ৫)</span></div>
+                <ol class="items">
+                    <li>শুরু — <span class="blank"></span></li>
+                    <li>সময় — <span class="blank"></span></li>
+                    <li>মেয়ে — <span class="blank"></span></li>
+                    <li>নতুন — <span class="blank"></span></li>
+                    <li>যাওয়া — <span class="blank"></span></li>
+                </ol>
+            </div>
+            <div class="q">
+                <div class="qtitle">৬. সঠিক অর্থটিতে (✓) চিহ্ন বসাও: <span class="marks">(১ × ৫ = ৫)</span></div>
+                <ol class="items" type="i">
+                    <li>নগর — দেশ [ ] / গ্রাম [ ] / বড়ো শহর [ ]</li>
+                    <li>ধোবা — জেলে [ ] / রজক [ ] / মুচি [ ]</li>
+                    <li>বৈরাগী — সংসারী [ ] / সন্ন্যাসী [ ] / অন্যাসী [ ]</li>
+                    <li>বরষণ — বৃষ্টি [ ] / বজ্র [ ] / বিদ্যুৎ [ ]</li>
+                    <li>গগন — আকাশ [ ] / বাতাস [ ] / মেঘ [ ]</li>
+                </ol>
+            </div>
+            <div class="q">
+                <div class="qtitle">৭. সঠিক হলে (✓) ও ভুল হলে (×) চিহ্ন দাও: <span class="marks">(১ × ৫ = ৫)</span>
+                </div>
+                <ol class="items" type="i">
+                    <li>বেনী বৈরাগী এখন চ্যাঁকাদায় থাকে। [ ]</li>
+                    <li>দুই হাত তুলে খাওয়া খাওয়া বলে মামা। [ ]</li>
+                    <li>ঘুম ভেঙে চেয়ে দেখি বিছানায় আছি। [ ]</li>
+                    <li>আকাশে ঝাঁকে ঝাঁকে পাখি উড়ে গেল। [ ]</li>
+                    <li>কাঁচ গাছে পেঁচা ডাকে। [ ]</li>
+                </ol>
+            </div>
+            <div class="q">
+                <div class="qtitle">৮. নীচের শব্দগুলিতে র-ফলা বা ম -ফলা বসাও: <span class="marks">(১ × ৫ =
+                        ৫)</span></div>
+                <ol class="items" type="i">
+                    <li>বিপযয় — <span class="blank"></span></li>
+                    <li>ছদবেশ — <span class="blank"></span></li>
+                    <li>পদ — <span class="blank"></span></li>
+                    <li>সরণ — <span class="blank"></span></li>
+                    <li>ককশ — <span class="blank"></span></li>
+                </ol>
+            </div>
+        </section>
+        <footer class="footer"><span class="footer-name">Darul Hikmah Kids Academy</span><span>Page 2</span></footer>
+    </main>
+
+    <main class="page">
+        <div class="continued">বাংলা • শ্রেণী প্রথম</div>
+        <section class="question-area">
+            <div class="q">
+                <div class="qtitle">৯. নিজের পরিচয় দাও: <span class="marks">(৫)</span></div>
+                <div class="identity">
+                    <div class="identity-row">নিজের নাম: <span class="blank"></span></div>
+                    <div class="identity-row">বাবার নাম: <span class="blank"></span></div>
+                    <div class="identity-row">মায়ের নাম: <span class="blank"></span></div>
+                    <div class="identity-row">গ্রাম: <span class="blank"></span></div>
+                    <div class="identity-row">পছন্দের শিক্ষক: <span class="blank"></span></div>
+                </div>
+            </div>
+            <div class="q">
+                <div class="qtitle">১০. বন্ধনীর মধ্য থেকে সঠিক কথাটির নিচে দাগ দাও: <span class="marks">(১ × ৫ =
+                        ৫)</span></div>
+                <ol class="items" type="i">
+                    <li>ঘুম ভেঙে চেয়ে দেখি (বিছানায় / মেঝেতে / দালানে) আছি।</li>
+                    <li>গোরাবাজারে বাসা (ধোনা / ললিত)-এর।</li>
+                    <li>ভোলা থাকে (বরিশালে / চ্যাঁকাদায়) তে।</li>
+                    <li>ক্ষেত ভরে আছে (ধানগাছে / গমগাছে)।</li>
+                    <li>ঘাসের আগায় (শিশিরের / বরফের) রেখা ধরে।</li>
+                </ol>
+            </div>
+            <div style="margin-top:10mm;text-align:center;font-weight:700">পূর্ণমান: ৫৫</div>
+        </section>
+        <footer class="footer"><span class="footer-name">Darul Hikmah Kids Academy</span><span>Page 3</span></footer>
+    </main>
+</body>
+
+</html>

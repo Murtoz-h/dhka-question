@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Darul Hikmah Kids Academy | Class 4 Bengali Annual Examination</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: A4 portrait;
+    margin: 8mm 12mm 10mm;
+  }
+  :root {
+    --ink: #172536;
+    --accent: #1e3d36;
+    --rule: #cbd3d0;
+    --muted: #4e5d62;
+    --border-card: #b2c2be;
+    --line-color: #3b504a;
+    --gold: #c7a66a;
+    --bg-soft: #fbfdfc;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #edf0ef;
+    color: var(--ink);
+    font-family: "Hind Siliguri", "Nunito", "Segoe UI", Arial, sans-serif;
+    font-size: 10.2pt;
+    line-height: 1.4;
+  }
+  .page {
+    position: relative;
+    width: 210mm;
+    min-height: 297mm;
+    margin: 12px auto;
+    padding: 8mm 13mm 13mm;
+    background: #fff;
+    box-shadow: 0 4px 20px rgba(20,35,40,.12);
+    page-break-after: always;
+    display: flex;
+    flex-direction: column;
+  }
+  .page:last-of-type {
+    page-break-after: avoid;
+  }
+
+  /* Masthead */
+  .masthead {
+    text-align: center;
+    padding-bottom: 1.8mm;
+    border-bottom: 1.8px solid var(--accent);
+  }
+  .institution {
+    margin: 0;
+    color: var(--accent);
+    font-family: "Nunito", "Hind Siliguri", sans-serif;
+    font-size: 18pt;
+    line-height: 1.15;
+    font-weight: 900;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+  .paper-label {
+    margin-top: 1mm;
+    color: var(--muted);
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .accent {
+    width: 24mm;
+    height: 2px;
+    margin: 1.5mm auto 0;
+    background: var(--gold);
+  }
+
+  /* Details Box */
+  .details {
+    margin-top: 2.2mm;
+    padding: 2.2mm 4mm;
+    border: 1px solid var(--rule);
+    border-radius: 2mm;
+    background: #fafcfb;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 5mm;
+  }
+  .field {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5mm;
+    white-space: nowrap;
+  }
+  .label {
+    color: var(--muted);
+    font-size: 8.8pt;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+  .val {
+    font-size: 9.8pt;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .write-line {
+    flex: 1;
+    min-width: 15mm;
+    height: 1.1em;
+    border-bottom: 1.2px solid var(--line-color);
+  }
+  .student-row {
+    display: grid;
+    grid-template-columns: 2.2fr 1fr 1.2fr;
+    gap: 6mm;
+    margin-top: 1.8mm;
+    padding-top: 1.6mm;
+    border-top: 1px dashed var(--rule);
+  }
+
+  /* Running Header */
+  .running-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1.8mm;
+    border-bottom: 1.5px solid var(--accent);
+    margin-bottom: 3mm;
+    font-size: 8.5pt;
+    font-weight: 700;
+    color: var(--muted);
+  }
+  .running-header .inst-title {
+    color: var(--accent);
+    font-size: 10pt;
+    font-weight: 800;
+    font-family: "Nunito", "Hind Siliguri", sans-serif;
+    text-transform: uppercase;
+  }
+
+  /* Sections & Question Layout */
+  .section-tag {
+    background: #eef4f1;
+    color: var(--accent);
+    padding: 1.2mm 3mm;
+    font-weight: 800;
+    font-size: 9.3pt;
+    border-left: 3.5px solid var(--accent);
+    border-radius: 1mm;
+    margin-bottom: 2mm;
+    display: flex;
+    justify-content: space-between;
+  }
+  .question-area {
+    padding-top: 2mm;
+    display: flex;
+    flex-direction: column;
+    gap: 2.8mm;
+    flex: 1;
+  }
+  .q-card {
+    border: 1.2px solid var(--border-card);
+    border-radius: 2mm;
+    padding: 2.8mm 3.8mm;
+    background: #fff;
+  }
+  .q-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-weight: 700;
+    font-size: 9.8pt;
+    color: var(--accent);
+    margin-bottom: 2mm;
+    border-bottom: 1px solid #edf1f0;
+    padding-bottom: 1mm;
+  }
+  .marks {
+    font-size: 8.8pt;
+    color: #3b5b52;
+    font-weight: 700;
+  }
+
+  /* Passage Box */
+  .passage-box {
+    background: #fdfdfd;
+    border: 1px solid #d4deda;
+    border-radius: 2mm;
+    padding: 2.8mm 3.8mm;
+    font-size: 9.5pt;
+    line-height: 1.55;
+    text-align: justify;
+    color: #1a2a26;
+    margin-bottom: 1.8mm;
+  }
+
+  /* Lines & Elements */
+  .ans-line {
+    display: block;
+    width: 100%;
+    border-bottom: 1.2px dashed var(--line-color);
+    height: 1.7em;
+    margin-top: 1mm;
+  }
+  .inline-blank {
+    display: inline-block;
+    border-bottom: 1.3px solid var(--line-color);
+    height: 1.2em;
+    vertical-align: bottom;
+  }
+  .mcq-options {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2mm;
+    margin-top: 1.2mm;
+    font-size: 9.3pt;
+  }
+  .choice-pill {
+    background: #f8faf9;
+    border: 1px solid #c8d5d1;
+    padding: 1.5px 6px;
+    border-radius: 3px;
+  }
+  .tf-bracket {
+    float: right;
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: #334e47;
+  }
+
+  .grid-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5mm;
+  }
+  .jumble-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 1.2mm 0;
+    font-size: 9.6pt;
+  }
+  .grammar-subcard {
+    border: 1px solid #d5e0dc;
+    border-radius: 1.5mm;
+    padding: 2.2mm 3mm;
+    background: #fbfdfc;
+  }
+  .grammar-header {
+    font-weight: 700;
+    font-size: 9.3pt;
+    color: var(--accent);
+    margin-bottom: 1.5mm;
+    border-bottom: 1px dashed #dbe5e2;
+    padding-bottom: 0.8mm;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* Footer */
+  .footer {
+    position: absolute;
+    left: 13mm;
+    right: 13mm;
+    bottom: 4mm;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.5mm;
+    border-top: 1px solid var(--rule);
+    color: var(--muted);
+    font-size: 7.8pt;
+  }
+  .footer-name {
+    font-weight: 700;
+    letter-spacing: .2px;
+  }
+
+  @media print {
+    body { background: #fff; }
+    .page {
+      margin: 0;
+      box-shadow: none;
+      width: 100%;
+      min-height: 275mm;
+      padding: 6mm 10mm 10mm;
+    }
+    .no-print { display: none !important; }
+  }
+
+  .print-btn-bar {
+    text-align: center;
+    padding: 10px;
+    background: #1e3d36;
+    margin-bottom: 10px;
+  }
+  .print-btn {
+    background: #c7a66a;
+    color: #172536;
+    font-family: "Nunito", sans-serif;
+    font-weight: 800;
+    border: none;
+    padding: 9px 24px;
+    font-size: 11pt;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  }
+  .print-btn:hover {
+    background: #ddbe84;
+  }
+</style>
+</head>
+<body>
+
+<div class="print-btn-bar no-print">
+  <button class="print-btn" onclick="window.print()">🖨️ Print / Save as PDF (4 Pages - Double Sheet Booklet)</button>
+</div>
+
+<!-- ==================== PAGE 1 ==================== -->
+<main class="page">
+  <header>
+    <div class="masthead">
+      <h1 class="institution">DARUL HIKMAH KIDS ACADEMY</h1>
+      <div class="paper-label">বার্ষিক মূল্যায়ন পরীক্ষা | শিক্ষাবর্ষ: ২০২৬–২০২৭</div>
+      <div class="accent"></div>
+    </div>
+    
+    <section class="details" aria-label="Question paper and student details">
+      <div class="grid">
+        <div class="field"><span class="label">শ্রেণী:</span> <span class="val">চতুর্থ (Class 4)</span></div>
+        <div class="field"><span class="label">বিষয়:</span> <span class="val">বাংলা</span></div>
+        <div class="field"><span class="label">পূর্ণমান:</span> <span class="val">৭০</span></div>
+        <div class="field"><span class="label">সময়:</span> <span class="val">৯০ মিনিট</span></div>
+      </div>
+      <div class="student-row">
+        <div class="field"><span class="label">নাম:</span> <span class="write-line"></span></div>
+        <div class="field"><span class="label">রোল নং:</span> <span class="write-line"></span></div>
+        <div class="field"><span class="label">তারিখ:</span> <span class="write-line"></span></div>
+      </div>
+    </section>
+  </header>
+
+  <section class="question-area">
+    <div class="section-tag">
+      <span>ক-বিভাগ: অপঠিত অনুচ্ছেদ</span>
+      <span>[মোট মান: ২০]</span>
+    </div>
+
+    <!-- Passage -->
+    <div class="passage-box">
+      <strong>* নিচের অনুচ্ছেদটি মনোযোগ সহকারে পড়ে প্রশ্নগুলির উত্তর দাও:</strong><br>
+      এক গ্রামে এক গরিব কাঠুরিয়া বাস করত। সে প্রতিদিন বনে গিয়ে কাঠ কাটত এবং সেই কাঠ বাজারে বিক্রি করে কোনোমতে সংসার চালাত। একদিন নদীর ধারে কাঠ কাটার সময় হঠাৎ তার কুঠারটি হাত থেকে ফস্কে গভীর নদীর জলে পড়ে গেল। নদীর জল ছিল অনেক গভীর, তাই কাঠুরিয়া সাঁতার কেটে কুঠারটি তুলতে পারল না। সে নদীর পাড়ে বসে কান্নাকাটি করতে লাগল। কাঠুরিয়ার সততা ও দুঃখ দেখে জলদেবতার দয়া হলো। জলদেবতা নদী থেকে একটি সোনার কুঠার নিয়ে উঠে এসে জিজ্ঞেস করলেন, "এটি কি তোমার কুঠার?" কাঠুরিয়া বলল, "না দেবতা, এটি আমার নয়।" এরপর জলদেবতা একটি রুপোর কুঠার এনে দেখালেন। কাঠুরিয়া আবারও বলল, "না দেবতা, এটিও আমার নয়।" সবশেষে জলদেবতা কাঠুরিয়ার লোহার কুঠারটি তুলে আনলেন। নিজের কুঠার দেখে কাঠুরিয়া আনন্দে চিৎকার করে উঠল, "হ্যাঁ দেবতা, এটাই আমার কুঠার!" জলদেবতা কাঠুরিয়ার এই সততা দেখে ভীষণ খুশি হলেন এবং তাকে নিজের লোহার কুঠারটির সাথে সাথে সোনার ও রুপোর কুঠার দুটিও উপহার হিসেবে দিয়ে দিলেন।
+    </div>
+
+    <!-- Q1 MCQ -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>১. সঠিক উত্তরটি বেছে নিয়ে পাশে টিক চিহ্ন (✓) দাও বা লেখো:</span>
+        <span class="marks">(১ &times; ৫ = ৫)</span>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:2mm;">
+        <div>
+          (i) কাঠুরিয়া প্রতিদিন কাঠ কাটতে কোথায় যেত?
+          <div class="mcq-options">
+            <span class="choice-pill">(ক) পাহাড়ে</span>
+            <span class="choice-pill">(খ) বনে</span>
+            <span class="choice-pill">(গ) বাগানে</span>
+            <span class="choice-pill">(ঘ) শহরে</span>
+          </div>
+        </div>
+        <div>
+          (ii) কাঠুরিয়ার কুঠারটি কোথায় পড়ে গিয়েছিল?
+          <div class="mcq-options">
+            <span class="choice-pill">(ক) কুয়োয়</span>
+            <span class="choice-pill">(খ) পুকুরে</span>
+            <span class="choice-pill">(গ) নদীতে</span>
+            <span class="choice-pill">(ঘ) সমুদ্রে</span>
+          </div>
+        </div>
+        <div>
+          (iii) জলদেবতা প্রথমে কীসের কুঠার তুলে আনলেন?
+          <div class="mcq-options">
+            <span class="choice-pill">(ক) লোহার</span>
+            <span class="choice-pill">(খ) রুপোর</span>
+            <span class="choice-pill">(গ) সোনার</span>
+            <span class="choice-pill">(ঘ) তামার</span>
+          </div>
+        </div>
+        <div>
+          (iv) কাঠুরিয়া কেমন স্বভাবের ছিল?
+          <div class="mcq-options">
+            <span class="choice-pill">(ক) লোভী</span>
+            <span class="choice-pill">(খ) সৎ</span>
+            <span class="choice-pill">(গ) অলস</span>
+            <span class="choice-pill">(ঘ) চতুর</span>
+          </div>
+        </div>
+        <div>
+          (v) জলদেবতা খুশি হয়ে কাঠুরিয়াকে কটি কুঠার উপহার দিলেন?
+          <div class="mcq-options">
+            <span class="choice-pill">(ক) একটি</span>
+            <span class="choice-pill">(খ) দুটি</span>
+            <span class="choice-pill">(গ) তিনটি</span>
+            <span class="choice-pill">(ঘ) চারটি</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span class="footer-name">Darul Hikmah Kids Academy</span>
+    <span>শ্রেণী: চতুর্থ &bull; বিষয়: বাংলা &bull; বার্ষিক পরীক্ষা</span>
+    <span>পৃষ্ঠা ১ / ৪</span>
+  </footer>
+</main>
+
+<!-- ==================== PAGE 2 ==================== -->
+<main class="page">
+  <div class="running-header">
+    <span class="inst-title">DARUL HIKMAH KIDS ACADEMY</span>
+    <span>শ্রেণী: চতুর্থ &bull; বিষয়: বাংলা</span>
+    <span>পৃষ্ঠা ২ / ৪</span>
+  </div>
+
+  <section class="question-area">
+    <!-- Q2 Comprehension QA -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>২. সংক্ষেপে দু-একটি বাক্যে উত্তর দাও (যে-কোনো ৩টি):</span>
+        <span class="marks">(২ &times; ৩ = ৬)</span>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:2.8mm;">
+        <div>
+          (i) কাঠুরিয়া কীভাবে তার সংসার চালাত?
+          <span class="ans-line"></span>
+          <span class="ans-line"></span>
+        </div>
+        <div>
+          (ii) কাঠুরিয়া নদীর পাড়ে বসে কান্নাকাটি করছিল কেন?
+          <span class="ans-line"></span>
+          <span class="ans-line"></span>
+        </div>
+        <div>
+          (iii) জলদেবতা সোনার ও রুপোর কুঠার দেখালে কাঠুরিয়া কী বলেছিল?
+          <span class="ans-line"></span>
+          <span class="ans-line"></span>
+        </div>
+        <div>
+          (iv) জলদেবতা কেন কাঠুরিয়াকে সবকটি কুঠার উপহার দিয়ে দিলেন?
+          <span class="ans-line"></span>
+          <span class="ans-line"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row: Q3 & Q4 -->
+    <div class="grid-2col">
+      <!-- Q3 Fill in blanks -->
+      <div class="q-card">
+        <div class="q-header">
+          <span>৩. উপযুক্ত শব্দে শূন্যস্থান পূরণ করো (যে-কোনো ৩টি):</span>
+          <span class="marks">(২ &times; ৩ = ৬)</span>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:2.6mm; font-size:9.5pt;">
+          <div>(i) এক গ্রামে এক গরিব <span class="inline-blank" style="width:34mm;"></span> বাস করত।</div>
+          <div>(ii) কাঠুরিয়ার সততা দেখে <span class="inline-blank" style="width:30mm;"></span> দয়া হলো।</div>
+          <div>(iii) নিজের কুঠার দেখে সে <span class="inline-blank" style="width:30mm;"></span> চিৎকার করে উঠল।</div>
+          <div>(iv) জলদেবতা কাঠুরিয়ার এই <span class="inline-blank" style="width:28mm;"></span> দেখে খুশি হলেন।</div>
+        </div>
+      </div>
+
+      <!-- Q4 True / False -->
+      <div class="q-card">
+        <div class="q-header">
+          <span>৪. সত্য অথবা মিথ্যা লেখো (সবকটি):</span>
+          <span class="marks">(১ &times; ৩ = ৩)</span>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:3mm; font-size:9.5pt;">
+          <div>(i) কাঠুরিয়া ধনী ব্যবসায়ী ছিল। <span class="tf-bracket">[ &nbsp; &nbsp; &nbsp; &nbsp; ]</span></div>
+          <div>(ii) কাঠুরিয়ার কুঠারটি লোহার তৈরি ছিল। <span class="tf-bracket">[ &nbsp; &nbsp; &nbsp; &nbsp; ]</span></div>
+          <div>(iii) কাঠুরিয়া সোনার কুঠারটি দাবি করেছিল। <span class="tf-bracket">[ &nbsp; &nbsp; &nbsp; &nbsp; ]</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section B Header -->
+    <div class="section-tag" style="margin-top:1mm;">
+      <span>খ-বিভাগ: সাহিত্য ও পাঠ্যবই</span>
+      <span>[মোট মান: ২৭]</span>
+    </div>
+
+    <!-- Q5 One word answer -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>৫. এক কথায় উত্তর দাও (সবকটি):</span>
+        <span class="marks">(১ &times; ১০ = ১০)</span>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; column-gap:6mm; row-gap:2.6mm; font-size:9.4pt;">
+        <div>(i) নৌকার চালককে কী বলে? <span class="inline-blank" style="width:36mm;"></span></div>
+        <div>(vi) যতীন সবচেয়ে বেশি কার যত্ন করত? <span class="inline-blank" style="width:24mm;"></span></div>
+        <div>(ii) পূর্ববাংলার শীতের নদীর রূপ কী? <span class="inline-blank" style="width:26mm;"></span></div>
+        <div>(vii) কে তাকে পুরোনো একটি পুঁথি দেখাল? <span class="inline-blank" style="width:22mm;"></span></div>
+        <div>(iii) বাঘা যতীনের প্রকৃত নাম কী? <span class="inline-blank" style="width:30mm;"></span></div>
+        <div>(viii) প্রতিমাসে যতীনের কয় জোড়া জুতো লাগে? <span class="inline-blank" style="width:18mm;"></span></div>
+        <div>(iv) জ্যোতি কার কাছে কুস্তির তালিম নিত? <span class="inline-blank" style="width:24mm;"></span></div>
+        <div>(ix) ফেরাজ খাঁ-এর বাড়ি কোথায় ছিল? <span class="inline-blank" style="width:26mm;"></span></div>
+        <div>(v) ছেলেরা মানুষ হলে কী হবে? <span class="inline-blank" style="width:28mm;"></span></div>
+        <div>(x) সকাল পেরোলে নৌকা কোন নদীতে পড়ে? <span class="inline-blank" style="width:20mm;"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span class="footer-name">Darul Hikmah Kids Academy</span>
+    <span>শ্রেণী: চতুর্থ &bull; বিষয়: বাংলা &bull; বার্ষিক পরীক্ষা</span>
+    <span>পৃষ্ঠা ২ / ৪</span>
+  </footer>
+</main>
+
+<!-- ==================== PAGE 3 ==================== -->
+<main class="page">
+  <div class="running-header">
+    <span class="inst-title">DARUL HIKMAH KIDS ACADEMY</span>
+    <span>শ্রেণী: চতুর্থ &bull; বিষয়: বাংলা</span>
+    <span>পৃষ্ঠা ৩ / ৪</span>
+  </div>
+
+  <section class="question-area">
+    <!-- Q6 Jumbled Letters -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>৬. এলোমেলো বর্ণ সাজিয়ে অর্থপূর্ণ শব্দ লেখো:</span>
+        <span class="marks">(১ &times; ৫ = ৫)</span>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; column-gap:8mm; row-gap:2mm; font-size:9.6pt;">
+        <div class="jumble-row"><span>(i) বে স লেন ধে</span> <span>= <span class="inline-blank" style="width:45mm;"></span></span></div>
+        <div class="jumble-row"><span>(iv) বৃ নে অ ত</span> <span>= <span class="inline-blank" style="width:45mm;"></span></span></div>
+        <div class="jumble-row"><span>(ii) শ্বে ল রী ধ</span> <span>= <span class="inline-blank" style="width:45mm;"></span></span></div>
+        <div class="jumble-row"><span>(v) হু র ত বা</span> <span>= <span class="inline-blank" style="width:45mm;"></span></span></div>
+        <div class="jumble-row"><span>(iii) লে মে ব নী রী</span> <span>= <span class="inline-blank" style="width:45mm;"></span></span></div>
+      </div>
+    </div>
+
+    <!-- Q7 Text Explanations -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>৭. সংক্ষেপে দু-একটি বাক্যে উত্তর দাও (যে-কোনো ৩টি):</span>
+        <span class="marks">(২ &times; ৩ = ৬)</span>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:2.8mm;">
+        <div>
+          (i) যতীনের তালি দেওয়া ঘুড়িটি কীভাবে যতীনকে সাহায্য করল?
+          <span class="ans-line"></span>
+          <span class="ans-line"></span>
+        </div>
+        <div>
+          (ii) জ্যোতির কী কী শখ ছিল? বাড়িতে কার সঙ্গে জ্যোতি অভিনয় করত?
+          <span class="ans-line"></span>
+          <span class="ans-line"></span>
+        </div>
+        <div>
+          (iii) ধলেশ্বরী এসেছে শুনে মা কী করলেন?
+          <span class="ans-line"></span>
+          <span class="ans-line"></span>
+        </div>
+        <div>
+          (iv) নৌকার মাঝিরা কী কী রান্না করেছিল?
+          <span class="ans-line"></span>
+          <span class="ans-line"></span>
+        </div>
+        <div>
+          (v) বইয়ের মোড়ক খুলতেই ভদ্রলোক অপ্রস্তুত হলেন কেন?
+          <span class="ans-line"></span>
+          <span class="ans-line"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q8 Poem Summary -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>৮. "আদর্শ ছেলে" কবিতাটির মূলভাব সংক্ষেপে আলোচনা করো:</span>
+        <span class="marks">(৬ &times; ১ = ৬)</span>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:1.6mm; margin-top:1.5mm;">
+        <span class="ans-line"></span>
+        <span class="ans-line"></span>
+        <span class="ans-line"></span>
+        <span class="ans-line"></span>
+        <span class="ans-line"></span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span class="footer-name">Darul Hikmah Kids Academy</span>
+    <span>শ্রেণী: চতুর্থ &bull; বিষয়: বাংলা &bull; বার্ষিক পরীক্ষা</span>
+    <span>পৃষ্ঠা ৩ / ৪</span>
+  </footer>
+</main>
+
+<!-- ==================== PAGE 4 ==================== -->
+<main class="page">
+  <div class="running-header">
+    <span class="inst-title">DARUL HIKMAH KIDS ACADEMY</span>
+    <span>শ্রেণী: চতুর্থ &bull; বিষয়: বাংলা</span>
+    <span>পৃষ্ঠা ৪ / ৪</span>
+  </div>
+
+  <section class="question-area">
+    <!-- Section C Header -->
+    <div class="section-tag">
+      <span>গ-বিভাগ: ব্যাকরণ ও নির্মিতি</span>
+      <span>[মোট মান: ২৩]</span>
+    </div>
+
+    <!-- Q9 Poem lines fill in -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>৯. কবিতার পঙ্‌ক্তি অনুযায়ী শূন্যস্থান পূরণ করো:</span>
+        <span class="marks">(১ &times; ৫ = ৫)</span>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; column-gap:6mm; row-gap:2.6mm; font-size:9.5pt;">
+        <div>(i) যতীন ভয়ে ভয়ে জুতো <span class="inline-blank" style="width:28mm;"></span> করতে বসল।</div>
+        <div>(iv) ক্ষ্যাপা নদী <span class="inline-blank" style="width:42mm;"></span>।</div>
+        <div>(ii) কথায় না বড়ো হয়ে <span class="inline-blank" style="width:28mm;"></span> বড়ো হবে।</div>
+        <div>(v) তিন মাঝি স্বর মিলিয়ে <span class="inline-blank" style="width:26mm;"></span> বলে দেয় টান।</div>
+        <div style="grid-column: span 2;">(iii) <span class="inline-blank" style="width:40mm;"></span> গাছের ঘন সবুজ রেখা।</div>
+      </div>
+    </div>
+
+    <!-- Q10 Grammar Section -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>১০. ব্যাকরণগত প্রশ্নের সংক্ষিপ্ত উত্তর দাও:</span>
+        <span class="marks">(১০ মান)</span>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:3mm;">
+        <!-- Sub 1: Synonyms -->
+        <div class="grammar-subcard">
+          <div class="grammar-header">
+            <span>* সমার্থক শব্দ (যে-কোনো ২টি):</span>
+            <span class="marks">(১ &times; ২ = ২)</span>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:1.4mm; font-size:9.3pt;">
+            <div>(i) মাথা &rarr; <span class="inline-blank" style="width:36mm;"></span></div>
+            <div>(ii) গ্রাম &rarr; <span class="inline-blank" style="width:36mm;"></span></div>
+            <div>(iii) নদী &rarr; <span class="inline-blank" style="width:36mm;"></span></div>
+          </div>
+        </div>
+
+        <!-- Sub 2: Antonyms -->
+        <div class="grammar-subcard">
+          <div class="grammar-header">
+            <span>* বিপরীত শব্দ (যে-কোনো ২টি):</span>
+            <span class="marks">(১ &times; ২ = ২)</span>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:1.4mm; font-size:9.3pt;">
+            <div>(i) অনাবৃত &rarr; <span class="inline-blank" style="width:34mm;"></span></div>
+            <div>(ii) চমকপ্রদ &rarr; <span class="inline-blank" style="width:32mm;"></span></div>
+            <div>(iii) গরিব &rarr; <span class="inline-blank" style="width:36mm;"></span></div>
+          </div>
+        </div>
+
+        <!-- Sub 3: Sandhi -->
+        <div class="grammar-subcard">
+          <div class="grammar-header">
+            <span>* সন্ধিবিচ্ছেদ (যে-কোনো ২টি):</span>
+            <span class="marks">(১ &times; ২ = ২)</span>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:1.4mm; font-size:9.3pt;">
+            <div>(i) গ্রন্থাগার = <span class="inline-blank" style="width:32mm;"></span></div>
+            <div>(ii) দেবালয় = <span class="inline-blank" style="width:34mm;"></span></div>
+            <div>(iii) বিদ্যালয় = <span class="inline-blank" style="width:32mm;"></span></div>
+          </div>
+        </div>
+
+        <!-- Sub 4: Padantar -->
+        <div class="grammar-subcard">
+          <div class="grammar-header">
+            <span>* পদান্তর করো (যে-কোনো ২টি):</span>
+            <span class="marks">(১ &times; ২ = ২)</span>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:1.4mm; font-size:9.3pt;">
+            <div>(i) অর্থ &rarr; <span class="inline-blank" style="width:36mm;"></span></div>
+            <div>(ii) বিনয়ী &rarr; <span class="inline-blank" style="width:34mm;"></span></div>
+            <div>(iii) গ্রাম &rarr; <span class="inline-blank" style="width:36mm;"></span></div>
+          </div>
+        </div>
+
+        <!-- Sub 5: One word substitution -->
+        <div class="grammar-subcard" style="grid-column: span 2;">
+          <div class="grammar-header">
+            <span>* এক কথায় প্রকাশ করো (যে-কোনো ২টি):</span>
+            <span class="marks">(১ &times; ২ = ২)</span>
+          </div>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; column-gap:6mm; row-gap:1.6mm; font-size:9.3pt;">
+            <div>(i) ইতিহাস জানেন যিনি &rarr; <span class="inline-blank" style="width:34mm;"></span></div>
+            <div>(ii) ময়ূরের ডাক &rarr; <span class="inline-blank" style="width:36mm;"></span></div>
+            <div style="grid-column: span 2;">(iii) জলে চরে যে &rarr; <span class="inline-blank" style="width:42mm;"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q11 Essay Writing -->
+    <div class="q-card" style="flex:1; display:flex; flex-direction:column;">
+      <div class="q-header">
+        <span>১১. রচনা লেখো (সংক্ষেপে ৮–১০টি বাক্যে, যে-কোনো একটি):</span>
+        <span class="marks">(৮ &times; ১ = ৮)</span>
+      </div>
+      <div style="margin-bottom:1.8mm; font-size:9.5pt; font-weight:700; color:var(--accent); text-align:center;">
+        [ (ক) জল &nbsp; &bull; &nbsp; (খ) আমাদের বাড়ি &nbsp; &bull; &nbsp; (গ) একটি গাছ একটি প্রাণ ]
+      </div>
+      <div style="font-size:8.8pt; color:var(--muted); margin-bottom:1.2mm;">শিরোনাম: <span class="inline-blank" style="width:65mm;"></span></div>
+      <div style="flex:1; display:flex; flex-direction:column; justify-content:space-between; gap:1.8mm;">
+        <span class="ans-line"></span>
+        <span class="ans-line"></span>
+        <span class="ans-line"></span>
+        <span class="ans-line"></span>
+        <span class="ans-line"></span>
+        <span class="ans-line"></span>
+        <span class="ans-line"></span>
+        <span class="ans-line"></span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span class="footer-name">Darul Hikmah Kids Academy</span>
+    <span>শ্রেণী: চতুর্থ &bull; বিষয়: বাংলা &bull; বার্ষিক পরীক্ষা</span>
+    <span>পৃষ্ঠা ৪ / ৪</span>
+  </footer>
+</main>
+
+</body>
+</html>
