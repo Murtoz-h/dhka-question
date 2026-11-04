@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Darul Hikmah Kids Academy | U.K.G. Arabic Annual Assessment</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Hind+Siliguri:wght@500;600;700;800&family=Nunito:wght@700;800;900&display=swap"
+    rel="stylesheet">
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 8mm 10mm 10mm;
+    }
+
+    :root {
+      --ink: #172536;
+      --accent: #1e3d36;
+      --accent-soft: #f4f8f6;
+      --rule: #cbd3d0;
+      --muted: #4e5d62;
+      --border-card: #b2c2be;
+      --line-color: #2e443f;
+      --gold: #c7a66a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: #edf0ef;
+      color: var(--ink);
+      font-family: "Hind Siliguri", "Nunito", sans-serif;
+      font-size: 11pt;
+      line-height: 1.4;
+    }
+
+    .page {
+      position: relative;
+      width: 210mm;
+      min-height: 297mm;
+      margin: 12px auto;
+      padding: 9mm 12mm 12mm;
+      background: #fff;
+      box-shadow: 0 4px 20px rgba(20, 35, 40, .12);
+      page-break-after: always;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .page:last-of-type {
+      page-break-after: avoid;
+    }
+
+    /* Arabic Typography */
+    .ar {
+      font-family: "Amiri", "Traditional Arabic", serif;
+      direction: rtl;
+      unicode-bidi: isolate;
+      font-weight: 700;
+      color: #11221e;
+    }
+
+    /* Masthead */
+    .masthead {
+      text-align: center;
+      padding-bottom: 2mm;
+      border-bottom: 1.8px solid var(--accent);
+    }
+
+    .bismillah {
+      font-family: "Amiri", serif;
+      font-size: 15pt;
+      color: var(--accent);
+      margin: 0 0 1mm 0;
+      font-weight: 700;
+    }
+
+    .institution {
+      margin: 0;
+      color: var(--accent);
+      font-family: "Nunito", "Hind Siliguri", sans-serif;
+      font-size: 19pt;
+      line-height: 1.15;
+      font-weight: 900;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+
+    .paper-label {
+      margin-top: 1.2mm;
+      color: var(--muted);
+      font-size: 9pt;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .accent {
+      width: 26mm;
+      height: 2.2px;
+      margin: 1.6mm auto 0;
+      background: var(--gold);
+    }
+
+    /* Metadata Box */
+    .details {
+      margin-top: 2.5mm;
+      padding: 2.5mm 4mm;
+      border: 1px solid var(--rule);
+      border-radius: 2mm;
+      background: #fafcfb;
+    }
+
+    .grid-meta {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 4mm;
+    }
+
+    .field {
+      display: flex;
+      align-items: baseline;
+      gap: 1.5mm;
+      white-space: nowrap;
+    }
+
+    .label {
+      color: var(--muted);
+      font-size: 9pt;
+      font-weight: 700;
+    }
+
+    .val {
+      font-size: 10pt;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .write-line {
+      flex: 1;
+      min-width: 15mm;
+      height: 1.1em;
+      border-bottom: 1.2px solid var(--line-color);
+    }
+
+    .student-row {
+      display: grid;
+      grid-template-columns: 2.3fr 1fr 1.2fr;
+      gap: 5mm;
+      margin-top: 2mm;
+      padding-top: 1.8mm;
+      border-top: 1px dashed var(--rule);
+    }
+
+    /* Running Header for Page 2 */
+    .running-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 2mm;
+      border-bottom: 1.5px solid var(--accent);
+      margin-bottom: 3.5mm;
+      font-size: 9pt;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .running-header .inst-title {
+      color: var(--accent);
+      font-size: 11pt;
+      font-weight: 800;
+      font-family: "Nunito", sans-serif;
+      text-transform: uppercase;
+    }
+
+    /* Question Area & Cards */
+    .question-area {
+      padding-top: 3mm;
+      display: flex;
+      flex-direction: column;
+      gap: 4.5mm;
+      flex: 1;
+    }
+
+    .q-card {
+      border: 1.2px solid var(--border-card);
+      border-radius: 2.5mm;
+      padding: 3.5mm 5mm;
+      background: #fff;
+    }
+
+    .q-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-weight: 800;
+      font-size: 10.5pt;
+      color: var(--accent);
+      margin-bottom: 2.5mm;
+      border-bottom: 1px solid #edf1f0;
+      padding-bottom: 1.5mm;
+    }
+
+    .marks {
+      font-size: 9pt;
+      color: #3b5b52;
+      font-weight: 700;
+    }
+
+    /* Q1: 17 Characters Grid (Alif to Twa/Zha) */
+    .alphabet-grid-17 {
+      width: 100%;
+      border-collapse: collapse;
+      direction: rtl;
+      /* Right to Left */
+      margin-top: 1.5mm;
+    }
+
+    .alphabet-grid-17 td {
+      border: 1.6px solid #2e443f;
+      height: 19mm;
+      text-align: center;
+      vertical-align: middle;
+      font-size: 26pt;
+    }
+
+    .alphabet-grid-17 td.given {
+      background: #f0f6f4;
+      color: var(--accent);
+      width: 25%;
+    }
+
+    .alphabet-grid-17 td.blank {
+      background: #fff;
+      width: 25%;
+    }
+
+    /* Q2: Circle the Odd Letter Table */
+    .odd-grid-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1mm;
+    }
+
+    .odd-grid-table tr {
+      border-bottom: 1px solid #e1e8e5;
+    }
+
+    .odd-grid-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .odd-grid-table td {
+      padding: 2.5mm 2mm;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .odd-idx {
+      width: 12mm;
+      font-weight: 700;
+      color: var(--muted);
+      font-size: 10.5pt;
+    }
+
+    .odd-item-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28mm;
+      height: 13.5mm;
+      border: 1.3px solid #cbd6d2;
+      background: #fafcfb;
+      border-radius: 20px;
+      font-size: 22pt;
+    }
+
+    /* Q3 & Q4 Matching Layouts */
+    .match-wrap {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 2mm 10mm;
+      margin-top: 1mm;
+    }
+
+    .match-col {
+      display: flex;
+      flex-direction: column;
+      gap: 3.5mm;
+    }
+
+    .match-item-row {
+      display: flex;
+      align-items: center;
+      gap: 3.5mm;
+    }
+
+    .name-badge {
+      min-width: 32mm;
+      padding: 2.2mm 4mm;
+      background: #f4f8f6;
+      border: 1.4px solid #b7cac4;
+      border-radius: 2mm;
+      font-weight: 800;
+      font-size: 11pt;
+      text-align: center;
+      color: var(--ink);
+    }
+
+    .pic-badge {
+      min-width: 44mm;
+      padding: 2mm 3.5mm;
+      background: #f4f8f6;
+      border: 1.4px solid #b7cac4;
+      border-radius: 2mm;
+      display: flex;
+      align-items: center;
+      gap: 3mm;
+    }
+
+    .pic-badge svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 2;
+    }
+
+    .pic-label {
+      font-weight: 800;
+      font-size: 10.5pt;
+      color: var(--ink);
+    }
+
+    .letter-circle {
+      width: 14mm;
+      height: 14mm;
+      border-radius: 50%;
+      border: 1.8px solid var(--accent);
+      background: #fafcfb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20pt;
+    }
+
+    .match-dot {
+      width: 4mm;
+      height: 4mm;
+      border-radius: 50%;
+      background: #172536;
+    }
+
+    /* Examiner Marks Box */
+    .eval-card {
+      border: 1.2px solid var(--accent);
+      border-radius: 2mm;
+      padding: 2.5mm 4mm;
+      background: #fafcfb;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4mm;
+      font-size: 9pt;
+      margin-top: auto;
+    }
+
+    .eval-item {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5mm;
+    }
+
+    .eval-line {
+      border-bottom: 1.2px solid var(--line-color);
+      height: 6mm;
+    }
+
+    /* Footer */
+    .footer {
+      position: absolute;
+      left: 12mm;
+      right: 12mm;
+      bottom: 4mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1.5mm;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-size: 8pt;
+    }
+
+    .footer-name {
+      font-weight: 700;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page {
+        margin: 0;
+        box-shadow: none;
+        width: 100%;
+        min-height: 275mm;
+        padding: 8mm 12mm 10mm;
+      }
+
+      .no-print {
+        display: none !important;
+      }
+    }
+
+    .print-btn-bar {
+      text-align: center;
+      padding: 10px;
+      background: #1e3d36;
+      margin-bottom: 8px;
+    }
+
+    .print-btn {
+      background: #c7a66a;
+      color: #172536;
+      font-family: "Nunito", sans-serif;
+      font-weight: 800;
+      border: none;
+      padding: 9px 24px;
+      font-size: 11pt;
+      border-radius: 4px;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    }
+
+    .print-btn:hover {
+      background: #ddbe84;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="print-btn-bar no-print">
+    <button class="print-btn" onclick="window.print()">🖨️ Print / Save as PDF (2 Pages - Duplex Booklet)</button>
+  </div>
+
+  <!-- ==================== PAGE 1 ==================== -->
+  <main class="page">
+    <header>
+      <div class="masthead">
+        <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+        <h1 class="institution">Darul Hikmah Kids Academy</h1>
+        <div class="paper-label">বার্ষিক মূল্যায়ন পরীক্ষা | শিক্ষাবর্ষ: ২০২৬–২০২৭</div>
+        <div class="accent"></div>
+      </div>
+
+      <section class="details" aria-label="Exam metadata and student details">
+        <div class="grid-meta">
+          <div class="field"><span class="label">শ্রেণী:</span> <span class="val">U.K.G.</span></div>
+          <div class="field"><span class="label">বিষয়:</span> <span class="val">Arabic (আরবি)</span></div>
+          <div class="field"><span class="label">পূর্ণমান:</span> <span class="val">৩০</span></div>
+          <div class="field"><span class="label">সময়:</span> <span class="val">১ ঘণ্টা</span></div>
+        </div>
+        <div class="student-row">
+          <div class="field"><span class="label">নাম:</span> <span class="write-line"></span></div>
+          <div class="field"><span class="label">রোল নং:</span> <span class="write-line"></span></div>
+          <div class="field"><span class="label">তারিখ:</span> <span class="write-line"></span></div>
+        </div>
+      </section>
+    </header>
+
+    <section class="question-area">
+      <!-- Q1: Complete the letters up to 17th character (ا to ط) -->
+      <div class="q-card">
+        <div class="q-header">
+          <span>১. ফাঁকা ঘরে সঠিক হরফ লিখে 'ا' থেকে 'ط' পর্যন্ত ক্রমানুসারে সম্পূর্ণ করো (Complete the letters):</span>
+          <span class="marks">(মান: ১৫)</span>
+        </div>
+        <div style="font-size:9pt; color:var(--muted); font-weight:700; margin-bottom:1.5mm;">
+          [ ডান দিক থেকে বাঁ দিকে ক্রমানুসারে লেখো &larr; ]
+        </div>
+        <table class="alphabet-grid-17">
+          <!-- Row 1: Alif to Tha (1 to 4) -->
+          <tr>
+            <td class="given ar">ا</td>
+            <td class="blank"></td>
+            <td class="blank"></td>
+            <td class="blank"></td>
+          </tr>
+          <!-- Row 2: Jeem to Dal (5 to 8) -->
+          <tr>
+            <td class="blank"></td>
+            <td class="blank"></td>
+            <td class="blank"></td>
+            <td class="blank"></td>
+          </tr>
+          <!-- Row 3: Dhal to Seen (9 to 12) -->
+          <tr>
+            <td class="blank"></td>
+            <td class="blank"></td>
+            <td class="blank"></td>
+            <td class="blank"></td>
+          </tr>
+          <!-- Row 4: Sheen to Twa (13 to 17) -->
+          <tr>
+            <td class="blank"></td>
+            <td class="blank"></td>
+            <td class="blank"></td>
+            <td class="blank"></td>
+            <!-- <td class="given ar">ط</td> -->
+          </tr>
+        </table>
+      </div>
+
+      <!-- Q2: Circle the Odd Letter -->
+      <div class="q-card">
+        <div class="q-header">
+          <span>২. প্রতি সারিতে যেটি আলাদা (Odd Letter) সেটিতে গোল (○) দাগ দাও:</span>
+          <span class="marks">(৫ &times; ১ = ৫)</span>
+        </div>
+        <table class="odd-grid-table">
+          <tr>
+            <td class="odd-idx">(ক)</td>
+            <td><span class="odd-item-pill ar">ط</span></td>
+            <td><span class="odd-item-pill ar">ط</span></td>
+            <td><span class="odd-item-pill ar">ط</span></td>
+            <td><span class="odd-item-pill ar">ظ</span></td>
+          </tr>
+          <tr>
+            <td class="odd-idx">(খ)</td>
+            <td><span class="odd-item-pill ar">ت</span></td>
+            <td><span class="odd-item-pill ar">ت</span></td>
+            <td><span class="odd-item-pill ar">ت</span></td>
+            <td><span class="odd-item-pill ar">ث</span></td>
+          </tr>
+          <tr>
+            <td class="odd-idx">(গ)</td>
+            <td><span class="odd-item-pill ar">خ</span></td>
+            <td><span class="odd-item-pill ar">ج</span></td>
+            <td><span class="odd-item-pill ar">خ</span></td>
+            <td><span class="odd-item-pill ar">خ</span></td>
+          </tr>
+          <tr>
+            <td class="odd-idx">(ঘ)</td>
+            <td><span class="odd-item-pill ar">س</span></td>
+            <td><span class="odd-item-pill ar">س</span></td>
+            <td><span class="odd-item-pill ar">س</span></td>
+            <td><span class="odd-item-pill ar">ش</span></td>
+          </tr>
+          <tr>
+            <td class="odd-idx">(ঙ)</td>
+            <td><span class="odd-item-pill ar">ص</span></td>
+            <td><span class="odd-item-pill ar">ض</span></td>
+            <td><span class="odd-item-pill ar">ص</span></td>
+            <td><span class="odd-item-pill ar">ص</span></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span class="footer-name">Darul Hikmah Kids Academy</span>
+      <span>শ্রেণী: U.K.G. &bull; বিষয়: Arabic &bull; বার্ষিক মূল্যায়ন</span>
+      <span>পৃষ্ঠা ১ / ২</span>
+    </footer>
+  </main>
+
+
+  <!-- ==================== PAGE 2 ==================== -->
+  <main class="page">
+    <div class="running-header">
+      <span class="inst-title">Darul Hikmah Kids Academy</span>
+      <span>Class: U.K.G. &bull; Subject: Arabic</span>
+      <span>পৃষ্ঠা ২ / ২</span>
+    </div>
+
+    <section class="question-area">
+      <!-- Q3: Match Letter Names (5 marks) -->
+      <div class="q-card">
+        <div class="q-header">
+          <span>৩. বাংলা নামের সাথে সঠিক আরবি হরফ দাগ টেনে মেলাও (Match the letter names):</span>
+          <span class="marks">(৫ &times; ১ = ৫)</span>
+        </div>
+
+        <div class="match-wrap">
+          <!-- Column A (Bengali Names) -->
+          <div class="match-col">
+            <div class="match-item-row">
+              <span class="name-badge">আলিফ</span>
+              <span class="match-dot"></span>
+            </div>
+            <div class="match-item-row">
+              <span class="name-badge">জীম</span>
+              <span class="match-dot"></span>
+            </div>
+            <div class="match-item-row">
+              <span class="name-badge">রা</span>
+              <span class="match-dot"></span>
+            </div>
+            <div class="match-item-row">
+              <span class="name-badge">যা (ঝায়)</span>
+              <span class="match-dot"></span>
+            </div>
+            <div class="match-item-row">
+              <span class="name-badge">খা</span>
+              <span class="match-dot"></span>
+            </div>
+          </div>
+
+          <div style="font-size:11pt; font-weight:800; color:var(--muted); text-align:center;">
+            দাগ টেনে<br>মেলাও &rarr;
+          </div>
+
+          <!-- Column B (Arabic Letters - Shuffled) -->
+          <div class="match-col">
+            <div class="match-item-row">
+              <span class="match-dot"></span>
+              <span class="letter-circle ar">خ</span>
+            </div>
+            <div class="match-item-row">
+              <span class="match-dot"></span>
+              <span class="letter-circle ar">ز</span>
+            </div>
+            <div class="match-item-row">
+              <span class="match-dot"></span>
+              <span class="letter-circle ar">ا</span>
+            </div>
+            <div class="match-item-row">
+              <span class="match-dot"></span>
+              <span class="letter-circle ar">ج</span>
+            </div>
+            <div class="match-item-row">
+              <span class="match-dot"></span>
+              <span class="letter-circle ar">ر</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q4: Match Picture/Words with Starting Letter (5 marks) -->
+      <div class="q-card">
+        <div class="q-header">
+          <span>৪. ছবি ও নামের সাথে তার শুরুর আরবি হরফ দাগ টেনে মেলাও (Match picture with letter):</span>
+          <span class="marks">(৫ &times; ১ = ৫)</span>
+        </div>
+
+        <div class="match-wrap">
+          <!-- Column A (Pictures & Words) -->
+          <div class="match-col">
+            <!-- Tree -->
+            <div class="match-item-row">
+              <div class="pic-badge">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 2L6 10h3l-4 6h5v5h4v-5h5l-4-6h3L12 2z" />
+                </svg>
+                <span class="pic-label">গাছ (شَجَرَةٌ)</span>
+              </div>
+              <span class="match-dot"></span>
+            </div>
+            <!-- Telephone -->
+            <div class="match-item-row">
+              <div class="pic-badge">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+                <span class="pic-label">টেলিফোন (هَاتِفٌ)</span>
+              </div>
+              <span class="match-dot"></span>
+            </div>
+            <!-- Ball -->
+            <div class="match-item-row">
+              <div class="pic-badge">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 2a14.5 14.5 0 0 0 0 20M2 12a14.5 14.5 0 0 0 20 0" />
+                </svg>
+                <span class="pic-label">বল (كُرَةٌ)</span>
+              </div>
+              <span class="match-dot"></span>
+            </div>
+            <!-- Bell -->
+            <div class="match-item-row">
+              <div class="pic-badge">
+                <svg viewBox="0 0 24 24">
+                  <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                  <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                </svg>
+                <span class="pic-label">ঘণ্টা (جَرَسٌ)</span>
+              </div>
+              <span class="match-dot"></span>
+            </div>
+            <!-- Door -->
+            <div class="match-item-row">
+              <div class="pic-badge">
+                <svg viewBox="0 0 24 24">
+                  <path d="M3 21h18M6 21V3h12v18M14 12v.01" />
+                </svg>
+                <span class="pic-label">দরজা (بَابٌ)</span>
+              </div>
+              <span class="match-dot"></span>
+            </div>
+          </div>
+
+          <div style="font-size:11pt; font-weight:800; color:var(--muted); text-align:center;">
+            দাগ টেনে<br>মেলাও &rarr;
+          </div>
+
+          <!-- Column B (Arabic Letters - Shuffled) -->
+          <div class="match-col">
+            <div class="match-item-row">
+              <span class="match-dot"></span>
+              <span class="letter-circle ar">ج</span>
+            </div>
+            <div class="match-item-row">
+              <span class="match-dot"></span>
+              <span class="letter-circle ar">ك</span>
+            </div>
+            <div class="match-item-row">
+              <span class="match-dot"></span>
+              <span class="letter-circle ar">ش</span>
+            </div>
+            <div class="match-item-row">
+              <span class="match-dot"></span>
+              <span class="letter-circle ar">ب</span>
+            </div>
+            <div class="match-item-row">
+              <span class="match-dot"></span>
+              <span class="letter-circle ar">ه</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Official Evaluation Block -->
+      <div class="eval-card">
+        <div class="eval-item">
+          <span>পরীক্ষার্থীর প্রাপ্ত মোট নম্বর:</span>
+          <div class="eval-line"></div>
+        </div>
+        <div class="eval-item">
+          <span>শিক্ষক / পরীক্ষকের স্বাক্ষর:</span>
+          <div class="eval-line"></div>
+        </div>
+        <div class="eval-item">
+          <span>প্রধান পরীক্ষকের প্রতিস্বাক্ষর:</span>
+          <div class="eval-line"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span class="footer-name">Darul Hikmah Kids Academy</span>
+      <span>শ্রেণী: U.K.G. &bull; বিষয়: Arabic &bull; বার্ষিক মূল্যায়ন</span>
+      <span>পৃষ্ঠা ২ / ২</span>
+    </footer>
+  </main>
+
+</body>
+
+</html>
