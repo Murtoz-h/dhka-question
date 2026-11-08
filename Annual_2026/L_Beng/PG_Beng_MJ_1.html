@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>দারুল হিকমাহ কিডস একাডেমি — পি.জি. বাংলা</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 10mm 12mm 12mm;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: #eef1ed;
+      font-family: "Noto Sans Bengali", "Nirmala UI", "Vrinda", sans-serif;
+      color: #18251f;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .sheet {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 12px auto;
+      padding: 12mm 14mm 14mm;
+      background: #fff;
+      position: relative;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+      page-break-after: always;
+      break-after: page;
+    }
+
+    .sheet:last-child {
+      page-break-after: auto;
+      break-after: auto;
+    }
+
+    .no-print-bar {
+      text-align: center;
+      padding: 10px;
+      background: #174e39;
+    }
+
+    .print-btn {
+      background: #c7a66a;
+      color: #172536;
+      border: none;
+      padding: 8px 22px;
+      font-size: 14pt;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .masthead {
+      text-align: center;
+      padding-bottom: 2mm;
+      border-bottom: 2px solid #1f684b;
+    }
+
+    .institution {
+      margin: 0;
+      color: #174e39;
+      font-size: 21pt;
+      font-weight: 800;
+      letter-spacing: .2px;
+    }
+
+    .paper-label {
+      margin-top: 2px;
+      color: #556b62;
+      font-size: 8.5pt;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .accent {
+      width: 28mm;
+      height: 2.5px;
+      margin: 3px auto 0;
+      background: #c7a66a;
+      border-radius: 2px;
+    }
+
+    .details {
+      margin-top: 3.5mm;
+      padding: 3mm 4mm;
+      border: 1.5px solid #cbdad2;
+      border-radius: 6px;
+      background: #fafcfb;
+    }
+
+    .details .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px 12px;
+      font-size: 11pt;
+    }
+
+    .details .student-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 16px;
+      margin-top: 6px;
+      padding-top: 5px;
+      border-top: 1px dashed #cad9d0;
+      font-size: 11pt;
+    }
+
+    .field {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .label {
+      color: #5a6e64;
+      font-weight: 600;
+    }
+
+    .write-line {
+      flex: 1;
+      border-bottom: 1px dotted #4d6056;
+      height: 1.1em;
+    }
+
+    .section {
+      margin-top: 14px;
+      break-inside: avoid;
+    }
+
+    .qhead {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      border-bottom: 1.5px solid #d8e5dd;
+      padding-bottom: 4px;
+      margin-bottom: 9px;
+    }
+
+    .qtitle {
+      color: #174e39;
+      font-weight: 800;
+      font-size: 13.5pt;
+    }
+
+    .marks {
+      color: #5c6e64;
+      font-size: 10.5pt;
+      font-weight: 700;
+    }
+
+    .q1-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 5.5px;
+    }
+
+    .pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      min-height: 40px;
+      border: 1.5px solid #e1ebe5;
+      border-radius: 8px;
+      padding: 4px 18px;
+      background: #fafdfb;
+      font-size: 18pt;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .pair span:first-child {
+      color: #213329;
+    }
+
+    .pair span:last-child {
+      color: #174e39;
+    }
+
+    .q2-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 14px;
+    }
+
+    .odd {
+      border: 1.5px solid #e1ebe5;
+      border-radius: 8px;
+      padding: 8px 14px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      min-height: 44px;
+      background: #fff;
+    }
+
+    .num {
+      color: #697c72;
+      font-size: 10.5pt;
+      font-weight: 700;
+    }
+
+    .choices {
+      font-size: 17pt;
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: #1c3629;
+    }
+
+    .instruction {
+      font-size: 10.5pt;
+      color: #5f7067;
+      margin: 0 0 8px;
+    }
+
+    /* Q3 Photo Match Layout */
+    .match-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 6.5px;
+    }
+
+    .match-row {
+      min-height: 66px;
+      display: grid;
+      grid-template-columns: 36px 95px 1fr 70px;
+      align-items: center;
+      gap: 10px;
+      padding: 4px 10px;
+      border: 1.5px solid #dde7e0;
+      border-radius: 9px;
+      background: #fbfdfc;
+    }
+
+    .photo-box {
+      width: 90px;
+      height: 58px;
+      border-radius: 7px;
+      overflow: hidden;
+      border: 1px solid #c8d9cf;
+      background: #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .photo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .letter-badge {
+      justify-self: center;
+      height: 50px;
+      width: 58px;
+      border: 2px dashed #648f76;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 23pt;
+      font-weight: 700;
+      color: #174e39;
+      background: #f3f8f5;
+    }
+
+    /* Q4 Toddler-Friendly Sequence */
+    .q4-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 14px;
+    }
+
+    .toddler-card {
+      min-height: 48px;
+      border: 1.5px solid #e1ebe5;
+      border-radius: 8px;
+      padding: 7px 14px;
+      font-size: 16pt;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fdfefe;
+    }
+
+    .ref-letter {
+      font-size: 19pt;
+      color: #174e39;
+      background: #eef6f2;
+      padding: 2px 12px;
+      border-radius: 6px;
+      border: 1px solid #d4e5dc;
+    }
+
+    .option-pills {
+      display: flex;
+      gap: 10px;
+      font-size: 17pt;
+      color: #273e32;
+    }
+
+    .pill {
+      display: inline-block;
+      width: 38px;
+      height: 38px;
+      line-height: 35px;
+      text-align: center;
+      border: 1.5px solid #b5cdc1;
+      border-radius: 50%;
+      background: #fff;
+    }
+
+    .continued {
+      text-align: right;
+      font-size: 9pt;
+      color: #7b8d84;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .topline {
+      height: 3.5px;
+      background: #1f684b;
+      border-radius: 3px;
+      margin-bottom: 12px;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 6mm;
+      left: 14mm;
+      right: 14mm;
+      border-top: 1px solid #dce6e0;
+      padding-top: 4px;
+      display: flex;
+      justify-content: space-between;
+      color: #7b8d84;
+      font-size: 9pt;
+      font-weight: 600;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .no-print-bar {
+        display: none !important;
+      }
+
+      .sheet {
+        margin: 0;
+        box-shadow: none;
+        width: 100%;
+        min-height: auto;
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="no-print-bar">
+    <button class="print-btn" onclick="window.print()">🖨️ প্রশ্নপত্র প্রিন্ট করো (Print / Save PDF)</button>
+  </div>
+
+  <!-- PAGE 1 -->
+  <section class="sheet">
+    <header>
+      <div class="masthead">
+        <h1 class="institution">DARUL HIKMAH KIDS ACADEMY</h1>
+        <div class="paper-label">EVALUATION ASSESSMENT • SESSION 2026–2027</div>
+        <div class="accent"></div>
+      </div>
+      <section class="details" aria-label="Student Information">
+        <div class="grid">
+          <div class="field"><span class="label">শ্রেণি:</span> <strong>পি.জি. (P.G.)</strong></div>
+          <div class="field"><span class="label">বিষয়:</span> <strong>বাংলা</strong></div>
+          <div class="field"><span class="label">পূর্ণমান:</span> <strong>২৫</strong></div>
+          <div class="field"><span class="label">সময়:</span> <span class="write-line"></span></div>
+        </div>
+        <div class="student-row">
+          <div class="field"><span class="label">নাম:</span> <span class="write-line"></span></div>
+          <div class="field"><span class="label">রোল নং:</span> <span class="write-line"></span></div>
+        </div>
+      </section>
+    </header>
+
+    <!-- Q1 -->
+    <div class="section">
+      <div class="qhead">
+        <div class="qtitle">১. একই বর্ণ রেখা টেনে মেলাও</div>
+        <div class="marks">[মান: ৮]</div>
+      </div>
+      <div class="q1-grid">
+        <div class="pair"><span>অ</span><span>ঐ</span></div>
+        <div class="pair"><span>ঐ</span><span>আ</span></div>
+        <div class="pair"><span>ঋ</span><span>ঊ</span></div>
+        <div class="pair"><span>ঊ</span><span>এ</span></div>
+        <div class="pair"><span>এ</span><span>অ</span></div>
+        <div class="pair"><span>ও</span><span>ঋ</span></div>
+        <div class="pair"><span>আ</span><span>ঔ</span></div>
+        <div class="pair"><span>ঔ</span><span>ও</span></div>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="section" style="margin-top: 18px;">
+      <div class="qhead">
+        <div class="qtitle">২. আলাদা বর্ণটিতে গোল (○) করো</div>
+        <div class="marks">[মান: ৬]</div>
+      </div>
+      <div class="q2-grid">
+        <div class="odd"><span class="num">(১)</span><span class="choices">আ , ই , আ</span></div>
+        <div class="odd"><span class="num">(২)</span><span class="choices">উ , এ , উ</span></div>
+        <div class="odd"><span class="num">(৩)</span><span class="choices">ঋ , ও , ও</span></div>
+        <div class="odd"><span class="num">(৪)</span><span class="choices">ঐ , ঐ , ঔ</span></div>
+        <div class="odd"><span class="num">(৫)</span><span class="choices">এ , ঐ , এ</span></div>
+        <div class="odd"><span class="num">(৬)</span><span class="choices">ঔ , অ , ঔ</span></div>
+      </div>
+    </div>
+
+    <!-- <div class="footer">
+      <span>দারুল হিকমাহ কিডস একাডেমি</span>
+      <span>বাংলা • প্লে-গ্রুপ (৩+ বছর)</span>
+      <span>পৃষ্ঠা ১ / ২</span>
+    </div> -->
+  </section>
+
+  <!-- PAGE 2 -->
+  <section class="sheet">
+    <div class="continued">প্রশ্নপত্রের শেষাংশ</div>
+    <div class="topline"></div>
+
+    <!-- Q3: Realistic Images: আম, উট, ইঁদুর, ঊষা, অজগর, ওল -->
+    <div class="section" style="margin-top:0">
+      <div class="qhead">
+        <div class="qtitle">৩. ছবি দেখে সঠিক বর্ণ মেলাও</div>
+        <div class="marks">[মান: ৬]</div>
+      </div>
+      <p class="instruction">প্রতিটি ছবির সাথে সঠিক স্বরবর্ণটি রেখা টেনে মেলাও:</p>
+
+      <div class="match-grid">
+        <!-- 1. আম (Mango -> আ) -->
+        <div class="match-row">
+          <span class="num">(১)</span>
+          <div class="photo-box">
+            <img src="https://images.unsplash.com/photo-1553279768-865429fa0078?w=240&auto=format&fit=crop&q=80"
+              alt="আম">
+          </div>
+          <div></div>
+          <div class="letter-badge">উ</div>
+        </div>
+
+        <!-- 2. উট (Camel -> উ) -->
+        <div class="match-row">
+          <span class="num">(২)</span>
+          <div class="photo-box">
+            <img
+              src="https://images.unsplash.com/vector-1778048385084-466a1ce70778?q=80&w=1760&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+              alt="উট">
+          </div>
+          <div></div>
+          <div class="letter-badge">ই</div>
+        </div>
+
+        <!-- 3. ইঁদুর (Mouse -> ই) -->
+        <div class="match-row">
+          <span class="num">(৩)</span>
+          <div class="photo-box">
+            <img
+              src="https://plus.unsplash.com/premium_vector-1746212635491-3b3ffe4e6f74?q=80&w=2148&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+              alt="ইঁদুর">
+          </div>
+          <div></div>
+          <div class="letter-badge">আ</div>
+        </div>
+
+        <!-- 4. ঊষা / সূর্যোদয় (Dawn -> ঊ) -->
+        <div class="match-row">
+          <span class="num">(৪)</span>
+          <div class="photo-box">
+            <img
+              src="https://images.unsplash.com/vector-1775687234056-816de5b33e34?q=80&w=2050&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+              alt="ঊষা">
+          </div>
+          <div></div>
+          <div class="letter-badge">ও</div>
+        </div>
+
+        <!-- 5. অজগর / সাপ (Python -> অ) -->
+        <div class="match-row">
+          <span class="num">(৫)</span>
+          <div class="photo-box">
+            <img
+              src="https://plus.unsplash.com/premium_vector-1721522713858-2d8b773fd24d?q=80&w=1760&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+              alt="অজগর">
+          </div>
+          <div></div>
+          <div class="letter-badge">ঊ</div>
+        </div>
+
+        <!-- 6. ওল (Yam -> ও) -->
+        <div class="match-row">
+          <span class="num">(৬)</span>
+          <div class="photo-box">
+            <img
+              src="https://imgs.search.brave.com/RZTra-Lu_586KG54xBvS1lAjznjsNuNiCDTeiXMoZkI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90aWlt/Zy50aXN0YXRpYy5j/b20vZnAvMS8wMDYv/NDUwL2ZyZXNoLWVs/ZXBoYW50LXlhbS1m/b3ItY29va2luZy01/NjguanBn"
+              alt="ওল">
+          </div>
+          <div></div>
+          <div class="letter-badge">অ</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q4: Child-friendly Next Letter Selection (Age 3+) -->
+    <div class="section" style="margin-top: 18px;">
+      <div class="qhead">
+        <div class="qtitle">৪. পরের সঠিক বর্ণটিতে গোল (○) দাগ দাও</div>
+        <div class="marks">[মান: ৫]</div>
+      </div>
+      <p class="instruction">বামদিকের বর্ণের ঠিক পরের বর্ণটি বেছে গোল করো:</p>
+      <div class="q4-grid">
+        <div class="toddler-card">
+          <span class="num">(১)</span>
+          <span class="ref-letter">অ</span>
+          <span style="color:#7f9188;">→</span>
+          <div class="option-pills">
+            <span class="pill">আ</span>
+            <span class="pill">ই</span>
+          </div>
+        </div>
+
+        <div class="toddler-card">
+          <span class="num">(২)</span>
+          <span class="ref-letter">আ</span>
+          <span style="color:#7f9188;">→</span>
+          <div class="option-pills">
+            <span class="pill">ঊ</span>
+            <span class="pill">ই</span>
+          </div>
+        </div>
+
+        <div class="toddler-card">
+          <span class="num">(৩)</span>
+          <span class="ref-letter">ই</span>
+          <span style="color:#7f9188;">→</span>
+          <div class="option-pills">
+            <span class="pill">ঈ</span>
+            <span class="pill">এ</span>
+          </div>
+        </div>
+
+        <div class="toddler-card">
+          <span class="num">(৪)</span>
+          <span class="ref-letter">উ</span>
+          <span style="color:#7f9188;">→</span>
+          <div class="option-pills">
+            <span class="pill">ঋ</span>
+            <span class="pill">ঊ</span>
+          </div>
+        </div>
+
+        <div class="toddler-card">
+          <span class="num">(৫)</span>
+          <span class="ref-letter">এ</span>
+          <span style="color:#7f9188;">→</span>
+          <div class="option-pills">
+            <span class="pill">ঐ</span>
+            <span class="pill">ও</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="footer">
+      <span>দারুল হিকমাহ কিডস একাডেমি</span>
+      <span>বাংলা • প্লে-গ্রুপ (৩+ বছর)</span>
+      <span>পৃষ্ঠা ২ / ২</span>
+    </div> -->
+  </section>
+
+</body>
+
+</html>

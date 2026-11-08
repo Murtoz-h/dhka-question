@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Darul Hikmah Kids Academy | Class 2 Mathematics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: A4 portrait;
+    margin: 8mm 12mm 10mm;
+  }
+  :root {
+    --ink: #172536;
+    --accent: #1e3d36;
+    --gold: #c7a66a;
+    --rule: #cbd3d0;
+    --muted: #4e5d62;
+    --card-border: #b8c7c3;
+    --line: #2e443f;
+    --bg-box: #f9fbfb;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #edf0ef;
+    color: var(--ink);
+    font-family: "Hind Siliguri", "Nunito", "Segoe UI", Arial, sans-serif;
+    font-size: 9.8pt;
+    line-height: 1.35;
+  }
+  
+  /* Multipage A4 Sheet Setup */
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 12px auto;
+    padding: 9mm 13mm 12mm;
+    background: #fff;
+    box-shadow: 0 4px 18px rgba(20,35,40,.12);
+    position: relative;
+    page-break-after: always;
+    break-after: page;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .page:last-of-type {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  /* Masthead */
+  .masthead {
+    text-align: center;
+    padding-bottom: 1.8mm;
+    border-bottom: 1.8px solid var(--accent);
+  }
+  .institution {
+    margin: 0;
+    color: var(--accent);
+    font-size: 17.5pt;
+    line-height: 1.15;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+  .paper-label {
+    margin-top: 1mm;
+    color: var(--muted);
+    font-size: 7.8pt;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+  }
+  .accent {
+    width: 22mm;
+    height: 2px;
+    margin: 1.2mm auto 0;
+    background: var(--gold);
+  }
+
+  /* Running Header on subsequent pages */
+  .running-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1.5px solid var(--accent);
+    padding-bottom: 2mm;
+    margin-bottom: 3.5mm;
+    font-size: 9pt;
+    font-weight: 700;
+    color: var(--muted);
+  }
+  .running-header .inst {
+    color: var(--accent);
+    font-weight: 800;
+    font-size: 11pt;
+    text-transform: uppercase;
+  }
+
+  /* Metadata Box */
+  .details {
+    margin-top: 2.2mm;
+    padding: 2mm 3.5mm;
+    border: 1.2px solid var(--rule);
+    border-radius: 1.5mm;
+    background: #fafcfb;
+    font-size: 9.2pt;
+  }
+  .grid-meta {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 4mm;
+  }
+  .field {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5mm;
+    white-space: nowrap;
+  }
+  .label {
+    color: var(--muted);
+    font-weight: 700;
+  }
+  .val {
+    font-weight: 800;
+    color: var(--ink);
+  }
+  .student-row {
+    display: grid;
+    grid-template-columns: 2.2fr 1fr 1.2fr;
+    gap: 5mm;
+    margin-top: 1.8mm;
+    padding-top: 1.5mm;
+    border-top: 1px dashed var(--rule);
+  }
+  .write-line {
+    flex: 1;
+    height: 1.1em;
+    border-bottom: 1.2px solid var(--line);
+  }
+
+  /* Question Cards & Sections */
+  .q-section {
+    display: flex;
+    flex-direction: column;
+    gap: 3mm;
+    flex: 1;
+    margin-top: 2.5mm;
+  }
+  .q-card {
+    border: 1.2px solid var(--card-border);
+    border-radius: 2mm;
+    padding: 2.6mm 3.6mm;
+    background: #fff;
+  }
+  .q-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-weight: 700;
+    font-size: 10.2pt;
+    color: var(--accent);
+    margin-bottom: 1.8mm;
+    border-bottom: 1px solid #edf1f0;
+    padding-bottom: 0.8mm;
+  }
+  .marks {
+    font-size: 8.8pt;
+    color: #3b5b52;
+    font-weight: 700;
+  }
+
+  /* MCQ Style */
+  .mcq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2mm;
+  }
+  .mcq-item {
+    font-size: 9.5pt;
+  }
+  .mcq-options {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2mm;
+    margin-top: 1mm;
+  }
+  .opt-pill {
+    background: var(--bg-box);
+    border: 1px solid #c2d2ce;
+    border-radius: 1.2mm;
+    padding: 1mm 2mm;
+    font-size: 9pt;
+    text-align: center;
+  }
+
+  /* Workspaces & Grid Cards */
+  .math-grid-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5mm;
+  }
+  .work-cell {
+    border: 1px dashed #b8c8c5;
+    border-radius: 1.5mm;
+    padding: 2mm 3mm;
+    background: var(--bg-box);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .work-cell.h-basic {
+    min-height: 31mm;
+  }
+  .work-cell.h-calculation {
+    min-height: 48mm;
+  }
+  .work-cell.h-money {
+    min-height: 42mm;
+  }
+  .work-cell.h-problem {
+    min-height: 44mm;
+  }
+  .work-title {
+    font-weight: 700;
+    font-size: 9.5pt;
+    color: var(--ink);
+  }
+  .work-ans-bar {
+    border-top: 1.2px solid #cbd6d3;
+    padding-top: 1.2mm;
+    margin-top: 1.8mm;
+    font-weight: 700;
+    font-size: 9.2pt;
+    color: var(--accent);
+  }
+
+  /* Ruled lines for Order & Words */
+  .rule-track {
+    display: flex;
+    align-items: baseline;
+    margin-top: 1.5mm;
+    font-size: 9.4pt;
+  }
+  .handwriting-line {
+    flex: 1;
+    border-bottom: 1.2px solid var(--line);
+    height: 1.2em;
+    margin-left: 2mm;
+  }
+
+  /* Evaluation Box */
+  .eval-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2mm;
+    font-size: 8.5pt;
+    text-align: center;
+  }
+  .eval-table th, .eval-table td {
+    border: 1px solid var(--card-border);
+    padding: 1.5mm 1mm;
+  }
+  .eval-table th {
+    background: #edf4f1;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* Footer */
+  .bottom-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1.2px solid var(--rule);
+    padding-top: 1.8mm;
+    margin-top: 2.5mm;
+    font-size: 8pt;
+    color: var(--muted);
+  }
+  .footer-name {
+    font-weight: 700;
+  }
+
+  /* Floating Print Trigger */
+  .print-btn-bar {
+    text-align: center;
+    padding: 10px;
+    background: #1e3d36;
+    margin-bottom: 10px;
+  }
+  .print-btn {
+    background: #c7a66a;
+    color: #172536;
+    font-weight: 800;
+    border: none;
+    padding: 8px 24px;
+    font-size: 11pt;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  }
+  .print-btn:hover {
+    background: #ddbe84;
+  }
+
+  @media print {
+    body { background: #fff; }
+    .page {
+      margin: 0;
+      box-shadow: none;
+      width: 100%;
+      min-height: 275mm;
+      padding: 6mm 10mm 8mm;
+      page-break-after: always;
+      break-after: page;
+    }
+    .page:last-of-type {
+      page-break-after: auto;
+      break-after: auto;
+    }
+    .no-print { display: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="print-btn-bar no-print">
+  <button class="print-btn" onclick="window.print()">🖨️ Print / Save as PDF (Multipage - Separate Sheets)</button>
+</div>
+
+<!-- ==================== SHEET 1: Q1, Q2, Q3, Q4, Q5, Q6 ==================== -->
+<main class="page">
+  <header>
+    <div class="masthead">
+      <h1 class="institution">Darul Hikmah Kids Academy</h1>
+      <div class="paper-label">বার্ষিক মূল্যায়ন পরীক্ষা | বার্ষিক পরীক্ষা – ২০২৬</div>
+      <div class="accent"></div>
+    </div>
+    
+    <section class="details">
+      <div class="grid-meta">
+        <div class="field"><span class="label">শ্রেণি:</span> <span class="val">দ্বিতীয়</span></div>
+        <div class="field"><span class="label">বিষয়:</span> <span class="val">গণিত</span></div>
+        <div class="field"><span class="label">পূর্ণমান:</span> <span class="val">৬০</span></div>
+        <div class="field"><span class="label">সময়:</span> <span class="val">৯০ মিনিট</span></div>
+      </div>
+      <div class="student-row">
+        <div class="field"><span class="label">নাম:</span> <span class="write-line"></span></div>
+        <div class="field"><span class="label">রোল নং:</span> <span class="write-line"></span></div>
+        <div class="field"><span class="label">তারিখ:</span> <span class="write-line"></span></div>
+      </div>
+    </section>
+  </header>
+
+  <div class="q-section">
+    <!-- ১. সঠিক উত্তর টিক চিহ্ন -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>১) সঠিক উত্তরটির নিচে টিক (✓) চিহ্ন দাও:</span>
+        <span class="marks">(৫ × ১ = ৫)</span>
+      </div>
+      <div class="mcq-list">
+        <div class="mcq-item">
+          (ক) ৭, ৪, ২, ১ দ্বারা গঠিত বৃহত্তম সংখ্যাটি কোনটি?
+          <div class="mcq-options">
+            <span class="opt-pill">(i) ৪১২৭</span> <span class="opt-pill">(ii) ৭৪২১</span>
+            <span class="opt-pill">(iii) ১৩৪৬</span> <span class="opt-pill">(iv) ১২৭৪</span>
+          </div>
+        </div>
+        <div class="mcq-item">
+          (খ) ৪ ঘণ্টা = কত মিনিট?
+          <div class="mcq-options">
+            <span class="opt-pill">(i) ৬০ মিনিট</span> <span class="opt-pill">(ii) ২৪০ মিনিট</span>
+            <span class="opt-pill">(iii) ৩০০ মিনিট</span> <span class="opt-pill">(iv) ১৪০ মিনিট</span>
+          </div>
+        </div>
+        <div class="mcq-item">
+          (গ) নিচের কোনটি বিজোড় সংখ্যা? (৫৪ থেকে ৬০-এর মধ্যে):
+          <div class="mcq-options">
+            <span class="opt-pill">(i) ৫৬</span> <span class="opt-pill">(ii) ৫৮</span>
+            <span class="opt-pill">(iii) ৫৯</span> <span class="opt-pill">(iv) ৫৪</span>
+          </div>
+        </div>
+        <div class="mcq-item">
+          (ঘ) ৪ টাকা ৭ পয়সা + ৪ টাকা = কত?
+          <div class="mcq-options">
+            <span class="opt-pill">(i) ৮ টাকা ৭ পয়সা</span> <span class="opt-pill">(ii) ৮ টাকা</span>
+            <span class="opt-pill">(iii) ৭ টাকা ৪ পয়সা</span> <span class="opt-pill">(iv) ৮ টাকা ৭০ পয়সা</span>
+          </div>
+        </div>
+        <div class="mcq-item">
+          (ঙ) ৮ মিটার = কত মিলিমিটার?
+          <div class="mcq-options">
+            <span class="opt-pill">(i) ৮০ মিলিমি.</span> <span class="opt-pill">(ii) ৮০০ মিলিমি.</span>
+            <span class="opt-pill">(iii) ৮ মিলিমি.</span> <span class="opt-pill">(iv) ৮০০০ মিলিমি.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ২ ও ৩. কথায় ও সংখ্যায় লেখো -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>২ ও ৩) কথায় ও সংখ্যায় লেখো:</span>
+        <span class="marks">(৩ + ৩ = ৬)</span>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:2mm;">
+        <div class="rule-track">
+          <span style="font-weight:700; min-width:48mm;">২) কথায় লেখো: &nbsp;১৪৪২৩১ &nbsp;=</span>
+          <span class="handwriting-line"></span>
+        </div>
+        <div class="rule-track">
+          <span style="font-weight:700; min-width:68mm;">৩) সংখ্যায় লেখো: &nbsp;সাত লক্ষ বাহান্ন হাজার আটশত &nbsp;=</span>
+          <span class="handwriting-line"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ৪. ঊর্ধ্বক্রম ও অধঃক্রম -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>৪) ঊর্ধ্বক্রমে ও অধঃক্রমে সাজিয়ে লেখো:</span>
+        <span class="marks">(২ × ২ = ৪)</span>
+      </div>
+      <div style="font-weight:700; margin-bottom:1.2mm; font-size:9.5pt;">
+        প্রদত্ত সংখ্যাগুলি: ৭৬৮৫১, &nbsp;২০০৬৩, &nbsp;৯৩৭৬, &nbsp;৮৫২৭৪, &nbsp;৪২৫০৩
+      </div>
+      <div style="display:flex; flex-direction:column; gap:2mm;">
+        <div class="rule-track">
+          <span style="font-weight:700; min-width:54mm;">ঊর্ধ্বক্রমে (ছোট থেকে বড়):</span>
+          <span class="handwriting-line"></span>
+        </div>
+        <div class="rule-track">
+          <span style="font-weight:700; min-width:54mm;">অধঃক্রমে (বড় থেকে ছোট):</span>
+          <span class="handwriting-line"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ৫. সাজিয়ে যোগ ও বিয়োগ -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>৫) সাজিয়ে লিখে নিচে যোগ ও বিয়োগ করো:</span>
+        <span class="marks">(২ + ২ = ৪)</span>
+      </div>
+      <div class="math-grid-2col">
+        <div class="work-cell h-basic">
+          <div class="work-title">(ক) যোগ করো: ৪৭৫ + ৪৭ + ২৬৩ + ৭ <span style="float:right; font-weight:normal; color:var(--muted);">(২)</span></div>
+          <div class="work-ans-bar">উত্তর: যোগফল =</div>
+        </div>
+        <div class="work-cell h-basic">
+          <div class="work-title">(খ) বিয়োগ করো: ৪৪৭৫ − ২৪২৩ <span style="float:right; font-weight:normal; color:var(--muted);">(২)</span></div>
+          <div class="work-ans-bar">উত্তর: বিয়োগফল =</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ৬. সাজিয়ে গুণ ও ভাগ (NO BREAK AFTER 5) -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>৬) সাজিয়ে লিখে নিচে গুণ ও ভাগ করো:</span>
+        <span class="marks">(৩ + ৩ = ৬)</span>
+      </div>
+      <div class="math-grid-2col">
+        <div class="work-cell h-basic">
+          <div class="work-title">(ক) গুণ করো: ২৬৩ × ১৩ <span style="float:right; font-weight:normal; color:var(--muted);">(৩)</span></div>
+          <div class="work-ans-bar">উত্তর: গুণফল =</div>
+        </div>
+        <div class="work-cell h-basic">
+          <div class="work-title">(খ) ভাগ করো: ৪৫১২ ÷ ১২ <span style="float:right; font-weight:normal; color:var(--muted);">(৩)</span></div>
+          <div class="work-ans-bar">উত্তর: ভাগফল = &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ভাগশেষ =</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bottom-bar">
+    <span class="footer-name">Darul Hikmah Kids Academy</span>
+    <span>শ্রেণি: দ্বিতীয় &bull; বিষয়: গণিত &bull; পূর্ণমান: ৬০</span>
+    <span>Sheet 1 of 3 (Subtotal: 25 Marks)</span>
+  </footer>
+</main>
+
+
+<!-- ==================== SHEET 2: Q7, Q8 ==================== -->
+<main class="page">
+  <div class="running-header">
+    <span class="inst">Darul Hikmah Kids Academy</span>
+    <span>শ্রেণি: দ্বিতীয় &bull; বিষয়: গণিত &bull; বার্ষিক পরীক্ষা – ২০২৬</span>
+    <span>Sheet 2 of 3</span>
+  </div>
+
+  <div class="q-section">
+    <!-- ৭. সরল মান নির্ণয় -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>৭) সরল মান নির্ণয় করো (যেকোনো ১টি):</span>
+        <span class="marks">(১ × ৫ = ৫)</span>
+      </div>
+      <div class="math-grid-2col">
+        <div class="work-cell h-calculation">
+          <div class="work-title">(ক) ৪৫ − (৫ + ৪) × ২ + (৪ × ৩)</div>
+          <div class="work-ans-bar">উত্তর: নির্ণেয় সরল মান =</div>
+        </div>
+        <div class="work-cell h-calculation">
+          <div class="work-title">(খ) ৫৭ − ৩ × ৪ + ১২ ÷ ৩ + ৫</div>
+          <div class="work-ans-bar">উত্তর: নির্ণেয় সরল মান =</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ৮. টাকা-পয়সা ও একক রূপান্তর -->
+    <div class="q-card" style="flex:1;">
+      <div class="q-header">
+        <span>৮) যেকোনো পাঁচটি প্রশ্নের উত্তর দাও:</span>
+        <span class="marks">(৫ × ৩ = ১৫)</span>
+      </div>
+      <div class="math-grid-2col" style="height: calc(100% - 10mm);">
+        <div class="work-cell h-money">
+          <div class="work-title">i) ১১ টাকা ২৫ পয়সা + ২৪ টাকা ৫০ পয়সা = কত?</div>
+          <div class="work-ans-bar">উত্তর =</div>
+        </div>
+        <div class="work-cell h-money">
+          <div class="work-title">ii) ২৫ টাকা ৩২ পয়সা − ১৩ টাকা ৫০ পয়সা = কত?</div>
+          <div class="work-ans-bar">উত্তর =</div>
+        </div>
+        <div class="work-cell h-money">
+          <div class="work-title">iii) ৩ টাকা ২৫ পয়সা × ৫ = কত?</div>
+          <div class="work-ans-bar">উত্তর =</div>
+        </div>
+        <div class="work-cell h-money">
+          <div class="work-title">iv) ২৫ টাকা ৫০ পয়সা ÷ ৫ = কত?</div>
+          <div class="work-ans-bar">উত্তর =</div>
+        </div>
+        <div class="work-cell h-money">
+          <div class="work-title">v) ৪২৭১ সেন্টিমিটার = কত মিটার কত সেন্টিমিটার?</div>
+          <div class="work-ans-bar">উত্তর = &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; মিটার &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; সেন্টিমিটার</div>
+        </div>
+        <div class="work-cell h-money">
+          <div class="work-title">vi) ৪৩২৯ মিটার = কত কিলোমিটার কত মিটার?</div>
+          <div class="work-ans-bar">উত্তর = &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; কিমি &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; মিটার</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bottom-bar">
+    <span class="footer-name">Darul Hikmah Kids Academy</span>
+    <span>শ্রেণি: দ্বিতীয় &bull; বিষয়: গণিত &bull; পূর্ণমান: ৬০</span>
+    <span>Sheet 2 of 3 (Subtotal: 20 Marks)</span>
+  </footer>
+</main>
+
+
+<!-- ==================== SHEET 3: Q9 + EVALUATION ==================== -->
+<main class="page">
+  <div class="running-header">
+    <span class="inst">Darul Hikmah Kids Academy</span>
+    <span>শ্রেণি: দ্বিতীয় &bull; বিষয়: গণিত &bull; বার্ষিক পরীক্ষা – ২০২৬</span>
+    <span>Sheet 3 of 3</span>
+  </div>
+
+  <div class="q-section">
+    <!-- ৯. সমস্যাভিত্তিক সমাধান -->
+    <div class="q-card" style="flex:1;">
+      <div class="q-header">
+        <span>৯) সমস্যাভিত্তিক সমাধান করো (যেকোনো তিনটি প্রশ্নের উত্তর দাও):</span>
+        <span class="marks">(৩ × ৫ = ১৫)</span>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:3.5mm;">
+        <!-- Problem 1 -->
+        <div class="work-cell h-problem">
+          <div class="work-title">
+            <strong>(i)</strong> একটি রেলগাড়িতে ৪৭৬৩ জন পুরুষ, ৯৭২৫ জন মহিলা এবং ২৫৫ জন শিশু যাত্রী উঠেছিল। রেলগাড়িতে মোট কত জন যাত্রী ছিল?
+          </div>
+          <div class="work-ans-bar">উত্তর: রেলগাড়িতে মোট যাত্রী ছিল = &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; জন</div>
+        </div>
+
+        <!-- Problem 2 -->
+        <div class="work-cell h-problem">
+          <div class="work-title">
+            <strong>(ii)</strong> দুটি আম গাছে মোট ৯৭২টি আম হয়েছে। একটি গাছে ৪৭৩টি আম হলে, দ্বিতীয় গাছটিতে কয়টি আম হয়েছিল?
+          </div>
+          <div class="work-ans-bar">উত্তর: দ্বিতীয় গাছে আম হয়েছিল = &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; টি</div>
+        </div>
+
+        <!-- Problem 3 -->
+        <div class="work-cell h-problem">
+          <div class="work-title">
+            <strong>(iii)</strong> একটি থলিতে ৪২৫টি ১ টাকার মুদ্রা আছে। ৫ জন বালকের মধ্যে ঐ টাকা সমানভাগে ভাগ করে দিলে প্রত্যেকে কত টাকা করে পাবে?
+          </div>
+          <div class="work-ans-bar">উত্তর: প্রত্যেকে পাবে = &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; টাকা</div>
+        </div>
+
+        <!-- Problem 4 -->
+        <div class="work-cell h-problem">
+          <div class="work-title">
+            <strong>(iv)</strong> দুই অঙ্কের বৃহত্তম সংখ্যাকে এক অঙ্কের বৃহত্তম সংখ্যা দ্বারা ভাগ করো। এরপর ভাগফলকে এক অঙ্কের ক্ষুদ্রতম সংখ্যা দ্বারা গুণ করে প্রাপ্ত মান থেকে দুই অঙ্কের ক্ষুদ্রতম সংখ্যা বিয়োগ করলে কত হবে?
+          </div>
+          <div class="work-ans-bar">উত্তর: চূড়ান্ত নির্ণেয় মান = &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Official Examiner Evaluation Box -->
+    <div class="q-card" style="margin-top:2mm; padding:2.5mm 3.5mm;">
+      <table class="eval-table">
+        <thead>
+          <tr>
+            <th>দাগ নং</th>
+            <th>১</th>
+            <th>২</th>
+            <th>৩</th>
+            <th>৪</th>
+            <th>৫</th>
+            <th>৬</th>
+            <th>৭</th>
+            <th>৮</th>
+            <th>৯</th>
+            <th>মোট প্রাপ্ত নম্বর</th>
+            <th>পরীক্ষকের স্বাক্ষর</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>পূর্ণমান</strong></td>
+            <td>৫</td>
+            <td>৩</td>
+            <td>৩</td>
+            <td>৪</td>
+            <td>৪</td>
+            <td>৬</td>
+            <td>৫</td>
+            <td>১৫</td>
+            <td>১৫</td>
+            <td><strong>৬০</strong></td>
+            <td rowspan="2" style="vertical-align:bottom; min-width:28mm; height:12mm;"></td>
+          </tr>
+          <tr>
+            <td><strong>প্রাপ্ত মান</strong></td>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer class="bottom-bar">
+    <span class="footer-name">Darul Hikmah Kids Academy</span>
+    <span>শ্রেণি: দ্বিতীয় &bull; বিষয়: গণিত &bull; পূর্ণমান: ৬০</span>
+    <span>Sheet 3 of 3 (End of Paper)</span>
+  </footer>
+</main>
+
+</body>
+</html>

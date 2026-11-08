@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Darul Hikmah Kids Academy | Class 1 Mathematics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: A4 portrait;
+    margin: 8mm 12mm 10mm;
+  }
+  :root {
+    --ink: #172536;
+    --accent: #1e3d36;
+    --gold: #c7a66a;
+    --rule: #cbd3d0;
+    --muted: #4e5d62;
+    --card-border: #b8c7c3;
+    --line: #2e443f;
+    --bg-box: #f9fbfb;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #edf0ef;
+    color: var(--ink);
+    font-family: "Hind Siliguri", "Nunito", "Segoe UI", Arial, sans-serif;
+    font-size: 10pt;
+    line-height: 1.35;
+  }
+  
+  /* Multipage A4 Sheet Structure */
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 12px auto;
+    padding: 9mm 13mm 11mm;
+    background: #fff;
+    box-shadow: 0 4px 18px rgba(20,35,40,.12);
+    position: relative;
+    page-break-after: always;
+    break-after: page;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .page:last-of-type {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  /* Interactive Print Bar */
+  .print-btn-bar {
+    text-align: center;
+    padding: 10px;
+    background: var(--accent);
+    margin-bottom: 10px;
+  }
+  .print-btn {
+    background: var(--gold);
+    color: #172536;
+    font-weight: 800;
+    border: none;
+    padding: 8px 24px;
+    font-size: 11pt;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  }
+  .print-btn:hover { background: #ddbe84; }
+
+  /* Masthead */
+  .masthead {
+    text-align: center;
+    padding-bottom: 1.8mm;
+    border-bottom: 1.8px solid var(--accent);
+  }
+  .institution {
+    margin: 0;
+    color: var(--accent);
+    font-size: 18pt;
+    line-height: 1.15;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+  .paper-label {
+    margin-top: 1mm;
+    color: var(--muted);
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .accent {
+    width: 24mm;
+    height: 2px;
+    margin: 1.5mm auto 0;
+    background: var(--gold);
+  }
+
+  /* Running Header */
+  .running-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1.5px solid var(--accent);
+    padding-bottom: 2mm;
+    margin-bottom: 3.5mm;
+    font-size: 9pt;
+    font-weight: 700;
+    color: var(--muted);
+  }
+  .running-header .inst {
+    color: var(--accent);
+    font-weight: 800;
+    font-size: 11pt;
+    text-transform: uppercase;
+  }
+
+  /* Details Box */
+  .details {
+    margin-top: 2.5mm;
+    padding: 2.2mm 4mm;
+    border: 1.2px solid var(--rule);
+    border-radius: 1.5mm;
+    background: #fafcfb;
+    font-size: 9.5pt;
+  }
+  .grid-meta {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 5mm;
+  }
+  .field {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5mm;
+    white-space: nowrap;
+  }
+  .label { color: var(--muted); font-weight: 700; }
+  .val { font-weight: 800; color: var(--ink); }
+  .student-row {
+    display: grid;
+    grid-template-columns: 2.2fr 1fr;
+    gap: 6mm;
+    margin-top: 2mm;
+    padding-top: 1.8mm;
+    border-top: 1px dashed var(--rule);
+  }
+  .write-line {
+    flex: 1;
+    min-width: 15mm;
+    height: 1.1em;
+    border-bottom: 1.2px solid var(--line);
+  }
+
+  /* Question Sections & Cards */
+  .q-section {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2mm;
+    flex: 1;
+    margin-top: 3mm;
+  }
+  .q-card {
+    border: 1.2px solid var(--card-border);
+    border-radius: 2mm;
+    padding: 2.6mm 3.6mm;
+    background: #fff;
+  }
+  .q-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-weight: 700;
+    font-size: 10.2pt;
+    color: var(--accent);
+    margin-bottom: 1.8mm;
+    border-bottom: 1px solid #edf1f0;
+    padding-bottom: 0.8mm;
+  }
+  .marks {
+    font-size: 8.8pt;
+    color: #3b5b52;
+    font-weight: 700;
+  }
+
+  /* In-line Question Grids */
+  .sub-grid-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3mm;
+  }
+  .sub-grid-4col {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5mm;
+  }
+  .sub-item {
+    display: flex;
+    align-items: baseline;
+    font-size: 9.8pt;
+  }
+  .bracket-box {
+    display: inline-block;
+    width: 9mm;
+    height: 5.5mm;
+    border: 1.2px solid #5a6e69;
+    border-radius: 1mm;
+    margin: 0 1.5mm;
+    vertical-align: middle;
+    background: #fff;
+  }
+  .rule-line {
+    flex: 1;
+    border-bottom: 1.2px solid var(--line);
+    height: 1.15em;
+    margin-left: 2mm;
+    min-width: 18mm;
+  }
+
+  /* Workspaces */
+  .work-cell {
+    border: 1px dashed #b8c8c5;
+    border-radius: 1.5mm;
+    padding: 2mm 3mm;
+    background: var(--bg-box);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .work-cell.h-small { min-height: 18mm; }
+  .work-cell.h-med { min-height: 24mm; }
+  .work-cell.h-large { min-height: 28mm; }
+  .work-title { font-weight: 700; font-size: 9.5pt; color: var(--ink); }
+  .work-ans-bar {
+    border-top: 1.2px solid #cbd6d3;
+    padding-top: 1.2mm;
+    margin-top: 1.8mm;
+    font-weight: 700;
+    font-size: 9.2pt;
+    color: var(--accent);
+  }
+
+  /* Footer */
+  .bottom-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1.2px solid var(--rule);
+    padding-top: 1.8mm;
+    margin-top: 2.5mm;
+    font-size: 8pt;
+    color: var(--muted);
+  }
+  .footer-name { font-weight: 700; }
+
+  /* Evaluation Table */
+  .eval-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2mm;
+    font-size: 8.5pt;
+    text-align: center;
+  }
+  .eval-table th, .eval-table td {
+    border: 1px solid var(--card-border);
+    padding: 1.2mm 1mm;
+  }
+  .eval-table th { background: #edf4f1; color: var(--accent); font-weight: 700; }
+
+  @media print {
+    body { background: #fff; }
+    .page {
+      margin: 0;
+      box-shadow: none;
+      width: 100%;
+      min-height: 275mm;
+      padding: 6mm 10mm 8mm;
+      page-break-after: always;
+      break-after: page;
+    }
+    .page:last-of-type {
+      page-break-after: auto;
+      break-after: auto;
+    }
+    .no-print { display: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="print-btn-bar no-print">
+  <button class="print-btn" onclick="window.print()">🖨️ Print / Save as PDF (2 Pages - Front &amp; Back)</button>
+</div>
+
+<!-- ==================== SHEET 1 (Q1 to Q7) ==================== -->
+<main class="page">
+  <header>
+    <div class="masthead">
+      <h1 class="institution">Darul Hikmah Kids Academy</h1>
+      <div class="paper-label">বার্ষিক মূল্যায়ন পরীক্ষা | বার্ষিক পরীক্ষা – ২০২৬</div>
+      <div class="accent"></div>
+    </div>
+    
+    <section class="details" aria-label="Question paper and student details">
+      <div class="grid-meta">
+        <div class="field"><span class="label">শ্রেণি:</span> <span class="val">প্রথম</span></div>
+        <div class="field"><span class="label">বিষয়:</span> <span class="val">গণিত</span></div>
+        <div class="field"><span class="label">পূর্ণমান:</span> <span class="val">৫০</span></div>
+        <div class="field"><span class="label">সময়:</span> <span class="val">৯০ মিনিট</span></div>
+      </div>
+      <div class="student-row">
+        <div class="field"><span class="label">নাম:</span> <span class="write-line"></span></div>
+        <div class="field"><span class="label">রোল নং:</span> <span class="write-line"></span></div>
+      </div>
+    </section>
+  </header>
+
+  <div class="q-section">
+    <!-- ১. শূন্যস্থান পূরণ করো -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>১) শূন্যস্থান পূরণ করো:</span>
+        <span class="marks">(১ × ২ = ২)</span>
+      </div>
+      <div class="sub-grid-2col">
+        <div class="sub-item">(i) ৫৬, ৫৭, <span class="rule-line"></span></div>
+        <div class="sub-item">(ii) ৮৮, <span class="rule-line"></span>, ৯০</div>
+      </div>
+    </div>
+
+    <!-- ২. কথায় লেখ -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>২) কথায় লেখো (যেকোনো ২টি):</span>
+        <span class="marks">(১ × ২ = ২)</span>
+      </div>
+      <div class="sub-grid-2col" style="row-gap: 2.5mm;">
+        <div class="sub-item">(i) ২২ = <span class="rule-line"></span></div>
+        <div class="sub-item">(ii) ৯১ = <span class="rule-line"></span></div>
+        <div class="sub-item">(iii) ৪৫ = <span class="rule-line"></span></div>
+        <div class="sub-item">(iv) ৭৪ = <span class="rule-line"></span></div>
+      </div>
+    </div>
+
+    <!-- ৩. সংখ্যায় লেখ -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>৩) সংখ্যায় লেখো (যেকোনো ২টি):</span>
+        <span class="marks">(১ × ২ = ২)</span>
+      </div>
+      <div class="sub-grid-2col" style="row-gap: 2.5mm;">
+        <div class="sub-item">(i) বিরাশি = <span class="rule-line"></span></div>
+        <div class="sub-item">(ii) সাতচল্লিশ = <span class="rule-line"></span></div>
+        <div class="sub-item">(iii) উনপঞ্চাশ = <span class="rule-line"></span></div>
+        <div class="sub-item">(iv) তেষট্টি = <span class="rule-line"></span></div>
+      </div>
+    </div>
+
+    <!-- ৪. < বা > চিহ্ন বসাও -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>৪) শূন্যস্থানে &lt; বা &gt; চিহ্ন বসাও (যেকোনো ২টি):</span>
+        <span class="marks">(১ × ২ = ২)</span>
+      </div>
+      <div class="sub-grid-4col">
+        <div class="sub-item">(i) ৪৮ <span class="bracket-box"></span> ৯০</div>
+        <div class="sub-item">(ii) ৬৭ <span class="bracket-box"></span> ৫৬</div>
+        <div class="sub-item">(iii) ২৫ <span class="bracket-box"></span> ৫২</div>
+        <div class="sub-item">(iv) ৮৯ <span class="bracket-box"></span> ৭৯</div>
+      </div>
+    </div>
+
+    <!-- ৫ ও ৬. ছোট থেকে বড় ও বড় থেকে ছোট সাজাও -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>৫ ও ৬) ক্রমানুসারে সাজিয়ে লেখো:</span>
+        <span class="marks">(১ + ১ = ২)</span>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:3mm;">
+        <div>
+          <div style="font-weight:700; margin-bottom:1.5mm;">৫) ছোটো থেকে বড়ো অনুসারে সাজাও: &nbsp;<strong>৪২, ৭৭, ৫৮, ৫৫, ৪৯</strong> <span style="float:right; font-weight:normal; color:var(--muted);">(১)</span></div>
+          <div class="sub-item"><span style="font-weight:700; min-width:18mm;">উত্তর:</span> <span class="rule-line"></span></div>
+        </div>
+        <div style="border-top:1px dashed #e2e8e6; padding-top:2mm;">
+          <div style="font-weight:700; margin-bottom:1.5mm;">৬) বড়ো থেকে ছোটো অনুসারে সাজাও: &nbsp;<strong>৬৪, ৫৩, ৬৯, ৭৮, ৭০</strong> <span style="float:right; font-weight:normal; color:var(--muted);">(১)</span></div>
+          <div class="sub-item"><span style="font-weight:700; min-width:18mm;">উত্তর:</span> <span class="rule-line"></span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ৭. সাজিয়ে নিয়ে সমাধান করো -->
+    <div class="q-card" style="flex:1;">
+      <div class="q-header">
+        <span>৭) সাজিয়ে নিয়ে সমাধান করো:</span>
+        <span class="marks">(১ × ২ = ২)</span>
+      </div>
+      <div class="sub-grid-2col" style="height: calc(100% - 8mm);">
+        <div class="work-cell h-med">
+          <div class="work-title">(ক) যোগ করো: &nbsp;৪৩ + ৫৮</div>
+          <div class="work-ans-bar">উত্তর: যোগফল = &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        </div>
+        <div class="work-cell h-med">
+          <div class="work-title">(খ) বিয়োগ করো: &nbsp;৫৮ − ২৯</div>
+          <div class="work-ans-bar">উত্তর: বিয়োগফল = &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bottom-bar">
+    <span class="footer-name">Darul Hikmah Kids Academy</span>
+    <span>শ্রেণি: প্রথম &bull; বিষয়: গণিত &bull; পূর্ণমান: ৫০</span>
+    <span>পৃষ্ঠা ১ / ২ (উপ-মোট: ১২ নম্বর)</span>
+  </footer>
+</main>
+
+
+<!-- ==================== SHEET 2 (Q8 to Q15 + EVALUATION) ==================== -->
+<main class="page">
+  <div class="running-header">
+    <span class="inst">Darul Hikmah Kids Academy</span>
+    <span>শ্রেণি: প্রথম &bull; বিষয়: গণিত &bull; বার্ষিক পরীক্ষা – ২০২৬</span>
+    <span>পৃষ্ঠা ২ / ২</span>
+  </div>
+
+  <div class="q-section">
+    <!-- ৮, ৯ ও ১০. সংক্ষিপ্ত মৌখিক ও বাস্তব অঙ্ক -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>৮, ৯ ও ১০) এক কথায় উত্তর দাও:</span>
+        <span class="marks">(১ × ৩ = ৩)</span>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:2.5mm;">
+        <div class="sub-item">
+          <span style="font-weight:700; min-width:55mm;">৮) যোগফল নির্ণয় করো: &nbsp;৬টি আম + ৫টি আম =</span>
+          <span class="rule-line"></span> &nbsp;টি আম
+        </div>
+        <div class="sub-item">
+          <span style="font-weight:700; min-width:48mm;">৯) হিসাব করো: &nbsp;৭ আর ৭ কত হয় =</span>
+          <span class="rule-line"></span>
+        </div>
+        <div class="sub-item">
+          <span style="font-weight:700; min-width:62mm;">১০) খালি ঘর পূরণ করো: &nbsp;দুটি ছাগলের মোট কয়টি পা =</span>
+          <span class="rule-line"></span> &nbsp;টি পা
+        </div>
+      </div>
+    </div>
+
+    <!-- ১১. নিচে সাজিয়ে যোগ করো -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>১১) নিচে সাজিয়ে যোগ করো (যেকোনো ২টি):</span>
+        <span class="marks">(৫ × ২ = ১০)</span>
+      </div>
+      <div class="sub-grid-2col">
+        <div class="work-cell h-small">
+          <div class="work-title">(i) ১২৫ + ২৩৪</div>
+          <div class="work-ans-bar">উত্তর: যোগফল =</div>
+        </div>
+        <div class="work-cell h-small">
+          <div class="work-title">(ii) ৪৩৬ + ২৫৭</div>
+          <div class="work-ans-bar">উত্তর: যোগফল =</div>
+        </div>
+        <div class="work-cell h-small">
+          <div class="work-title">(iii) ৯৫৫ + ৫৭৮</div>
+          <div class="work-ans-bar">উত্তর: যোগফল =</div>
+        </div>
+        <div class="work-cell h-small">
+          <div class="work-title">(iv) ৯৫৪ + ৮৬৯</div>
+          <div class="work-ans-bar">উত্তর: যোগফল =</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ১২. নিচে সাজিয়ে বিয়োগ করো -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>১২) নিচে সাজিয়ে বিয়োগ করো (যেকোনো ২টি):</span>
+        <span class="marks">(৫ × ২ = ১০)</span>
+      </div>
+      <div class="sub-grid-2col">
+        <div class="work-cell h-small">
+          <div class="work-title">(i) ৪৫ − ২৩</div>
+          <div class="work-ans-bar">উত্তর: বিয়োগফল =</div>
+        </div>
+        <div class="work-cell h-small">
+          <div class="work-title">(ii) ৮৪২ − ৩৫৬</div>
+          <div class="work-ans-bar">উত্তর: বিয়োগফল =</div>
+        </div>
+        <div class="work-cell h-small">
+          <div class="work-title">(iii) ৯২৩ − ৪৫৬</div>
+          <div class="work-ans-bar">উত্তর: বিয়োগফল =</div>
+        </div>
+        <div class="work-cell h-small">
+          <div class="work-title">(iv) ৬৫৮ − ২৬৯</div>
+          <div class="work-ans-bar">উত্তর: বিয়োগফল =</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ১৩ ও ১৪. গুণ ও ভাগফল নির্ণয় করো -->
+    <div class="sub-grid-2col">
+      <!-- ১৩. গুণ -->
+      <div class="q-card">
+        <div class="q-header">
+          <span>১৩) গুণফল নির্ণয় করো (যেকোনো ১টি):</span>
+          <span class="marks">(৫ × ১ = ৫)</span>
+        </div>
+        <div style="font-size:9.5pt; font-weight:700; margin-bottom:1.5mm;">
+          (i) ১২ × ২ &nbsp;|&nbsp; (ii) ৩৬ × ৩ &nbsp;|&nbsp; (iii) ৪৮ × ৫
+        </div>
+        <div class="work-cell h-small">
+          <div style="font-size:8.5pt; color:var(--muted);">সমাধানের স্থান:</div>
+          <div class="work-ans-bar">উত্তর: নির্ণেয় গুণফল =</div>
+        </div>
+      </div>
+
+      <!-- ১৪. ভাগ -->
+      <div class="q-card">
+        <div class="q-header">
+          <span>১৪) ভাগফল নির্ণয় করো (যেকোনো ১টি):</span>
+          <span class="marks">(৫ × ১ = ৫)</span>
+        </div>
+        <div style="font-size:9.5pt; font-weight:700; margin-bottom:1.5mm;">
+          (i) ১২ ÷ ২ &nbsp;|&nbsp; (ii) ৩৬ ÷ ৪ &nbsp;|&nbsp; (iii) ৯৫ ÷ ৫
+        </div>
+        <div class="work-cell h-small">
+          <div style="font-size:8.5pt; color:var(--muted);">সমাধানের স্থান:</div>
+          <div class="work-ans-bar">উত্তর: নির্ণেয় ভাগফল =</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ১৫. অঙ্কের ভাষায় প্রকাশ করো -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>১৫) অঙ্কের ভাষায় প্রকাশ করো (যেকোনো ১টি):</span>
+        <span class="marks">(৫ × ১ = ৫)</span>
+      </div>
+      <div style="font-size:9.2pt; line-height:1.45; margin-bottom:2mm;">
+        <strong>(i)</strong> ৭ টি ফুল আর ৩ টি ফুল মিলে মোট কয়টি ফুল?<br>
+        <strong>(ii)</strong> ৯ টি লজেন্স থেকে ৫ টি লজেন্স খেয়ে নিলে কয়টি লজেন্স থাকবে?<br>
+        <strong>(iii)</strong> রিমার কাছে ৬ টি আম আছে। মা আরও ৪ টি আম দিলেন। মোট কয়টি আম হলো?
+      </div>
+      <div class="work-cell h-med">
+        <div style="font-size:8.5pt; color:var(--muted);">সমাধানের স্থান:</div>
+        <div class="work-ans-bar">উত্তর:</div>
+      </div>
+    </div>
+
+    <!-- Official Evaluation Table -->
+    <div class="q-card" style="padding: 2mm 3mm;">
+      <table class="eval-table">
+        <thead>
+          <tr>
+            <th>১</th><th>২</th><th>৩</th><th>৪</th><th>৫</th><th>৬</th><th>৭</th><th>৮</th><th>৯</th><th>১০</th><th>১১</th><th>১২</th><th>১৩</th><th>১৪</th><th>১৫</th>
+            <th>মোট মান</th>
+            <th>পরীক্ষকের স্বাক্ষর</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>২</td><td>২</td><td>২</td><td>২</td><td>১</td><td>১</td><td>২</td><td>১</td><td>১</td><td>১</td><td>১০</td><td>১০</td><td>৫</td><td>৫</td><td>৫</td>
+            <td style="font-weight:800; font-size:10pt;">৫০</td>
+            <td rowspan="2" style="min-width:24mm;"></td>
+          </tr>
+          <tr style="height: 5.5mm;">
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer class="bottom-bar">
+    <span class="footer-name">Darul Hikmah Kids Academy</span>
+    <span>শ্রেণি: প্রথম &bull; বিষয়: গণিত &bull; পূর্ণমান: ৫০</span>
+    <span>পৃষ্ঠা ২ / ২ (সমাপ্ত)</span>
+  </footer>
+</main>
+
+</body>
+</html>

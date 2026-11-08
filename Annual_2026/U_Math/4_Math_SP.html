@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Darul Hikmah Kids Academy | Class 4 Mathematics Examination</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: A4 portrait;
+    margin: 6mm 10mm 8mm;
+  }
+  :root {
+    --ink: #172536;
+    --accent: #1e3d36;
+    --rule: #cbd3d0;
+    --rule-light: #e2e8e6;
+    --muted: #4e5d62;
+    --border-card: #b2c2be;
+    --gold: #c7a66a;
+    --bg-soft: #fbfdfc;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #edf0ef;
+    color: var(--ink);
+    font-family: "Hind Siliguri", "Nunito", "Segoe UI", Arial, sans-serif;
+    font-size: 9.8pt;
+    line-height: 1.35;
+  }
+  .page {
+    position: relative;
+    width: 210mm;
+    height: 297mm;
+    min-height: 297mm;
+    max-height: 297mm;
+    margin: 10px auto;
+    padding: 7mm 11mm 8mm;
+    background: #fff;
+    box-shadow: 0 4px 20px rgba(20,35,40,.12);
+    page-break-after: always;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .page:last-of-type {
+    page-break-after: avoid;
+  }
+
+  /* Masthead */
+  .masthead {
+    text-align: center;
+    padding-bottom: 1.2mm;
+    border-bottom: 1.8px solid var(--accent);
+  }
+  .institution {
+    margin: 0;
+    color: var(--accent);
+    font-family: "Nunito", "Hind Siliguri", sans-serif;
+    font-size: 17pt;
+    line-height: 1.15;
+    font-weight: 900;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+  .paper-label {
+    margin-top: 0.8mm;
+    color: var(--muted);
+    font-size: 8.8pt;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+  }
+  .accent {
+    width: 24mm;
+    height: 2px;
+    margin: 1.2mm auto 0;
+    background: var(--gold);
+  }
+
+  /* Details Box */
+  .details {
+    margin-top: 1.8mm;
+    padding: 1.8mm 3.5mm;
+    border: 1px solid var(--rule);
+    border-radius: 1.8mm;
+    background: #fafcfb;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 4mm;
+  }
+  .field {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5mm;
+    white-space: nowrap;
+  }
+  .label {
+    color: var(--muted);
+    font-size: 8.5pt;
+    font-weight: 700;
+  }
+  .val {
+    font-size: 9.5pt;
+    font-weight: 800;
+    color: var(--ink);
+  }
+  .write-line {
+    flex: 1;
+    min-width: 15mm;
+    height: 1.1em;
+    border-bottom: 1.2px solid #2e443f;
+  }
+  .student-row {
+    display: grid;
+    grid-template-columns: 2.2fr 1fr 1.2fr;
+    gap: 5mm;
+    margin-top: 1.5mm;
+    padding-top: 1.5mm;
+    border-top: 1px dashed var(--rule);
+  }
+
+  /* Running Header */
+  .running-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1.5mm;
+    border-bottom: 1.5px solid var(--accent);
+    margin-bottom: 2mm;
+    font-size: 8.5pt;
+    font-weight: 700;
+    color: var(--muted);
+  }
+  .running-header .inst-title {
+    color: var(--accent);
+    font-size: 10pt;
+    font-weight: 800;
+    font-family: "Nunito", "Hind Siliguri", sans-serif;
+    text-transform: uppercase;
+  }
+
+  /* Question Area & Cards */
+  .question-area {
+    padding-top: 1.5mm;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5mm;
+    flex: 1;
+  }
+  .q-card {
+    border: 1.2px solid var(--border-card);
+    border-radius: 2mm;
+    padding: 2.4mm 3.5mm;
+    background: #fff;
+  }
+  .q-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-weight: 800;
+    font-size: 9.8pt;
+    color: var(--accent);
+    margin-bottom: 1.5mm;
+    border-bottom: 1px solid var(--rule-light);
+    padding-bottom: 0.8mm;
+  }
+  .marks {
+    font-size: 8.5pt;
+    color: #2b554b;
+    font-weight: 800;
+    white-space: nowrap;
+  }
+
+  /* MCQ Items */
+  .mcq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6mm;
+  }
+  .mcq-item {
+    font-size: 9.3pt;
+  }
+  .mcq-q {
+    font-weight: 700;
+    margin-bottom: 0.8mm;
+  }
+  .mcq-opts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5mm;
+    padding-left: 2mm;
+  }
+  .opt-pill {
+    background: #f7faf9;
+    border: 1px solid #c9d7d3;
+    border-radius: 1.4mm;
+    padding: 0.8mm 1.8mm;
+    font-size: 8.8pt;
+    display: flex;
+    align-items: center;
+    gap: 1.5mm;
+  }
+  .opt-box {
+    width: 3.5mm;
+    height: 3.5mm;
+    border: 1px solid #5a756e;
+    border-radius: 0.8mm;
+    display: inline-block;
+  }
+
+  /* Math Workspaces */
+  .math-row-3col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.8mm;
+  }
+  .work-box {
+    border: 1px solid #cbd6d2;
+    border-radius: 1.8mm;
+    background: #fafcfb;
+    padding: 2.2mm 2.5mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 54mm;
+  }
+  .work-box-tall {
+    border: 1px solid #cbd6d2;
+    border-radius: 1.8mm;
+    background: #fafcfb;
+    padding: 2.4mm 2.8mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 72mm;
+  }
+  .work-prompt {
+    font-weight: 800;
+    font-size: 9.8pt;
+    color: var(--accent);
+    border-bottom: 1px dashed #d1ded9;
+    padding-bottom: 1.2mm;
+    margin-bottom: 1.5mm;
+  }
+  .work-ans-track {
+    border-top: 1px dashed #cbd6d2;
+    padding-top: 1.5mm;
+    font-size: 9pt;
+    font-weight: 700;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .ans-line {
+    flex: 1;
+    border-bottom: 1.2px solid #2e443f;
+    margin-left: 2mm;
+    height: 1.2em;
+  }
+
+  /* Ruled lines for extended work area */
+  .writing-grid {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 1mm 0;
+  }
+  .rule-line {
+    border-bottom: 1px dashed #d6e2de;
+    height: 6.2mm;
+    width: 100%;
+  }
+
+  /* Word Problems */
+  .word-prob-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2.8mm;
+  }
+  .word-prob-card {
+    border: 1px solid #c8d5d1;
+    border-radius: 1.8mm;
+    background: #fafcfb;
+    padding: 2.4mm 3mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .wp-p3 {
+    min-height: 48mm;
+  }
+  .wp-p4 {
+    min-height: 42mm;
+  }
+  .prob-header {
+    font-size: 9.4pt;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 1.5mm;
+  }
+  .prob-num {
+    font-weight: 800;
+    color: var(--accent);
+  }
+
+  /* Evaluation Box */
+  .eval-card {
+    border: 1.4px solid var(--accent);
+    border-radius: 2mm;
+    background: #fafcfb;
+    padding: 2mm 3.2mm;
+    margin-top: auto;
+  }
+  .eval-title {
+    font-size: 8.6pt;
+    font-weight: 800;
+    color: var(--accent);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-bottom: 1.2mm;
+  }
+  .sig-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 2mm;
+    padding-top: 1.2mm;
+    font-size: 8pt;
+    font-weight: 700;
+    color: var(--muted);
+    text-align: center;
+  }
+  .sig-line {
+    border-top: 1px dashed #7a948e;
+    margin: 3.5mm 3mm 0.8mm;
+  }
+
+  /* Footer */
+  .footer {
+    position: absolute;
+    left: 11mm;
+    right: 11mm;
+    bottom: 2.8mm;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1mm;
+    border-top: 1px solid var(--rule);
+    color: var(--muted);
+    font-size: 7.8pt;
+  }
+  .footer-name {
+    font-weight: 700;
+  }
+
+  /* Print Controls */
+  @media print {
+    body { background: #fff; }
+    .page {
+      margin: 0;
+      box-shadow: none;
+      width: 100%;
+      height: 297mm;
+      min-height: 297mm;
+      max-height: 297mm;
+      padding: 7mm 11mm 8mm;
+      page-break-after: always;
+    }
+    .page:last-of-type {
+      page-break-after: avoid;
+    }
+    .no-print { display: none !important; }
+  }
+
+  .print-btn-bar {
+    text-align: center;
+    padding: 9px;
+    background: #1e3d36;
+    margin-bottom: 8px;
+  }
+  .print-btn {
+    background: #c7a66a;
+    color: #172536;
+    font-family: "Nunito", "Hind Siliguri", sans-serif;
+    font-weight: 800;
+    border: none;
+    padding: 9px 24px;
+    font-size: 11pt;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  }
+  .print-btn:hover {
+    background: #ddbe84;
+  }
+</style>
+</head>
+<body>
+
+<div class="print-btn-bar no-print">
+  <button class="print-btn" onclick="window.print()">🖨️ Print / Save as PDF (4 Pages - Duplex)</button>
+</div>
+
+<!-- ==================== PAGE 1 ==================== -->
+<main class="page">
+  <header>
+    <div class="masthead">
+      <h1 class="institution">Darul Hikmah Kids Academy</h1>
+      <div class="paper-label">বার্ষিক মূল্যায়ন পরীক্ষা | শিক্ষাবর্ষ: ২০২৬–২০২৭</div>
+      <div class="accent"></div>
+    </div>
+    
+    <section class="details" aria-label="Student Information">
+      <div class="grid">
+        <div class="field"><span class="label">শ্রেণী:</span> <span class="val">চতুর্থ (Class 4)</span></div>
+        <div class="field"><span class="label">বিষয়:</span> <span class="val">গণিত (Mathematics)</span></div>
+        <div class="field"><span class="label">পূর্ণমান:</span> <span class="val">৭০</span></div>
+        <div class="field"><span class="label">সময়:</span> <span class="val">১ ঘণ্টা ৩০ মিনিট (৯০ মিনিট)</span></div>
+      </div>
+      <div class="student-row">
+        <div class="field"><span class="label">নাম:</span> <span class="write-line"></span></div>
+        <div class="field"><span class="label">রোল নং:</span> <span class="write-line"></span></div>
+        <div class="field"><span class="label">তারিখ:</span> <span class="write-line"></span></div>
+      </div>
+    </section>
+  </header>
+
+  <section class="question-area">
+    <!-- Q1: MCQ -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>১। সঠিক উত্তরটি নির্বাচন করে টিক (✓) দাও বা খাতায় লেখো (যেকোনো পাঁচটি):</span>
+        <span class="marks">(১ &times; ৫ = ৫)</span>
+      </div>
+      <div class="mcq-list">
+        <div class="mcq-item">
+          <div class="mcq-q">(i) 'পঞ্চাশ কোটি সাতশত সাত' সংখ্যাটি অঙ্কে লিখলে কোনটি হবে?</div>
+          <div class="mcq-opts">
+            <div class="opt-pill"><span class="opt-box"></span> (ক) ৫০২০০৭০৭</div>
+            <div class="opt-pill"><span class="opt-box"></span> (খ) ৫০০৭০০২০৭</div>
+            <div class="opt-pill"><span class="opt-box"></span> (গ) ৫০,০০,০০,৭০৭</div>
+            <div class="opt-pill"><span class="opt-box"></span> (ঘ) ৫০৭২০২৮২</div>
+          </div>
+        </div>
+
+        <div class="mcq-item">
+          <div class="mcq-q">(ii) ৫৭৬.৬ গ্রাম ÷ ১০০ = কত গ্রাম?</div>
+          <div class="mcq-opts">
+            <div class="opt-pill"><span class="opt-box"></span> (ক) ৫৭.২৬ গ্রাম</div>
+            <div class="opt-pill"><span class="opt-box"></span> (খ) ০.৫৭৬৬ গ্রাম</div>
+            <div class="opt-pill"><span class="opt-box"></span> (গ) ৫.৭৬৬ গ্রাম</div>
+            <div class="opt-pill"><span class="opt-box"></span> (ঘ) ৫৭৬৬ গ্রাম</div>
+          </div>
+        </div>
+
+        <div class="mcq-item">
+          <div class="mcq-q">(iii) ৪৭ মিনিট ৩২ সেকেন্ড = কত সেকেন্ড?</div>
+          <div class="mcq-opts">
+            <div class="opt-pill"><span class="opt-box"></span> (ক) ২৮৫২ সেকেন্ড</div>
+            <div class="opt-pill"><span class="opt-box"></span> (খ) ২৮৭২ সেকেন্ড</div>
+            <div class="opt-pill"><span class="opt-box"></span> (গ) ২৪৭২ সেকেন্ড</div>
+            <div class="opt-pill"><span class="opt-box"></span> (ঘ) ৩১৭২ সেকেন্ড</div>
+          </div>
+        </div>
+
+        <div class="mcq-item">
+          <div class="mcq-q">(iv) ২০২৪ সালের মোট দিনসংখ্যা কত ছিল?</div>
+          <div class="mcq-opts">
+            <div class="opt-pill"><span class="opt-box"></span> (ক) ৩৬৫ দিন</div>
+            <div class="opt-pill"><span class="opt-box"></span> (খ) ৩৬৬ দিন</div>
+            <div class="opt-pill"><span class="opt-box"></span> (গ) ৩৬৪ দিন</div>
+            <div class="opt-pill"><span class="opt-box"></span> (ঘ) ৩৫৮ দিন</div>
+          </div>
+        </div>
+
+        <div class="mcq-item">
+          <div class="mcq-q">(v) ৪২৩৭৮ মিলিমিটার = কত মিটার কত মিলিমিটার?</div>
+          <div class="mcq-opts">
+            <div class="opt-pill"><span class="opt-box"></span> (ক) ৪২৩ মি. ৭৮ মিমি.</div>
+            <div class="opt-pill"><span class="opt-box"></span> (খ) ৪২ মি. ৩৭৮ মিমি.</div>
+            <div class="opt-pill"><span class="opt-box"></span> (গ) ৪২ মি. ৮ মিমি.</div>
+            <div class="opt-pill"><span class="opt-box"></span> (ঘ) ৩ মি. ২৩৭৮ মিমি.</div>
+          </div>
+        </div>
+
+        <div class="mcq-item">
+          <div class="mcq-q">(vi) ক্ষুদ্রতম মৌলিক সংখ্যা কোনটি?</div>
+          <div class="mcq-opts">
+            <div class="opt-pill"><span class="opt-box"></span> (ক) ১</div>
+            <div class="opt-pill"><span class="opt-box"></span> (খ) ৩</div>
+            <div class="opt-pill"><span class="opt-box"></span> (গ) ২</div>
+            <div class="opt-pill"><span class="opt-box"></span> (ঘ) ০</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q2: কথায় লেখো -->
+    <div class="q-card" style="flex: 1; display:flex; flex-direction:column; justify-content:space-between;">
+      <div class="q-header">
+        <span>২। কথায় লেখো:</span>
+        <span class="marks">(৩ &times; ১ = ৩)</span>
+      </div>
+      <div style="font-size: 10.2pt; font-weight:800; margin-bottom: 1.5mm; color:var(--accent);">
+        ৭৫২০৬৪২৪ :
+      </div>
+      <div class="writing-grid">
+        <div class="rule-line"></div>
+        <div class="rule-line"></div>
+        <div class="rule-line"></div>
+        <div class="rule-line"></div>
+      </div>
+    </div>
+
+    <!-- Q3: ঊর্ধ্বক্রম ও অধঃক্রম -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>৩। মানের ঊর্ধ্বক্রমে ও অধঃক্রমে সাজিয়ে লেখো:</span>
+        <span class="marks">(৪ &times; ১ = ৪)</span>
+      </div>
+      <div style="font-size: 9.8pt; font-weight:700; margin-bottom: 2mm; background:#f4f7f6; padding: 1.8mm 3.2mm; border-radius: 1.5mm;">
+        সংখ্যাগুলি: ৫৬৭০২০৪, &nbsp;৫৬৭১২০০, &nbsp;৯২০৩০৪৫১, &nbsp;৫৭১০২০৪
+      </div>
+      <div style="display:flex; flex-direction:column; gap:2mm;">
+        <div>
+          <span style="font-weight:700; display:block; margin-bottom:1mm;">• ঊর্ধ্বক্রমে (ছোট থেকে বড়):</span>
+          <div style="border-bottom: 1.2px solid #2e443f; height: 1.4em;"></div>
+        </div>
+        <div>
+          <span style="font-weight:700; display:block; margin-bottom:1mm;">• অধঃক্রমে (বড় থেকে ছোট):</span>
+          <div style="border-bottom: 1.2px solid #2e443f; height: 1.4em;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span class="footer-name">Darul Hikmah Kids Academy</span>
+    <span>শ্রেণী: চতুর্থ &bull; বিষয়: গণিত &bull; বার্ষিক মূল্যায়ন পরীক্ষা</span>
+    <span>পৃষ্ঠা ১ / ৪</span>
+  </footer>
+</main>
+
+
+<!-- ==================== PAGE 2 ==================== -->
+<main class="page">
+  <div class="running-header">
+    <span class="inst-title">Darul Hikmah Kids Academy</span>
+    <span>Class 4 &bull; Mathematics (গণিত)</span>
+    <span>পৃষ্ঠা ২ / ৪</span>
+  </div>
+
+  <section class="question-area">
+    <!-- Q4: গুণফল নির্ণয় করো -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>৪। গুণফল নির্ণয় করো (যেকোনো দুটি প্রশ্নের সমাধান করো):</span>
+        <span class="marks">(৪ &times; ২ = ৮)</span>
+      </div>
+      <div class="math-row-3col">
+        <div class="work-box" style="min-height: 58mm;">
+          <div class="work-prompt">(ক) ৪৫২৮ &times; ৩৪৫</div>
+          <div class="writing-grid">
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+          </div>
+          <div class="work-ans-track">
+            <span>উত্তর: গুণফল =</span>
+            <div class="ans-line"></div>
+          </div>
+        </div>
+
+        <div class="work-box" style="min-height: 58mm;">
+          <div class="work-prompt">(খ) ১৪ &times; <sup>৩</sup>&frasl;<sub>৭</sub></div>
+          <div class="writing-grid">
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+          </div>
+          <div class="work-ans-track">
+            <span>উত্তর: গুণফল =</span>
+            <div class="ans-line"></div>
+          </div>
+        </div>
+
+        <div class="work-box" style="min-height: 58mm;">
+          <div class="work-prompt">(গ) ০.৯১ &times; ০.২</div>
+          <div class="writing-grid">
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+          </div>
+          <div class="work-ans-track">
+            <span>উত্তর: গুণফল =</span>
+            <div class="ans-line"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q5: ভাগফল নির্ণয় করো -->
+    <div class="q-card">
+      <div class="q-header">
+        <span>৫। ভাগফল নির্ণয় করো (যেকোনো দুটি প্রশ্নের সমাধান করো):</span>
+        <span class="marks">(৪ &times; ২ = ৮)</span>
+      </div>
+      <div class="math-row-3col">
+        <div class="work-box" style="min-height: 58mm;">
+          <div class="work-prompt">(ক) ১৮৭২০ &divide; ২৪</div>
+          <div class="writing-grid">
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+          </div>
+          <div class="work-ans-track">
+            <span>উত্তর: ভাগফল =</span>
+            <div class="ans-line"></div>
+          </div>
+        </div>
+
+        <div class="work-box" style="min-height: 58mm;">
+          <div class="work-prompt">(খ) ৪ <sup>১</sup>&frasl;<sub>৮</sub> &divide; <sup>৩</sup>&frasl;<sub>৮</sub></div>
+          <div class="writing-grid">
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+          </div>
+          <div class="work-ans-track">
+            <span>উত্তর: ভাগফল =</span>
+            <div class="ans-line"></div>
+          </div>
+        </div>
+
+        <div class="work-box" style="min-height: 58mm;">
+          <div class="work-prompt">(গ) ৯.৩৬ &divide; ১.২</div>
+          <div class="writing-grid">
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+          </div>
+          <div class="work-ans-track">
+            <span>উত্তর: ভাগফল =</span>
+            <div class="ans-line"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q6: সরল মান নির্ণয় করো -->
+    <div class="q-card" style="flex: 1; display:flex; flex-direction:column;">
+      <div class="q-header">
+        <span>৬। সরল মান নির্ণয় করো (যেকোনো দুটি প্রশ্নের সমাধান করো):</span>
+        <span class="marks">(৪ &times; ২ = ৮)</span>
+      </div>
+      <div class="math-row-3col" style="flex: 1;">
+        <div class="work-box-tall">
+          <div class="work-prompt" style="font-size:9.2pt;">(i) ১৫৪ - [৪৪২ &divide; {৪৮ &divide; ১২ &times; (৪ &times; ৭ - ৪)}]</div>
+          <div class="writing-grid">
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+          </div>
+          <div class="work-ans-track">
+            <span>নির্ণেয় মান =</span>
+            <div class="ans-line"></div>
+          </div>
+        </div>
+
+        <div class="work-box-tall">
+          <div class="work-prompt" style="font-size:9.2pt;">(ii) ২৫০ - [১২০ &divide; {৪০ - ৫ &times; (১২ - ৮)}]</div>
+          <div class="writing-grid">
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+          </div>
+          <div class="work-ans-track">
+            <span>নির্ণেয় মান =</span>
+            <div class="ans-line"></div>
+          </div>
+        </div>
+
+        <div class="work-box-tall">
+          <div class="work-prompt" style="font-size:9.2pt;">(iii) ৯৭ + [{(৩৮ &times; ২) - ৬} &divide; ১০] - [২ + {(৩ &times; ১২) - ৬} &divide; ৫]</div>
+          <div class="writing-grid">
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+          </div>
+          <div class="work-ans-track">
+            <span>নির্ণেয় মান =</span>
+            <div class="ans-line"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span class="footer-name">Darul Hikmah Kids Academy</span>
+    <span>শ্রেণী: চতুর্থ &bull; বিষয়: গণিত &bull; বার্ষিক মূল্যায়ন পরীক্ষা</span>
+    <span>পৃষ্ঠা ২ / ৪</span>
+  </footer>
+</main>
+
+
+<!-- ==================== PAGE 3 ==================== -->
+<main class="page">
+  <div class="running-header">
+    <span class="inst-title">Darul Hikmah Kids Academy</span>
+    <span>Class 4 &bull; Mathematics (গণিত)</span>
+    <span>পৃষ্ঠা ৩ / ৪</span>
+  </div>
+
+  <section class="question-area">
+    <!-- Row: Q7, Q8, Q9 Multiples, HCF, LCM -->
+    <div class="math-row-3col">
+      <!-- Q7 Multiples -->
+      <div class="work-box" style="min-height: 58mm;">
+        <div class="q-header" style="border:none; margin:0 0 1mm 0; padding:0;">
+          <span style="font-size:9.5pt;">৭। সাধারণ গুণিতক নির্ণয়:</span>
+          <span class="marks">(৩ &times; ১ = ৩)</span>
+        </div>
+        <div class="work-prompt" style="font-size:9pt; font-weight:600;">
+          ৯ ও ১২-এর প্রথম তিনটি সাধারণ গুণিতক নির্ণয় করো।
+        </div>
+        <div class="writing-grid">
+          <div class="rule-line"></div>
+          <div class="rule-line"></div>
+          <div class="rule-line"></div>
+          <div class="rule-line"></div>
+        </div>
+        <div class="work-ans-track">
+          <span>উত্তর =</span>
+          <div class="ans-line"></div>
+        </div>
+      </div>
+
+      <!-- Q8 HCF -->
+      <div class="work-box" style="min-height: 58mm;">
+        <div class="q-header" style="border:none; margin:0 0 1mm 0; padding:0;">
+          <span style="font-size:9.5pt;">৮। গ.সা.গু নির্ণয় করো:</span>
+          <span class="marks">(৪ &times; ১ = ৪)</span>
+        </div>
+        <div class="work-prompt" style="font-size:9pt; font-weight:600;">
+          ৫৪, ৭২ ও ৯০-এর গ.সা.গু নির্ণয় করো।
+        </div>
+        <div class="writing-grid">
+          <div class="rule-line"></div>
+          <div class="rule-line"></div>
+          <div class="rule-line"></div>
+          <div class="rule-line"></div>
+        </div>
+        <div class="work-ans-track">
+          <span>গ.সা.গু =</span>
+          <div class="ans-line"></div>
+        </div>
+      </div>
+
+      <!-- Q9 LCM -->
+      <div class="work-box" style="min-height: 58mm;">
+        <div class="q-header" style="border:none; margin:0 0 1mm 0; padding:0;">
+          <span style="font-size:9.5pt;">৯। ল.সা.গু নির্ণয় করো:</span>
+          <span class="marks">(৫ &times; ১ = ৫)</span>
+        </div>
+        <div class="work-prompt" style="font-size:9pt; font-weight:600;">
+          সংক্ষিপ্ত পদ্ধতিতে ২৫, ১২০ ও ১৪৪-এর ল.সা.গু নির্ণয় করো।
+        </div>
+        <div class="writing-grid">
+          <div class="rule-line"></div>
+          <div class="rule-line"></div>
+          <div class="rule-line"></div>
+          <div class="rule-line"></div>
+        </div>
+        <div class="work-ans-track">
+          <span>ল.সা.গু =</span>
+          <div class="ans-line"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q10 Word Problems Part 1 (First 3 Questions) -->
+    <div class="q-card" style="flex:1; display:flex; flex-direction:column;">
+      <div class="q-header">
+        <span>১০। বাস্তব সমস্যাভিত্তিক প্রশ্নের সমাধান করো (যেকোনো চারটি প্রশ্নের উত্তর দাও):</span>
+        <span class="marks">(৫ &times; ৪ = ২০)</span>
+      </div>
+      <div class="word-prob-grid" style="flex:1;">
+        <!-- 10(i) -->
+        <div class="word-prob-card wp-p3" style="flex:1;">
+          <div class="prob-header">
+            <span class="prob-num">(i)</span> একটি পেন্সিল ১৫ সেমি ২ মিলিমিটার লম্বা। এইরকম ১৪টি পেন্সিল লম্বালম্বি সাজালে মোট কতটা লম্বা হবে?
+          </div>
+          <div class="writing-grid">
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+          </div>
+          <div class="work-ans-track">
+            <span>উত্তর: মোট দৈর্ঘ্য =</span>
+            <div class="ans-line"></div>
+          </div>
+        </div>
+
+        <!-- 10(ii) -->
+        <div class="word-prob-card wp-p3" style="flex:1;">
+          <div class="prob-header">
+            <span class="prob-num">(ii)</span> একটি ঘড়ি ও ৪টি কলমের মোট দাম ১৮০০ টাকা। একটি কলমের দাম ৭০ টাকা হলে, ঘড়িটির দাম কত টাকা?
+          </div>
+          <div class="writing-grid">
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+          </div>
+          <div class="work-ans-track">
+            <span>উত্তর: ঘড়িটির দাম =</span>
+            <div class="ans-line"></div>
+          </div>
+        </div>
+
+        <!-- 10(iii) -->
+        <div class="word-prob-card wp-p3" style="flex:1;">
+          <div class="prob-header">
+            <span class="prob-num">(iii)</span> দুটি সংখ্যার গুণফল ৩৫৯৭৮৪; একটি সংখ্যা ৪৫৬ হলে, অপর সংখ্যাটি কত?
+          </div>
+          <div class="writing-grid">
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+          </div>
+          <div class="work-ans-track">
+            <span>উত্তর: অপর সংখ্যাটি =</span>
+            <div class="ans-line"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span class="footer-name">Darul Hikmah Kids Academy</span>
+    <span>শ্রেণী: চতুর্থ &bull; বিষয়: গণিত &bull; বার্ষিক মূল্যায়ন পরীক্ষা</span>
+    <span>পৃষ্ঠা ৩ / ৪</span>
+  </footer>
+</main>
+
+
+<!-- ==================== PAGE 4 ==================== -->
+<main class="page">
+  <div class="running-header">
+    <span class="inst-title">Darul Hikmah Kids Academy</span>
+    <span>Class 4 &bull; Mathematics (গণিত)</span>
+    <span>পৃষ্ঠা ৪ / ৪</span>
+  </div>
+
+  <section class="question-area">
+    <!-- Q10 Word Problems Part 2 (Remaining 4 Questions) -->
+    <div class="q-card" style="flex:1; display:flex; flex-direction:column;">
+      <div class="q-header">
+        <span>১০। বাস্তব সমস্যাভিত্তিক প্রশ্নের সমাধান (চলমান):</span>
+        <span class="marks">[বিভাগীয় মোট মান: ২০]</span>
+      </div>
+      <div class="word-prob-grid" style="flex:1;">
+        <!-- 10(iv) -->
+        <div class="word-prob-card wp-p4" style="flex:1;">
+          <div class="prob-header">
+            <span class="prob-num">(iv)</span> ২৫ টাকার <sup>৫</sup>&frasl;<sub>১০</sub> অংশ এবং ৩০ টাকার <sup>৭</sup>&frasl;<sub>২০</sub> অংশের মধ্যে কোনটির মান বেশি এবং কতটা বেশি?
+          </div>
+          <div class="writing-grid">
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+          </div>
+          <div class="work-ans-track">
+            <span>উত্তর =</span>
+            <div class="ans-line"></div>
+          </div>
+        </div>
+
+        <!-- 10(v) -->
+        <div class="word-prob-card wp-p4" style="flex:1;">
+          <div class="prob-header">
+            <span class="prob-num">(v)</span> বাবা বাজার থেকে ৩.৭৫ কিগ্রা মাছ, ২.৩৪ কিগ্রা আলু এবং ৫.৫ কিগ্রা চাল কিনলেন। বাবা মোট কত ওজনের জিনিস কিনলেন?
+          </div>
+          <div class="writing-grid">
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+          </div>
+          <div class="work-ans-track">
+            <span>উত্তর: মোট কেনা জিনিসের ওজন =</span>
+            <div class="ans-line"></div>
+          </div>
+        </div>
+
+        <!-- 10(vi) -->
+        <div class="word-prob-card wp-p4" style="flex:1;">
+          <div class="prob-header">
+            <span class="prob-num">(vi)</span> একটি শহরের ০.৪৩ অংশ বাড়ি ভূমিকম্পে ক্ষতিগ্রস্ত হলো। শহরটির কত অংশ অক্ষত বা ভালো ছিল?
+          </div>
+          <div class="writing-grid">
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+          </div>
+          <div class="work-ans-track">
+            <span>উত্তর: অক্ষত অংশের পরিমাণ =</span>
+            <div class="ans-line"></div>
+          </div>
+        </div>
+
+        <!-- 10(vii) -->
+        <div class="word-prob-card wp-p4" style="flex:1;">
+          <div class="prob-header">
+            <span class="prob-num">(vii)</span> ৫ কিগ্রা ডালের দাম ৪৫০ টাকা হলে, ঐকিক নিয়মে ১১ কিগ্রা ডালের দাম কত টাকা হবে?
+          </div>
+          <div class="writing-grid">
+            <div class="rule-line"></div>
+            <div class="rule-line"></div>
+          </div>
+          <div class="work-ans-track">
+            <span>উত্তর: ১১ কিগ্রা ডালের দাম =</span>
+            <div class="ans-line"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Official Examiner Evaluation Box -->
+    <div class="eval-card">
+      <div class="eval-title">পরীক্ষক ও নিরীক্ষকের মূল্যায়ন বিবরণী (Official Evaluation Table)</div>
+      <table style="width:100%; border-collapse: collapse; text-align: center; font-size: 8.2pt;">
+        <tr style="background:#edf3f1; font-weight:700; color:var(--accent);">
+          <td style="border: 1px solid #b2c2be; padding: 1.2mm;">প্রশ্ন নং</td>
+          <td style="border: 1px solid #b2c2be; padding: 1.2mm;">১ (MCQ)</td>
+          <td style="border: 1px solid #b2c2be; padding: 1.2mm;">২</td>
+          <td style="border: 1px solid #b2c2be; padding: 1.2mm;">৩</td>
+          <td style="border: 1px solid #b2c2be; padding: 1.2mm;">৪ (গুণ)</td>
+          <td style="border: 1px solid #b2c2be; padding: 1.2mm;">৫ (ভাগ)</td>
+          <td style="border: 1px solid #b2c2be; padding: 1.2mm;">৬ (সরল)</td>
+          <td style="border: 1px solid #b2c2be; padding: 1.2mm;">৭ (গুণিতক)</td>
+          <td style="border: 1px solid #b2c2be; padding: 1.2mm;">৮ (গসা进行)</td>
+          <td style="border: 1px solid #b2c2be; padding: 1.2mm;">৯ (লসা进行)</td>
+          <td style="border: 1px solid #b2c2be; padding: 1.2mm;">১০ (পাটিগণিত)</td>
+          <td style="border: 1px solid #b2c2be; padding: 1.2mm; font-weight:800; background:#e2ede8;">সর্বমোট</td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #b2c2be; padding: 1.2mm; font-weight:700; background:#fbfdfc;">পূর্ণমান</td>
+          <td style="border: 1px solid #b2c2be; padding: 1.2mm;">৫</td>
+          <td style="border: 1px solid #b2c2be; padding: 1.2mm;">৩</td>
+          <td style="border: 1px solid #b2c2be; padding: 1.2mm;">৪</td>
+          <td style="border: 1px solid #b2c2be; padding: 1.2mm;">৮</td>
+          <td style="border: 1px solid #b2c2be; padding: 1.2mm;">৮</td>
+          <td style="border: 1px solid #b2c2be; padding: 1.2mm;">৮</td>
+          <td style="border: 1px solid #b2c2be; padding: 1.2mm;">৩</td>
+          <td style="border: 1px solid #b2c2be; padding: 1.2mm;">৪</td>
+          <td style="border: 1px solid #b2c2be; padding: 1.2mm;">৫</td>
+          <td style="border: 1px solid #b2c2be; padding: 1.2mm;">২০</td>
+          <td style="border: 1px solid #b2c2be; padding: 1.2mm; font-weight:800; background:#f0f6f3;">৭০</td>
+        </tr>
+        <tr style="height: 5.5mm;">
+          <td style="border: 1px solid #b2c2be; padding: 1.2mm; font-weight:700; background:#fbfdfc;">প্রাপ্ত নম্বর</td>
+          <td style="border: 1px solid #b2c2be;"></td>
+          <td style="border: 1px solid #b2c2be;"></td>
+          <td style="border: 1px solid #b2c2be;"></td>
+          <td style="border: 1px solid #b2c2be;"></td>
+          <td style="border: 1px solid #b2c2be;"></td>
+          <td style="border: 1px solid #b2c2be;"></td>
+          <td style="border: 1px solid #b2c2be;"></td>
+          <td style="border: 1px solid #b2c2be;"></td>
+          <td style="border: 1px solid #b2c2be;"></td>
+          <td style="border: 1px solid #b2c2be;"></td>
+          <td style="border: 1px solid #b2c2be; font-weight:800; background:#fafcfb;"></td>
+        </tr>
+      </table>
+
+      <div class="sig-row">
+        <div>
+          <div class="sig-line"></div>
+          পরীক্ষকের স্বাক্ষর ও তারিখ
+        </div>
+        <div>
+          <div class="sig-line"></div>
+          নিরীক্ষকের স্বাক্ষর (Scrutinizer)
+        </div>
+        <div>
+          <div class="sig-line"></div>
+          প্রধান শিক্ষক / অধ্যক্ষের স্বাক্ষর
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span class="footer-name">Darul Hikmah Kids Academy</span>
+    <span>শ্রেণী: চতুর্থ &bull; বিষয়: গণিত &bull; বার্ষিক মূল্যায়ন পরীক্ষা</span>
+    <span>পৃষ্ঠা ৪ / ৪</span>
+  </footer>
+</main>
+
+</body>
+</html>

@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="bn">
+
 <head>
   <meta charset="UTF-8">
   <title>Islamic Adab Shikkha Exam 2026 - Darul Hikmah Kids Academy</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Nunito:wght@600;700;800&display=swap"
+    rel="stylesheet">
   <style>
     @page {
       size: A4 portrait;
       margin: 8mm 10mm 6mm 10mm;
     }
+
     :root {
       --ink: #172536;
       --accent: #1e3d36;
@@ -19,6 +23,7 @@
       --line-color: #2e443f;
       --bg-soft: #fbfdfc;
     }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -26,6 +31,7 @@
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
+
     body {
       font-family: 'Hind Siliguri', 'Nunito', Arial, sans-serif;
       color: var(--ink);
@@ -33,6 +39,7 @@
       line-height: 1.45;
       font-size: 13px;
     }
+
     .print-bar {
       background: #1e3d36;
       color: #fff;
@@ -43,12 +50,14 @@
       position: sticky;
       top: 0;
       z-index: 999;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
     }
+
     .print-bar span {
       font-weight: 600;
       font-size: 14px;
     }
+
     .print-btn {
       background: var(--gold);
       color: #1a1a1a;
@@ -63,9 +72,11 @@
       gap: 6px;
       transition: all 0.2s;
     }
+
     .print-btn:hover {
       background: #dfbc7e;
     }
+
     .page-sheet {
       width: 210mm;
       min-height: 297mm;
@@ -74,20 +85,23 @@
       background: #fff;
       margin: 12px auto;
       padding: 9mm 12mm 8mm 12mm;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
       position: relative;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       overflow: hidden;
     }
+
     @media print {
       body {
         background: transparent;
       }
+
       .print-bar {
         display: none !important;
       }
+
       .page-sheet {
         margin: 0;
         box-shadow: none;
@@ -98,12 +112,14 @@
         padding: 8mm 11mm 6mm 11mm;
       }
     }
+
     .page-content {
       flex: 1 1 auto;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
+
     /* Masthead */
     .masthead {
       text-align: center;
@@ -111,6 +127,7 @@
       padding-bottom: 3px;
       margin-bottom: 6px;
     }
+
     .school-title {
       font-size: 19.5px;
       font-weight: 800;
@@ -120,6 +137,7 @@
       font-family: 'Nunito', 'Hind Siliguri', sans-serif;
       margin-bottom: 2px;
     }
+
     .exam-tag {
       font-size: 13.5px;
       font-weight: 700;
@@ -127,33 +145,39 @@
       display: inline-block;
       margin-bottom: 3px;
     }
+
     .gold-divider {
       height: 2.5px;
-      background: linear-gradient(90deg, rgba(199,166,106,0.1), var(--gold), rgba(199,166,106,0.1));
+      background: linear-gradient(90deg, rgba(199, 166, 106, 0.1), var(--gold), rgba(199, 166, 106, 0.1));
       border-radius: 2px;
       margin-bottom: 5px;
     }
+
     /* Metadata Box */
     .meta-table {
       width: 100%;
       border-collapse: collapse;
       margin-bottom: 3px;
     }
+
     .meta-table td {
       padding: 2.5px 4px;
       font-size: 12.5px;
       font-weight: 600;
     }
+
     .meta-table .field-label {
       color: #3b4d53;
       font-weight: 700;
     }
+
     .meta-table .dotted-line {
       display: inline-block;
       border-bottom: 1.4px solid #444;
       min-width: 140px;
       height: 13px;
     }
+
     /* Section Headers */
     .section-title {
       font-size: 13px;
@@ -166,21 +190,25 @@
       justify-content: space-between;
       align-items: center;
     }
+
     .marks-badge {
       font-family: 'Nunito', 'Hind Siliguri', sans-serif;
       font-weight: 700;
       color: #1e3d36;
       font-size: 12.5px;
     }
+
     /* Question Items */
     .q-item {
       font-size: 12.5px;
       margin-bottom: 3px;
     }
+
     .q-title {
       font-weight: 600;
       color: var(--ink);
     }
+
     /* MCQ Grid */
     .mcq-grid {
       display: grid;
@@ -188,12 +216,14 @@
       column-gap: 16px;
       row-gap: 5px;
     }
+
     .mcq-card {
       border: 1px solid #dce5e2;
       border-radius: 4px;
       padding: 4px 7px;
       background: #fafcfb;
     }
+
     .mcq-opts {
       display: flex;
       flex-wrap: wrap;
@@ -201,12 +231,14 @@
       margin-top: 3px;
       padding-left: 2px;
     }
+
     .mcq-opt {
       display: inline-flex;
       align-items: center;
       gap: 5px;
       font-size: 12px;
     }
+
     .opt-box {
       display: inline-block;
       width: 12px;
@@ -215,6 +247,7 @@
       border-radius: 2px;
       background: #fff;
     }
+
     /* Word Box */
     .word-box-wrap {
       border: 1.3px dashed #4e7066;
@@ -227,6 +260,7 @@
       font-weight: 700;
       color: #1e3d36;
     }
+
     /* Fill in the Blanks Grid */
     .fill-grid {
       display: grid;
@@ -234,6 +268,7 @@
       column-gap: 18px;
       row-gap: 5px;
     }
+
     .ans-line {
       display: inline-block;
       border-bottom: 1.5px solid #2e443f;
@@ -241,6 +276,7 @@
       height: 15px;
       vertical-align: bottom;
     }
+
     /* True / False Grid */
     .tf-grid {
       display: grid;
@@ -248,6 +284,7 @@
       column-gap: 18px;
       row-gap: 5px;
     }
+
     .bracket-box {
       display: inline-block;
       width: 42px;
@@ -260,26 +297,31 @@
       background: #fff;
       float: right;
     }
+
     /* Section 4 Short Questions */
     .q4-container {
       display: flex;
       flex-direction: column;
       gap: 5px;
     }
+
     .q4-item {
       font-size: 12.5px;
     }
+
     .q4-ans-track {
       display: flex;
       align-items: baseline;
       margin-top: 2.5px;
     }
+
     .q4-ans-line {
       flex: 1;
       border-bottom: 1.4px solid #2e443f;
       height: 1.3em;
       margin-left: 6px;
     }
+
     /* Evaluation Box */
     .eval-box {
       border: 1.4px solid var(--accent);
@@ -288,21 +330,26 @@
       margin-top: 6px;
       background: #fbfdfc;
     }
+
     .eval-table {
       width: 100%;
       border-collapse: collapse;
       text-align: center;
       font-size: 11.5px;
     }
-    .eval-table th, .eval-table td {
+
+    .eval-table th,
+    .eval-table td {
       border: 1px solid #c0ccc8;
       padding: 3px 5px;
     }
+
     .eval-table th {
       background: #e9f0ee;
       font-weight: 700;
       color: var(--accent);
     }
+
     /* Footer */
     .footer {
       border-top: 1px solid #d5dedb;
@@ -315,6 +362,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- Top Action Bar -->
@@ -326,7 +374,7 @@
   <!-- ==================== SINGLE-PAGE A4 WORKSHEET ==================== -->
   <section class="page-sheet">
     <div class="page-content">
-      
+
       <!-- INSTITUTIONAL MASTHEAD -->
       <div class="masthead">
         <div class="school-title">DARUL HIKMAH KIDS ACADEMY</div>
@@ -334,13 +382,14 @@
         <div class="gold-divider"></div>
         <table class="meta-table">
           <tr>
-            <td style="width: 28%;"><span class="field-label">শ্রেণি:</span> প্রাথমিক স্তর (Class 1 & 2)</td>
+            <td style="width: 28%;"><span class="field-label">শ্রেণি:</span> প্রাথমিক স্তর (Class 3 & 4)</td>
             <td style="width: 34%;"><span class="field-label">বিষয়:</span> ইসলামিক আদব শিক্ষা</td>
             <td style="width: 20%;"><span class="field-label">পূর্ণমান:</span> ২৫</td>
             <td style="width: 18%;"><span class="field-label">সময়:</span> ৩০ মিনিট</td>
           </tr>
           <tr>
-            <td colspan="2"><span class="field-label">শিক্ষার্থীর নাম:</span> <span class="dotted-line" style="min-width: 245px;"></span></td>
+            <td colspan="2"><span class="field-label">শিক্ষার্থীর নাম:</span> <span class="dotted-line"
+                style="min-width: 245px;"></span></td>
             <td><span class="field-label">রোল নং:</span> <span class="dotted-line" style="min-width: 65px;"></span></td>
             <td><span class="field-label">তারিখ:</span> <span class="dotted-line" style="min-width: 70px;"></span></td>
           </tr>
@@ -415,7 +464,8 @@
         <div class="q-item">(খ) পরিষ্কার-পরিচ্ছন্নতা ঈমানের <span class="ans-line"></span>।</div>
         <div class="q-item">(গ) ডান হাত দিয়ে পানি পান করা <span class="ans-line"></span>।</div>
         <div class="q-item">(ঘ) খাওয়ার শেষে বলতে হয় <span class="ans-line"></span>।</div>
-        <div class="q-item" style="grid-column: span 2;">(ঙ) শিক্ষকদের দেখলে আমরা শ্রদ্ধাভরে <span class="ans-line" style="min-width: 140px;"></span> দেব।</div>
+        <div class="q-item" style="grid-column: span 2;">(ঙ) শিক্ষকদের দেখলে আমরা শ্রদ্ধাভরে <span class="ans-line"
+            style="min-width: 140px;"></span> দেব।</div>
       </div>
 
       <!-- SECTION 3: TRUE / FALSE (৫টি) -->
@@ -426,10 +476,12 @@
 
       <div class="tf-grid">
         <div class="q-item">(ক) খাবার খাওয়ার সময় বেশি বেশি কথা বলা ভালো আদব। <span class="bracket-box"></span></div>
-        <div class="q-item">(খ) ছোটদের স্নেহ করা ও বড়দের সম্মান করা নবীজির শিক্ষা। <span class="bracket-box"></span></div>
+        <div class="q-item">(খ) ছোটদের স্নেহ করা ও বড়দের সম্মান করা নবীজির শিক্ষা। <span class="bracket-box"></span>
+        </div>
         <div class="q-item">(গ) টয়লেটে বা বাথরুমে ডান পা দিয়ে ঢুকতে হয়। <span class="bracket-box"></span></div>
         <div class="q-item">(ঘ) সালামের জবাবে 'ওয়া আলাইকুমুস সালাম' বলতে হয়। <span class="bracket-box"></span></div>
-        <div class="q-item" style="grid-column: span 2;">(ঙ) আব্বু-আম্মু ডাকলে সাথে সাথে 'জী' বলে সাড়া দিতে হয়। <span class="bracket-box" style="margin-right: 50%;"></span></div>
+        <div class="q-item" style="grid-column: span 2;">(ঙ) আব্বু-আম্মু ডাকলে সাথে সাথে 'জী' বলে সাড়া দিতে হয়। <span
+            class="bracket-box" style="margin-right: 50%;"></span></div>
       </div>
 
       <!-- SECTION 4: SHORT / GUIDED ANSWERS (৫টি) -->
@@ -447,7 +499,7 @@
         <div class="q4-item">
           <strong>(খ) বাথরুমে যাওয়ার সময় কোন পা আগে দিতে হয় এবং বের হওয়ার সময় কোন পা?</strong>
           <div class="q4-ans-track">
-            উঃ প্রবেশের সময়: <span class="ans-line" style="min-width: 145px;"></span> পা &nbsp;&nbsp;|&nbsp;&nbsp; 
+            উঃ প্রবেশের সময়: <span class="ans-line" style="min-width: 145px;"></span> পা &nbsp;&nbsp;|&nbsp;&nbsp;
             বের হওয়ার সময়: <span class="ans-line" style="min-width: 145px;"></span> পা
           </div>
         </div>
@@ -508,4 +560,5 @@
   </section>
 
 </body>
+
 </html>
